@@ -1,0 +1,335 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+
+    .product-image {
+      flex: 1;
+      min-width: 300px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        max-height: 400px;
+      }
+    }
+
+    .product-info {
+      flex: 1;
+      min-width: 300px;
+
+      .product-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 16px;
+        color: #191919;
+      }
+
+      .product-price-main {
+        margin-bottom: 20px;
+      }
+
+      .product-description {
+        color: #2D2D2D;
+        margin-bottom: 24px;
+
+        p {
+          margin-bottom: 12px;
+        }
+      }
+
+      .price-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0px 0px 5px 10px;
+
+        .price {
+          color: #FFAD33;
+          font-weight: bold;
+          font-size: 18px;
+          margin: 0;
+        }
+
+        .old-price {
+          text-decoration: line-through;
+          color: #3a85ff83;
+          font-size: 16px;
+          margin: 0;
+        }
+      }
+
+      > .price-container {
+        margin-left: 0;
+
+        .price,
+        .old-price {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+
+  .share-section {
+    margin-bottom: 24px;
+
+    p {
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 8px;
+
+      .share-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFFFFF;
+        background-color: #3A86FF;
+        text-decoration: none;
+        transition: opacity 0.2s;
+
+        &:hover {
+          opacity: 0.8;
+          background-color: #21447e;
+        }
+      }
+    }
+  }
+
+  .purchase-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .quantity-selector {
+      display: flex;
+      border: 2px solid #3A86FF;
+      border-radius: 15px;
+      overflow: hidden;
+
+      .quantity-btn {
+        width: 40px;
+        height: 40px;
+        background-color: #FFFFFF;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f5f5f5;
+        }
+      }
+
+      .minus-btn {
+        border-right: 2px solid #3A86FF;
+      }
+
+      .plus-btn {
+        border-left: 2px solid #3A86FF;
+      }
+
+      .quantity-input {
+        width: 50px;
+        height: 40px;
+        border: none;
+        text-align: center;
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+      }
+    }
+
+    .buy-now-btn {
+      height: 40px;
+      padding: 0 24px;
+      background-color: #3A86FF;
+      color: #FFFFFF;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+
+      &:hover {
+        background-color: #21447e;
+      }
+    }
+
+    .favorite-btn {
+      width: 45px;
+      height: 45px;
+      border: 1px solid #3A86FF;
+      border-radius: 15px;
+      background-color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      cursor: pointer;
+
+      &:hover,
+      &.active {
+        color: #3A86FF;
+      }
+    }
+  }
+
+  .tabs-header {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 24px;
+
+    .tab-btn {
+      padding: 12px 24px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      font-weight: 500;
+      color: #2D2D2D;
+      position: relative;
+      transition: color 0.2s;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+
+      &:hover {
+        color: #333;
+      }
+
+      &.active {
+        color: #3A86FF;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: #3A86FF;
+        }
+      }
+    }
+  }
+
+  .tab-pane {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: #2D2D2D;
+    }
+  }
+
+  .feedback-list {
+    margin-bottom: 40px;
+
+    .feedback-item {
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #eee;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .feedback-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+
+        .user-name {
+          font-weight: 500;
+        }
+
+        .feedback-date {
+          color: #999;
+          font-size: 14px;
+        }
+      }
+
+      .star-rating {
+        display: flex;
+        gap: 4px;
+        color: #FFAD33;
+        margin-bottom: 8px;
+      }
+
+      .feedback-text {
+        color: #2D2D2D;
+      }
+    }
+  }
+
+  .related-products {
+    margin-top: 60px;
+
+    h2 {
+      text-align: center;
+      font-size: 48px;
+      color: #3A86FF;
+      margin-bottom: 30px;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .product-container {
+      gap: 24px;
+    }
+
+    .purchase-actions {
+      flex-wrap: wrap;
+
+      .buy-now-btn {
+        flex: 1;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .related-products .products {
+      justify-content: center;
+    }
+
+    .tabs-header {
+      justify-content: space-between;
+
+      .tab-btn {
+        padding: 12px 16px;
+      }
+    }
+  }
+}

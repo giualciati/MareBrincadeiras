@@ -1,0 +1,120 @@
+@use 'colors' as *;
+
+
+.product {
+  background: $white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+  position: relative;
+  margin: 10px 0px 5px 0px;
+  overflow: hidden;
+
+  img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    margin: 30px auto auto auto;
+  }
+
+  h3 {
+    font-weight: 600;
+    color: #333;
+    margin: 5px 0px 5px 8px;
+  }
+
+  .discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: $secondary-color;
+    color: $white;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+
+  .price-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0px 0px 5px 10px;
+
+    .price {
+      color: $secondary-color;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .blue-price {
+      color: $primary-color;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: #3a85ff83;
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+
+  .button {
+    background: $primary-color;
+    color: $white;
+    padding: 10px;
+    border: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    opacity: 0;
+    transition: 0.3s all;
+
+    &:hover {
+      background-color: #21447e;
+    }
+  }
+
+  &:hover {
+    .button {
+      opacity: 1;
+    }
+  }
+
+  .icons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    gap: 10px;
+
+    a {
+      color: $primary-color;
+      font-size: 24px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #21447e;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    max-width: 250px;
+
+    img {
+      width: 130px;
+      height: 130px;
+    }
+  }
+}

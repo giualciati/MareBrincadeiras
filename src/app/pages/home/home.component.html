@@ -1,0 +1,77 @@
+<app-header></app-header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Diversão sem fim</h1>
+    <p>
+      Explore nossa coleção de brinquedos encantadores e garanta momentos
+      inesquecíveis para os pequenos.
+    </p>
+    <a routerLink="/products" class="hero-button">Ver todos os brinquedos</a>
+  </div>
+</section>
+
+<!-- Category -->
+<section class="container">
+  <h1>Categoria</h1>
+  <div class="products">
+    @for (product of products; track product.id) {
+      <app-product-card [product]="product"></app-product-card>
+    }
+  </div>
+  <div class="all-products">
+    <button routerLink="/products">Ver todos os produtos</button>
+  </div>
+</section>
+
+<!-- Line -->
+<div class="line"></div>
+
+<!-- Promotion -->
+<section class="promo-section">
+  <div class="promo-container">
+    <div class="promo-text">
+      <h2>
+        Casa de Atividades para Bebês com Iluminação, Brinquedos Montessori - Emoticon
+      </h2>
+      <div class="price-container">
+        <p class="original-price">R$ 299,90</p>
+        <p class="discounted-price">R$ 199,90</p>
+      </div>
+      
+      <!-- Countdown -->
+      @if (!isFinished) {
+        <div class="countdown">
+          <div class="time-box">
+            <span>{{countdown.days | number:'2.0-0'}}</span>
+            <p>Dias</p>
+          </div>
+          <div class="time-box">
+            <span>{{countdown.hours | number:'2.0-0'}}</span>
+            <p>Horas</p>
+          </div>
+          <div class="time-box">
+            <span>{{countdown.minutes | number:'2.0-0'}}</span>
+            <p>Minutos</p>
+          </div>
+          <div class="time-box">
+            <span>{{countdown.seconds | number:'2.0-0'}}</span>
+            <p>Segundos</p>
+          </div>
+        </div>
+      } @else {
+        <div class="promo-encerrada">Promoção encerrada!</div>
+      }
+      
+      <button routerLink="/product/promo" class="buy-button">
+        Compre agora
+      </button>
+    </div>
+    <div class="promo-image">
+      <img src="assets/img/cd7d6395-de7a-4032-bf55-3171ddae75cc.png" alt="Casa de Atividades Montessori" />
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

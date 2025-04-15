@@ -1,0 +1,154 @@
+@use 'colors' as *;
+
+// Footer
+footer {
+  background-color: $secondary-color;
+  color: $primary-color;
+  font-size: 18px;
+  padding: 40px 20px;
+
+  .footer-container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+
+    .footer-image {
+      img {
+        width: 70px;
+        height: auto;
+      }
+    }
+
+    .footer-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 20px;
+
+      .footer-top {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+
+        &-left {
+          display: flex;
+          gap: 10px;
+
+          > div {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+
+        &-right {
+          display: flex;
+          gap: 40px;
+
+          a {
+            text-decoration: none;
+            color: $primary-color;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: $hover-color;
+            }
+          }
+        }
+      }
+
+      .line {
+        width: 100%;
+        max-width: 1430px;
+        height: 1px;
+        background-color: $primary-color;
+        margin: 20px 0;
+        margin-left: auto;
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+
+        a {
+          text-decoration: none;
+          color: $primary-color;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $hover-color;
+          }
+        }
+
+        &-right {
+          display: flex;
+          gap: 50px;
+        }
+      }
+    }
+  }
+
+  // Responsividade
+  @media (max-width: 768px) {
+    .footer-container {
+      width: 100%;
+      flex-direction: column;
+
+      .footer-image img {
+        width: 150px;
+      }
+
+      .footer-section {
+        .footer-top-right,
+        .footer-bottom-right {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .footer-top-left {
+          align-items: center;
+
+          > div {
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .footer-container {
+      margin: 0;
+
+      .footer-image {
+        margin: 0px 30px 20px 0px;
+      }
+
+      .footer-section {
+        margin-left: 0;
+        width: 100%;
+
+        .footer-top {
+          gap: 20px;
+
+          &-left {
+            justify-content: center;
+          }
+
+          &-right {
+            justify-content: center;
+            gap: 20px;
+          }
+        }
+
+        .footer-bottom {
+          gap: 15px;
+        }
+      }
+    }
+  }
+}

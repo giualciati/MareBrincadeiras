@@ -1,0 +1,55 @@
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <img src="assets/img/logo.png" alt="Logo" />
+    </div>
+    <div class="menu">
+      <nav>
+        <ul>
+          <li><a routerLink="/">Início</a></li>
+          <li><a routerLink="/products">Produtos</a></li>
+          <li><a routerLink="/contact">Contato</a></li>
+          <li><a routerLink="/about">Quem Somos</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="user-actions">
+      <a routerLink="/login" class="login-btn">
+        <i class="fas fa-user"></i>
+        <span>faça o login ou cadastre-se</span>
+      </a>
+      <a routerLink="/favorites" class="favorites">
+        <i class="fas fa-heart"></i>
+      </a>
+      <a routerLink="/cart" class="cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">{{cartCount}}</span>
+      </a>
+    </div>
+    <div class="mobile-menu-icon" (click)="toggleMenu()">
+      <i class="fas" [ngClass]="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+    </div>
+    <div class="mobile-menu" [ngClass]="{'open': isMenuOpen}">
+      <ul>
+        <li><a routerLink="/" (click)="toggleMenu()">Início</a></li>
+        <li><a routerLink="/products" (click)="toggleMenu()">Produtos</a></li>
+        <li><a routerLink="/contact" (click)="toggleMenu()">Contato</a></li>
+        <li><a routerLink="/about" (click)="toggleMenu()">Quem Somos</a></li>
+      </ul>
+      <div class="mobile-user-actions">
+        <a routerLink="/login" class="login-btn" (click)="toggleMenu()">
+          <i class="fas fa-user"></i>
+          <span>faça o login ou cadastre-se</span>
+        </a>
+        <a routerLink="/favorites" class="favorites" (click)="toggleMenu()">
+          <i class="fas fa-heart"></i>
+          <span>favoritos</span>
+        </a>
+        <a routerLink="/cart" class="cart" (click)="toggleMenu()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">{{cartCount}}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

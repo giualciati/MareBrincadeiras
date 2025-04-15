@@ -1,0 +1,291 @@
+@use 'colors' as *;
+
+.contato-container {
+  background-color: $background-body;
+
+  .contato-hero {
+    background-color: $primary-color;
+    padding: 60px 20px;
+    text-align: center;
+    color: $white;
+
+    &-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .contato-info-container {
+    padding: 60px 20px;
+    background-color: $white;
+
+    .contato-info {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+
+      .info-card {
+        background-color: $white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        text-align: center;
+        flex: 1;
+        min-width: 250px;
+        max-width: 350px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-10px);
+        }
+
+        .info-icon {
+          width: 70px;
+          height: 70px;
+          background-color: $secondary-color;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 20px;
+
+          i {
+            font-size: 30px;
+            color: $primary-color;
+          }
+        }
+
+        h3 {
+          color: $primary-color;
+          font-size: 22px;
+          margin-bottom: 15px;
+        }
+
+        p {
+          color: #666;
+          width: 90%;
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+
+  .contato-form-map {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    gap: 40px;
+    flex-wrap: wrap;
+
+    .contato-form,
+    .contato-map {
+      flex: 1;
+      min-width: 300px;
+
+      h2 {
+        color: $primary-color;
+        font-size: 28px;
+        margin-bottom: 25px;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+        font-family: 'Poppins', sans-serif;
+
+        &:focus {
+          border-color: $primary-color;
+          outline: none;
+        }
+      }
+    }
+
+    .submit-btn {
+      background-color: $primary-color;
+      color: $white;
+      border: none;
+      padding: 14px 25px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-family: 'Poppins', sans-serif;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+
+    .map-container {
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .faq-section {
+    background-color: $white;
+    padding: 60px 20px;
+
+    h2 {
+      color: $primary-color;
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+
+      .faq-item {
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+        .faq-question {
+          background-color: $secondary-color;
+          padding: 15px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+
+          h3 {
+            margin: 0;
+            font-size: 18px;
+            color: $primary-color;
+          }
+
+          i {
+            color: $primary-color;
+            transition: transform 0.3s ease;
+          }
+        }
+
+        .faq-answer {
+          background-color: $white;
+          padding: 0 20px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease, padding 0.3s ease;
+
+          &.expanded {
+            max-height: 500px;
+            padding: 20px;
+          }
+
+          p {
+            margin: 0;
+            color: #666;
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+  }
+
+  .social-section {
+    padding: 60px 20px;
+    text-align: center;
+
+    h2 {
+      color: $primary-color;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+
+      .social-icon {
+        width: 60px;
+        height: 60px;
+        background-color: $primary-color;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        font-size: 24px;
+        transition: background-color 0.3s, transform 0.3s;
+
+        &:hover {
+          background-color: $hover-color;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  // Responsividade
+  @media (max-width: 768px) {
+    .contato-hero {
+      h1 {
+        font-size: 36px;
+      }
+    }
+
+    .contato-info {
+      flex-direction: column;
+      align-items: center;
+
+      .info-card {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .contato-form-map {
+      flex-direction: column;
+
+      .map-container {
+        height: 300px;
+      }
+    }
+
+    .faq-section {
+      .faq-question {
+        h3 {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

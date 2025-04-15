@@ -1,0 +1,106 @@
+<app-header></app-header>
+
+<main class="about-container">
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <h1>Quem Somos</h1>
+      <p>Conheça a história e os valores por trás da Oceano Encantado</p>
+    </div>
+  </section>
+
+  <!-- Nossa História -->
+  <section class="history-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Nossa História</h2>
+      </div>
+      
+      <div class="history-content">
+        <div class="history-text">
+          <p>A Oceano Encantado nasceu em 2015 do sonho de criar um mundo de possibilidades para as crianças através de brinquedos que estimulam a criatividade, o aprendizado e o desenvolvimento.</p>
+          
+          <p>Tudo começou quando nossa fundadora, Ana Oliveira, educadora e mãe de duas crianças, percebeu a dificuldade em encontrar brinquedos que fossem ao mesmo tempo divertidos, educativos e seguros. Decidida a preencher essa lacuna no mercado, Ana reuniu uma equipe de especialistas em desenvolvimento infantil, designers e engenheiros para criar a primeira coleção de brinquedos da Oceano Encantado.</p>
+          
+          <p>O que começou como uma pequena loja em São Paulo rapidamente se expandiu para todo o Brasil. Hoje, somos reconhecidos como referência em brinquedos educativos de alta qualidade, com mais de 200 produtos em nosso catálogo e presença em todo o território nacional.</p>
+          
+          <p>Nosso nome, "Oceano Encantado", representa a vastidão de possibilidades que cada criança possui e nosso compromisso em proporcionar experiências mágicas que estimulem seu desenvolvimento pleno.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Missão, Visão e Valores -->
+  <section class="mission-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Missão, Visão e Valores</h2>
+      </div>
+      
+      <div class="mission-cards">
+        <div class="mission-card">
+          <div class="card-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3>Missão</h3>
+          <p>Proporcionar experiências lúdicas e educativas que estimulem o desenvolvimento integral das crianças, contribuindo para a formação de indivíduos criativos, curiosos e felizes.</p>
+        </div>
+        
+        <div class="mission-card">
+          <div class="card-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3>Visão</h3>
+          <p>Ser reconhecida como a empresa líder em brinquedos educativos no Brasil, referência em inovação, qualidade e compromisso com o desenvolvimento infantil e a sustentabilidade.</p>
+        </div>
+        
+        <div class="mission-card">
+          <div class="card-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <h3>Valores</h3>
+          <p>Excelência, segurança, inovação, responsabilidade socioambiental e foco no desenvolvimento infantil são os pilares que orientam todas as nossas ações e decisões.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nossos Valores -->
+  <section class="values-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Nossos Princípios</h2>
+      </div>
+      
+      <div class="values-grid">
+        <div class="value-card" *ngFor="let value of values">
+          <div class="value-icon">
+            <i [class]="value.icon"></i>
+          </div>
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section class="differentials-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Nossos Diferenciais</h2>
+      </div>
+      
+      <div class="differentials-content">
+        <div class="differentials-list">
+          <div class="differential-item" *ngFor="let differential of differentials">
+            <h3><i [class]="differential.icon"></i> {{ differential.title }}</h3>
+            <p>{{ differential.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

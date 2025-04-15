@@ -1,0 +1,42 @@
+@use 'colors' as *;
+
+.produtos-container {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 0 20px;
+
+  .produtos-titulo {
+    color: $primary-color;
+    font-size: 46px;
+    margin-bottom: 30px;
+  }
+
+  .products {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  // Responsividade
+  @media (max-width: 768px) {
+    .produtos-titulo {
+      font-size: 36px;
+      text-align: center;
+    }
+
+    .products {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .produtos-titulo {
+      font-size: 30px;
+    }
+
+    .products {
+      gap: 15px;
+    }
+  }
+}
