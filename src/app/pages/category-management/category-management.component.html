@@ -1,0 +1,29 @@
+<app-sidebar-management></app-sidebar-management>
+
+<div class="container_categorym">
+  <div class="header_categorym">
+    <i class="fa-regular fa-bell"></i>
+    <i class="fa-regular fa-circle-user"></i>
+  </div>
+
+  <div class="categorym_title">
+    <h2>Categorias</h2>
+    <button type="button" class="categorym_btn" (click)="criarCategoria()">Criar categoria</button>
+  </div>
+
+  <div
+    class="categorym_list"
+    *ngFor="let categoria of categorias"
+    (dragover)="onDragOver($event)"
+    (drop)="onDrop($event, categoria)"
+  >
+    <i
+      class="fa-solid fa-grip-vertical"
+      draggable="true"
+      (dragstart)="onDragStart($event, categoria)"
+      (dragend)="onDragEnd($event)"
+    ></i>
+    <span>{{ categoria }}</span>
+    <button class="menu-btn">⋮</button>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="sidebar">
+    <div id="logo">
+    <img src="assets\img\logo.png" alt="some text" width=60 height=60>
+    </div>
+    <ul>
+        <li><a href="landingADM.html">Página inicial</a></li>
+        <li><a href="#">Estatísticas</a></li>
+    </ul>
+    <div class="adm">Administrar</div>
+    <ul>
+        <li><a href="#">Vendas</a></li>
+        <li
+  class="submenu_Products"
+  [class.active]="rla.isActive"
+  routerLinkActive="active"
+  #rla="routerLinkActive"
+  [routerLinkActiveOptions]="{ exact: false }"
+>
+  <a href="#">Produtos</a>
+  <ul>
+    <li>
+      <a routerLink="/produtos" routerLinkActive="active">Lista de produtos</a>
+    </li>
+    <li>
+      <a routerLink="/categorias" routerLinkActive="active">Categorias</a>
+    </li>
+  </ul>
+</li>
+        <li><a href="#">Avaliações</a></li>
+        <li><a href="#">Colaboradores</a></li>
+    </ul>
+</div>

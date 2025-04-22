@@ -1,0 +1,115 @@
+body {
+  background-color: #f6f6f6;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  background-color: white;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+
+  #logo {
+    display: flex;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+
+    &:hover {
+      color: #3a86ff;
+      transition: 0.5s;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin-top: 20px;
+
+    li {
+      margin-bottom: 15px;
+      margin-left: 15px;
+    }
+  }
+
+  .adm {
+    margin-top: 20px;
+    color: #a9a9a9;
+  }
+
+  .submenu_Products.active {
+    background-color: rgba(58, 134, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  
+    ul {
+      padding: 10px;
+      max-height: 200px;
+      opacity: 1;
+      visibility: visible;
+    }
+    
+  }
+  .submenu_Products ul li a.active {
+    color: #3a86ff;
+  }
+  .submenu_Products {
+    margin-left: 15px;
+    margin-bottom: 15px;
+    position: relative;
+
+    ul {
+      padding-left: 15px;
+      margin-top: 10px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+
+      li {
+        a {
+          &.active {
+            color: #3a86ff;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background-color: rgba(58, 134, 255, 0.1);
+      padding: 10px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+
+      ul {
+        padding: 10px;
+        max-height: 200px;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &.active {
+      background-color: rgba(58, 134, 255, 0.1);
+      padding: 10px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+
+      ul {
+        padding: 10px;
+        max-height: 200px;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+  
