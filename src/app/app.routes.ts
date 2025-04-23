@@ -19,5 +19,6 @@ export const routes: Routes = [
   { path: "about", component: AboutUsComponent },
   { path: "privacy", component: PrivacyPolicyComponent },
   { path: "terms", component: TermsOfUseComponent },
+  { path: "category", component: CategoryManagementComponent },
   { path: "**", redirectTo: "" },
 ];
