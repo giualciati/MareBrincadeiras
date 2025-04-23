@@ -1,0 +1,165 @@
+
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #F6F6F6;
+    margin: 0;
+    padding: 0;
+}
+
+.container-principal{
+    display: flex;
+}
+
+
+.sidebar {
+    background-color: white;
+    width: 250px;
+    height: 100vh;
+    padding: 20px;
+}
+
+#logo{
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: #3A86FF;
+    transition: 0.5s;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+.adm {
+    margin-top: 20px;
+    color: #A9A9A9;
+
+}
+
+ul li {
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+.submenu_Products {
+    margin-left: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.submenu_Products ul {
+    padding-left: 15px;
+    margin-top: 10px;
+    display: none;
+}
+
+
+.submenu_Products:hover ul {
+    padding: 10px;
+    display: block;
+}
+
+.submenu_Products:hover {
+    background-color: rgba(58, 134, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.products-area{
+    width: 100%;
+    padding: 1em;
+}
+
+
+.card{
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    height: 300px;
+    background-color: white;
+    border-radius: 20px;
+    margin: 3em 0px 0px 1.7em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+   
+}
+
+.card-elements{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1em;
+
+}
+
+.card img{
+    width: 150px;
+    height: 150px;
+}
+
+.card h1{
+    display: flex;
+    text-align: center;
+    font-size: 15px;
+    width: 200px;
+}
+
+.edit-delete-cards{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 1em;
+
+    img{
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+    }
+}
+
+.icons{
+    display: flex;
+    justify-content: end;
+}
+
+
+
+.icons img{
+    margin: 1em;
+    background-color: transparent;
+}
+
+.new-product{
+    background-color: #3A86FF;
+    color: white;
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.new-product:hover{
+    background-color: #2667CF;
+}
+
+.title-button{
+    display: flex;
+    justify-content: space-between;
+    margin: 3em 2em;
+}
+
+.card:hover{
+    transform: scale(1.1)
+}
