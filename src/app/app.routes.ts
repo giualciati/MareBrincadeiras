@@ -6,7 +6,9 @@ import { ContactComponent } from "./pages/contact/contact.component"
 import { AboutUsComponent } from "./pages/about-us/about-us.component"
 import { PrivacyPolicyComponent } from "./pages/privacy-policy/privacy-policy.component"
 import { TermsOfUseComponent } from "./pages/terms-of-use/terms-of-use.component"
+import { ProductListComponent } from "./pages/product-list/product-list.component"
 import { CategoryManagementComponent } from "./pages/category-management/category-management.component"
+
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -17,7 +19,5 @@ export const routes: Routes = [
   { path: "about", component: AboutUsComponent },
   { path: "privacy", component: PrivacyPolicyComponent },
   { path: "terms", component: TermsOfUseComponent },
-  { path: "categorias", component: CategoryManagementComponent},
   { path: "**", redirectTo: "" },
-  
 ];
