@@ -1,0 +1,133 @@
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../../../assets/img/seaBackground.png);
+    background-size: cover;
+    background-position: center;
+
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 500px;
+    background-color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 2);
+    border-radius: 20px;
+    color: #0077B6;
+    padding: 1em;
+
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container h1{
+    
+    text-align: center;
+    font-size: 30px;
+}
+
+.input-box{    
+    display: flex;
+    flex-direction: column;
+    
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+
+}
+
+
+.input-box input{
+    background-color: #E2E2E2;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    color: #363535;
+    padding: 10px;  
+    width: 300px; 
+}
+
+.input-box label{
+    margin: 10px;
+    font-weight: bold;
+}
+
+.input-box input::placeholder{
+    color: rgb(197, 197, 197);
+}
+
+
+
+.forgot{
+    width: 100%;   
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.forgot a{
+    text-decoration: none;
+    color:  #0077B6;;
+}
+
+.forgot a:hover{
+    text-decoration: underline;
+}
+
+
+.enter{
+    width: 70%;
+    height: 50px;
+    background-color: #7FC8A9;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+
+
+}
+
+.enter:hover{
+    box-shadow: 0 0 10px rgba(255, 255, 255, 2);
+
+}
+
+.register-link{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    font-size: 15px;
+   
+
+    a{
+        text-decoration: none;
+        color: #0077B6;
+        font-weight: 500;
+        padding-left: 10px;
+    }
+    
+    p{
+        text-align: center;
+        width: 280px;
+        color: #000000;
+
+        font-weight: bold;
+
+    }
+}
+
+.register-link a:hover{
+    text-decoration: underline;
+}

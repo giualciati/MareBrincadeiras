@@ -1,0 +1,74 @@
+<app-sidebar-management></app-sidebar-management>
+
+<div class="container-principal">
+<div class="test">
+<div class="title-button">
+    <h1>Editar Produto</h1>
+</div>
+
+<div class="div-form">
+    <form class="form-products">
+        
+        <div class="form1">
+            <div class="components-form1">
+            <label for="txtProducts">Nome Produto</label>
+            <input type="text" name="txtProducts" id="txtProducts" required>
+
+            <label for="txtDescription">Descrição do Produto</label>
+            <textarea id="txtDescription" required></textarea>
+
+            </div>
+            
+
+            <div class="upload-box" onclick="document.getElementById('fileInput').click()">
+                <p>Clique ou arraste uma imagem aqui</p>
+                <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
+                <img id="preview" src="" alt="">
+            </div>
+        </div>
+
+       
+
+        <div class="form2">
+            <label>Categoria</label>
+            <select id="select-Categories" required>
+                <option>Insira uma categoria</option>
+            </select>
+        </div>
+        
+
+       <div class="form3">
+            <div class="column">
+                <label for="txtColor">Cor</label>
+                <input type="text" name="txtColor" id="txtColor" required>
+            </div>
+                
+            <div class="column">
+                <label for="txtSize">Tamanho</label>
+                <input type="text" name="txtSize" id="txtSize" required>
+            </div>
+        </div>
+
+        <div class="form3">
+            <div class="column">
+                <label for="productValue">Valor</label>
+                <input  type="number" name="productValue" id="productValue" required>
+            </div>
+           
+            <div class="column">
+                <label for="quantity">Quantidade em estoque</label>
+                <input type="number" name="quantity" id="quantity" required>
+            </div>
+
+            <div class="cancel-save">
+                <button type="button" onclick="window.location.href='productsList.html'">Cancelar</button>
+                <button type="button" onclick="edit_Product()">Salvar</button>
+            </div>
+            
+        </div>
+
+    </form>
+</div>
+
+</div>
+<script src="./assets/js/productEdit.js"></script>

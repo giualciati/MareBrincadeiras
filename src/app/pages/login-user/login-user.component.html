@@ -1,0 +1,31 @@
+<div class="body">
+    <div class="container">
+        <form>
+            <h1>Acesse sua conta</h1>
+    
+            <div class="input-box">
+                <label for="txtEmail">E-mail</label>
+                <input type="email" name="txtEmail" id="txtEmail" required>
+            </div>
+    
+            <div class="input-box">
+                <label for="txtPassword">Senha</label>
+                <input type="password" name="txtPassword" id="txtPassword" required>
+            </div>
+            
+            <div class="forgot">
+                <p id="mensageError"></p>
+                <p><a href="#">Esqueceu a senha?</a></p>   
+            </div>
+                    
+            
+            <button onclick="login()" class="enter" type="button">Login</button>
+            
+            <div class="register-link">
+                <p>Não tem uma conta?<a href="user_SignUp.html">Clique aqui.</a> </p>
+            </div>        
+        </form>
+    </div>
+    <script src="./assets/js/loginUser.js"></script>
+    
+</div>
