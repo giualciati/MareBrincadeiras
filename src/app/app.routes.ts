@@ -11,6 +11,7 @@ import { CategoryManagementComponent } from "./pages/category-management/categor
 import { ProductRegistrationComponent} from "./pages/product-registration/product-registration.component"
 import { EditProductComponent} from "./pages/edit-product/edit-product.component"
 import { LoginUserComponent} from "./pages/login-user/login-user.component"
+import { PersonalInformationComponent } from "./pages/personal-information/personal-information.component"
 
 
 
@@ -28,5 +29,6 @@ export const routes: Routes = [
   { path: "products/registration", component: ProductRegistrationComponent },
   { path: "product/edit/:id", component: EditProductComponent },
   { path: "login/user", component: LoginUserComponent },
+  { path: "information", component: PersonalInformationComponent},
   { path: "**", redirectTo: "" }
 ];
