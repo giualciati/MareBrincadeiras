@@ -12,6 +12,7 @@ import { ProductRegistrationComponent} from "./pages/product-registration/produc
 import { EditProductComponent} from "./pages/edit-product/edit-product.component"
 import { LoginUserComponent} from "./pages/login-user/login-user.component"
 import { PersonalInformationComponent } from "./pages/personal-information/personal-information.component"
+import { LandingAdmComponent } from "./pages/landing-adm/landing-adm.component"
 
 
 
@@ -30,5 +31,6 @@ export const routes: Routes = [
   { path: "product/edit/:id", component: EditProductComponent },
   { path: "login/user", component: LoginUserComponent },
   { path: "information", component: PersonalInformationComponent},
+  { path: "landing/adm", component: LandingAdmComponent},
   { path: "**", redirectTo: "" }
 ];
