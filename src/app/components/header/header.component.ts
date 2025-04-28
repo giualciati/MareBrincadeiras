@@ -7,7 +7,8 @@ import { NgClass } from "@angular/common"
   standalone: true,
   imports: [RouterLink, RouterLinkActive, NgClass],
   templateUrl: "./header.component.html",
-  styleUrl: "./header.component.scss",
+  styleUrls: ['./header.component.scss']
+
 })
 export class HeaderComponent {
   isMenuOpen = false
