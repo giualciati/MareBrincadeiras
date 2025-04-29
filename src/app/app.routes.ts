@@ -9,7 +9,6 @@ import { TermsOfUseComponent } from "./pages/terms-of-use/terms-of-use.component
 import { ProductListComponent } from "./pages/product-list/product-list.component"
 import { CategoryManagementComponent } from "./pages/category-management/category-management.component"
 import { ProductRegistrationComponent} from "./pages/product-registration/product-registration.component"
-import { EditProductComponent} from "./pages/edit-product/edit-product.component"
 import { LoginUserComponent} from "./pages/login-user/login-user.component"
 import { PersonalInformationComponent } from "./pages/personal-information/personal-information.component"
 import { LandingAdmComponent } from "./pages/landing-adm/landing-adm.component"
@@ -28,7 +27,7 @@ export const routes: Routes = [
   { path: "category", component: CategoryManagementComponent },
   { path: "products/list", component: ProductListComponent },
   { path: "products/registration", component: ProductRegistrationComponent },
-  { path: "product/edit/:id", component: EditProductComponent },
+  { path: "product/edit/:id", component: ProductRegistrationComponent },
   { path: "login/user", component: LoginUserComponent },
   { path: "information", component: PersonalInformationComponent},
   { path: "landing/adm", component: LandingAdmComponent},

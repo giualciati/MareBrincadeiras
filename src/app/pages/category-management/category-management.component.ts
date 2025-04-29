@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-category-management',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, FormsModule, NgClass, SidebarManagementComponent],
+  imports: [CommonModule, FormsModule,  SidebarManagementComponent],
   templateUrl: './category-management.component.html',
   styleUrls: ['./category-management.component.scss'],
 })
