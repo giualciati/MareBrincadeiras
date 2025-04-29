@@ -6,13 +6,28 @@
     margin: auto;
     margin-left: 380px;
 }
-#title_landingAdm{
+#title{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 30px;
 }
+.collaborators_btn {
+    background-color: #3a86ff;
+    color: white;
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+.collaborators_btn:hover {
+    background-color: #2667cf;
+  }
 
 header{
     position: absolute;
@@ -45,14 +60,15 @@ header i {
     margin-bottom: 10px;
 }
 
-.orders {
-    margin-top: 80px;
+.collaborators{
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
-.orders h2 {
+.collaborators h2 {
     margin-bottom: 15px;
 }
 
-.orders-table {
+.collaborators-table {
     width: 100%;
     border-collapse: collapse;
     background: white;
@@ -60,7 +76,7 @@ header i {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.orders-table th, .orders-table td {
+.collaborators-table th, .collaborators-table td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     text-align: left;

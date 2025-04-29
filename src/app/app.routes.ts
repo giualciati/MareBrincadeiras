@@ -12,6 +12,10 @@ import { ProductRegistrationComponent} from "./pages/product-registration/produc
 import { LoginUserComponent} from "./pages/login-user/login-user.component"
 import { PersonalInformationComponent } from "./pages/personal-information/personal-information.component"
 import { LandingAdmComponent } from "./pages/landing-adm/landing-adm.component"
+import { PaginaDePedidosComponent } from "./pages/pagina-de-pedidos/pagina-de-pedidos.component"
+import { CadastroUsuarioComponent } from "./pages/cadastro-usuario/cadastro-usuario.component"
+import { CollaboratorsComponent } from "./pages/collaborators/collaborators.component"
+
 
 
 
@@ -31,5 +35,8 @@ export const routes: Routes = [
   { path: "login/user", component: LoginUserComponent },
   { path: "information", component: PersonalInformationComponent},
   { path: "landing/adm", component: LandingAdmComponent},
+  { path: "cadastro-usuario", component: CadastroUsuarioComponent },
+  { path: "pagina-de-pedidos", component: PaginaDePedidosComponent },
+  { path: "collaborators", component: CollaboratorsComponent },
   { path: "**", redirectTo: "" }
 ];

@@ -11,50 +11,33 @@
     <button type="button" class="categorym_btn" (click)="criarCategoria()">Criar categoria</button>
   </div>
 
-  
-  <div *ngIf="novaCategoriaEmCriacao" class="categorym_list">
-    <i class="fa-solid fa-grip-vertical"></i>
-    <input
-      [(ngModel)]="novaCategoriaNome"
-      (blur)="salvarNovaCategoria()"
-      (keyup.enter)="salvarNovaCategoria()"
-      placeholder="Nova categoria"
-      autofocus
-    />
-  </div>
 
-  
-  <div
-    class="categorym_list"
-    *ngFor="let categoria of listaCategorias"
-    (dragover)="onDragOver($event)"
-    (drop)="onDrop($event, categoria)"
-  >
-    <i
-      class="fa-solid fa-grip-vertical"
-      draggable="true"
-      (dragstart)="onDragStart($event, categoria)"
-      (dragend)="onDragEnd($event)"
-    ></i>
+  <div class="categorym_list" *ngFor="let categoria of listaCategorias" (dragover)="onDragOver($event)"
+    (drop)="onDrop($event, categoria)">
+    <i class="fa-solid fa-grip-vertical" draggable="true" (dragstart)="onDragStart($event, categoria)"
+      (dragend)="onDragEnd($event)"></i>
 
-    
     <ng-container *ngIf="categoriaEditandoId !== categoria.id; else editando">
       <span>{{ categoria.nome }}</span>
     </ng-container>
     <ng-template #editando>
-      <input
-        [value]="categoria.nome"
-        (blur)="salvarEdicao(categoria, inputRef.value)"
-        (keyup.enter)="salvarEdicao(categoria, inputRef.value)"
-        autofocus
-      />
+      <input #inputRef [value]="categoria.nome" (blur)="salvarEdicao(categoria, inputRef.value)"
+        (keyup.enter)="salvarEdicao(categoria, inputRef.value)" autofocus />
     </ng-template>
 
+    <div class="menu-container">
+      <button class="menu-btn" (click)="abrirMenu(categoria)">⋮</button>
     
-    <button class="menu-btn" (click)="abrirMenu(categoria)">⋮</button>
-    <div *ngIf="menuAbertoPara === categoria.id" class="menu-options">
-      <button (click)="editarCategoria(categoria)">Editar</button>
-      <button (click)="excluirCategoria(categoria.id)">Excluir</button>
+      <div *ngIf="menuAbertoPara === categoria.id" class="menu-options">
+        <button (click)="editar(categoria)">Editar</button>
+        <button (click)="excluir(categoria.id)">Excluir</button>
+      </div>
     </div>
   </div>
-</div>
+
+
+  <div *ngIf="novaCategoriaEmCriacao" class="categorym_list">
+    <i class="fa-solid fa-grip-vertical"></i>
+    <input [(ngModel)]="novaCategoriaNome" (blur)="salvarNovaCategoria()" (keyup.enter)="salvarNovaCategoria()"
+      placeholder="Nova categoria" autofocus />
+  </div>
