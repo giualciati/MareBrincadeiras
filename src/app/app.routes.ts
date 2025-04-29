@@ -15,6 +15,7 @@ import { PersonalInformationComponent } from "./pages/personal-information/perso
 import { LandingAdmComponent } from "./pages/landing-adm/landing-adm.component"
 import { PaginaDePedidosComponent } from "./pages/pagina-de-pedidos/pagina-de-pedidos.component"
 import { CadastroUsuarioComponent } from "./pages/cadastro-usuario/cadastro-usuario.component"
+import { CollaboratorsComponent } from "./pages/collaborators/collaborators.component"
 
 
 
@@ -37,7 +38,6 @@ export const routes: Routes = [
   { path: "landing/adm", component: LandingAdmComponent},
   { path: "cadastro-usuario", component: CadastroUsuarioComponent },
   { path: "pagina-de-pedidos", component: PaginaDePedidosComponent },
-
-  
+  { path: "collaborators", component: CollaboratorsComponent },
   { path: "**", redirectTo: "" }
 ];
