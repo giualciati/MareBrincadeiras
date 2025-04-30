@@ -12,6 +12,7 @@ import { ProductRegistrationComponent} from "./pages/product-registration/produc
 import { LoginUserComponent} from "./pages/login-user/login-user.component"
 import { PersonalInformationComponent } from "./pages/personal-information/personal-information.component"
 import { LandingAdmComponent } from "./pages/landing-adm/landing-adm.component"
+import { RegisterCardComponent } from "./pages/register-card/register-card.component"
 
 
 
