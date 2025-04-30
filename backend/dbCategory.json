@@ -1,10 +1,6 @@
 {
   "categorias": [
     {
-      "id": "3",
-      "nome": "Pelúcias"
-    },
-    {
       "id": "4",
       "nome": "Montessori"
     },
@@ -17,12 +13,59 @@
       "nome": "Lego"
     },
     {
-      "id": "d013",
-      "nome": "bonecas"
+      "id": "ed1c",
+      "nome": "carrinhos"
+    }
+  ],
+  "products": [
+    {
+      "id": "2",
+      "name": "Estrutura de escada para crianças",
+      "description": "OI",
+      "categoryId": 4,
+      "color": "Amarelo",
+      "size": "Altura total: 1,20m Largura: 0,60m",
+      "value": 1000,
+      "quantity": 50,
+      "image": "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png"
     },
     {
-      "id": "ed1c",
-      "nome": "Carrinhos"
+      "id": "3",
+      "name": "Estrutura ",
+      "description": "A estrutura de escada para crianças é projetada com foco total em segurança, diversão e desenvolvimento motor.",
+      "categoryId": 4,
+      "color": "Amarelo",
+      "size": "Altura total: 1,20m Largura: 0,60m",
+      "value": 1000,
+      "quantity": 50,
+      "image": "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png"
+    },
+    {
+      "id": "4",
+      "name": "Estrutura de escada para crianças",
+      "description": "A estrutura de escada para crianças é projetada com foco total em segurança, diversão e desenvolvimento motor.",
+      "categoryId": 4,
+      "color": "Amarelo",
+      "size": "Altura total: 1,20m Largura: 0,60m",
+      "value": 1000,
+      "quantity": 50,
+      "image": "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png",
+      "images": []
+    },
+    {
+      "id": "5",
+      "name": "Estrutura de escada para ",
+      "description": "A estrutura de escada para crianças é projetada com foco total em segurança, diversão e desenvolvimento motor.",
+      "categoryId": 4,
+      "color": "Amarelo",
+      "size": "Altura total: 1,20m Largura: 0,60m",
+      "value": 1000,
+      "quantity": 50,
+      "image": "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png"
+    },
+    {
+      "id": "4265",
+      "name": "snkçn"
     }
   ]
 }
