@@ -13,6 +13,8 @@ import { EditProductComponent} from "./pages/edit-product/edit-product.component
 import { LoginUserComponent} from "./pages/login-user/login-user.component"
 import { PersonalInformationComponent } from "./pages/personal-information/personal-information.component"
 import { LandingAdmComponent } from "./pages/landing-adm/landing-adm.component"
+import { LoginAdmComponent } from "./pages/login-adm/login-adm.component"
+import { RegisterCardComponent } from "./pages/register-card/register-card.component"
 
 
 
@@ -30,7 +32,9 @@ export const routes: Routes = [
   { path: "products/registration", component: ProductRegistrationComponent },
   { path: "product/edit/:id", component: EditProductComponent },
   { path: "login/user", component: LoginUserComponent },
+  { path: "register/card", component: RegisterCardComponent},
   { path: "information", component: PersonalInformationComponent},
   { path: "landing/adm", component: LandingAdmComponent},
+  { path: "login/adm", component: LoginAdmComponent},
   { path: "**", redirectTo: "" }
 ];
