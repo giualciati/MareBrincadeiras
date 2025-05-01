@@ -12,11 +12,15 @@ import { ProductRegistrationComponent} from "./pages/product-registration/produc
 import { LoginUserComponent} from "./pages/login-user/login-user.component"
 import { PersonalInformationComponent } from "./pages/personal-information/personal-information.component"
 import { LandingAdmComponent } from "./pages/landing-adm/landing-adm.component"
+<<<<<<< HEAD
 import { PaginaDePedidosComponent } from "./pages/pagina-de-pedidos/pagina-de-pedidos.component"
 import { CadastroUsuarioComponent } from "./pages/cadastro-usuario/cadastro-usuario.component"
 import { CollaboratorsComponent } from "./pages/collaborators/collaborators.component"
 import { EditProductsComponent } from "./pages/edit-products/edit-products/edit-products.component"
 
+=======
+import { RegisterCardComponent } from "./pages/register-card/register-card.component"
+>>>>>>> 22ed64d36a60de4cf795f9429bb3dd0937331fd2
 
 
 
@@ -33,11 +37,15 @@ export const routes: Routes = [
   { path: "products/list", component: ProductListComponent },
   { path: "products/registration", component: ProductRegistrationComponent },
   { path: "login/user", component: LoginUserComponent },
+  { path: "register/card", component: RegisterCardComponent},
   { path: "information", component: PersonalInformationComponent},
   { path: "landing/adm", component: LandingAdmComponent},
+<<<<<<< HEAD
   { path: "cadastro-usuario", component: CadastroUsuarioComponent },
   { path: "pagina-de-pedidos", component: PaginaDePedidosComponent },
   { path: "collaborators", component: CollaboratorsComponent },
   { path: "product/edit/:id", component: EditProductsComponent },
+=======
+>>>>>>> 22ed64d36a60de4cf795f9429bb3dd0937331fd2
   { path: "**", redirectTo: "" }
 ];
