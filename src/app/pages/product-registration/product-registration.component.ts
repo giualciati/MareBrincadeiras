@@ -26,51 +26,18 @@ export class ProductRegistrationComponent {
     private categoryService: CategoryService, 
     private router: Router,
     private route: ActivatedRoute,
-  ) {
-      this.productID = Number(this.route.snapshot.params['id']);
-
-      if (this.productID) {
-        service.buscarPorId(this.productID).subscribe({
-          next: (product) => {
-            if (product) {
-              this.product.id = product.id;
-              this.product.name = product.name;
-              this.product.description = product.description;
-              this.product.categoryId = product.categoryId;
-              this.product.color = product.color;
-              this.product.size = product.size;
-              this.product.value = product.value;
-              this.product.quantity = product.quantity;
-              this.product.image = product.image;
-            } else {
-              console.log('Produto não encontrado');
-            }
-          },
-          error: (err) => {
-            console.error('Erro ao buscar produto', err);
-          }
-        });
-      } else {
-        console.log('Produto não encontrado');
-      }
-  }
-
-  ngOnInit(): void {
+  ) {}
+     ngOnInit(): void {
     this.categoryService.listar().subscribe((categories) => {
       this.categories = categories;
     });
   }
 
-  submeter() {
-    if (this.productID) {
-      this.service.editarProduto(this.product).subscribe(() => {
-        this.router.navigate(['/products/list']);
-      });
-    } else {
+  submeter() {   
       this.service.criarProduto(this.product).subscribe(() => {
         this.router.navigate(['/products/list']);
       });
-    }
+    
   }
 
   cancelar(): void {

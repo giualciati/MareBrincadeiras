@@ -29,8 +29,8 @@
       <button class="menu-btn" (click)="abrirMenu(categoria)">⋮</button>
     
       <div *ngIf="menuAbertoPara === categoria.id" class="menu-options">
-        <button (click)="editar(categoria)">Editar</button>
-        <button (click)="excluir(categoria.id)">Excluir</button>
+        <button (click)="editarCategoria(categoria)">Editar</button>
+        <button (click)="excluirCategoria(categoria.id)">Excluir</button>
       </div>
     </div>
   </div>

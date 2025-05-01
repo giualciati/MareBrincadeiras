@@ -15,6 +15,7 @@ import { LandingAdmComponent } from "./pages/landing-adm/landing-adm.component"
 import { PaginaDePedidosComponent } from "./pages/pagina-de-pedidos/pagina-de-pedidos.component"
 import { CadastroUsuarioComponent } from "./pages/cadastro-usuario/cadastro-usuario.component"
 import { CollaboratorsComponent } from "./pages/collaborators/collaborators.component"
+import { EditProductsComponent } from "./pages/edit-products/edit-products/edit-products.component"
 
 
 
@@ -31,12 +32,12 @@ export const routes: Routes = [
   { path: "category", component: CategoryManagementComponent },
   { path: "products/list", component: ProductListComponent },
   { path: "products/registration", component: ProductRegistrationComponent },
-  { path: "product/edit/:id", component: ProductRegistrationComponent },
   { path: "login/user", component: LoginUserComponent },
   { path: "information", component: PersonalInformationComponent},
   { path: "landing/adm", component: LandingAdmComponent},
   { path: "cadastro-usuario", component: CadastroUsuarioComponent },
   { path: "pagina-de-pedidos", component: PaginaDePedidosComponent },
   { path: "collaborators", component: CollaboratorsComponent },
+  { path: "product/edit/:id", component: EditProductsComponent },
   { path: "**", redirectTo: "" }
 ];

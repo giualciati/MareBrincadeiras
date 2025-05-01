@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SidebarManagementComponent } from "../../components/sidebar-management/sidebar-management.component";
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule, NgClass } from '@angular/common';
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-category-management',
   standalone: true,
-  imports: [CommonModule, FormsModule,  SidebarManagementComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, FormsModule, NgClass, SidebarManagementComponent],
   templateUrl: './category-management.component.html',
   styleUrls: ['./category-management.component.scss'],
 })
@@ -54,15 +54,14 @@ abrirMenu(categoria: categorias) {
     }
   }
 
-  // Editar 
-  editar(categoria: categorias): void {
+  // Editar categoria
+  editarCategoria(categoria: categorias): void {
     this.categoriaEditandoId = categoria.id ?? null;
     this.menuAbertoPara = null;
   }
 
   salvarEdicao(categoria: categorias, novoNome: string): void {
     const nome = novoNome.trim();
-  
     if (nome && categoria.id) {
       this.service.atualizarCategoria(categoria.id, nome).subscribe(() => {
         this.categoriaEditandoId = null;
@@ -74,7 +73,7 @@ abrirMenu(categoria: categorias) {
   }
 
   // Excluir categoria
-  excluir(id: number): void {
+  excluirCategoria(id: number): void {
     if (confirm('Deseja realmente excluir esta categoria?')) {
       this.service.excluirCategoria(id).subscribe(() => {
         this.carregarCategorias();
@@ -115,15 +114,4 @@ abrirMenu(categoria: categorias) {
       }
     }
   }
-  
-  @HostListener('document:click', ['$event'])
-fecharMenu(event: MouseEvent): void {
-  const target = event.target as HTMLElement;
-  const clicarBotao = target.closest('.menu-container') || target.classList.contains('menu-btn');
-
-  if (!clicarBotao) {
-    this.menuAbertoPara = null;
-  }
-}
-
 }
