@@ -1,42 +1,29 @@
-<main class="cadastro-usuario">
-    <main class="cadastro-usuario" style="background-image: url('assets/img/seaBackground.png'); background-size: cover; background-position: center;">
-        <form>
-    <form>
-      <h1>Cadastre sua conta!</h1>
-  
-      <h3>Continue com e-mail:</h3>
-  
-      <div class="input-box">
-        <input placeholder="E-mail" type="email">
-        <i class="bx bxs-envelope"></i>
-      </div>
-  
-      <div class="input-box">
-        <input placeholder="Nome" type="text">
-        <i class="bx bxs-user"></i>
-      </div>
-  
-      <div class="input-box">
-        <input placeholder="Telefone" type="tel">
-        <i class="bx bxs-phone"></i>
-      </div>
-  
-      <div class="input-box">
-        <input placeholder="Senha" type="password">
-        <i class="bx bxs-lock-alt"></i>
-      </div>
-  
-      <div class="input-box">
-        <input placeholder="Confirmar senha" type="password">
-        <i class="bx bxs-lock-open"></i>
-      </div>
-  
-      <button class="enter" type="submit">Continuar</button>
-  
-      <div class="register-link">
-        
-      </div>
-    </form>
-  </main>
-  
+<form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+  <div class="input-box">
+    <label for="nome">Nome</label>
+    <input id="nome" formControlName="nome" type="text" placeholder="Nome">
+  </div>
+
+  <div class="input-box">
+    <label for="email">E-mail</label>
+    <input id="email" formControlName="email" type="email" placeholder="E-mail">
+  </div>
+
+  <div class="input-box">
+    <label for="telefone">Telefone</label>
+    <input id="telefone" formControlName="telefone" type="tel" placeholder="Telefone">
+  </div>
+
+  <div class="input-box">
+    <label for="senha">Senha</label>
+    <input id="senha" formControlName="senha" type="password" placeholder="Senha">
+  </div>
+
+  <div class="input-box">
+    <label for="confirmarSenha">Confirmar Senha</label>
+    <input id="confirmarSenha" formControlName="confirmarSenha" type="password" placeholder="Confirmar Senha">
+  </div>
+
+  <button type="submit" [disabled]="!cadastroForm.valid">Cadastrar</button>
+</form>
 
