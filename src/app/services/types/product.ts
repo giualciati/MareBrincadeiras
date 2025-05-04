@@ -7,6 +7,7 @@ export interface Product {
     size: string;
     value: number;
     quantity: number;
-    image: string
+    image: string;
+    images: string[];
    }
   

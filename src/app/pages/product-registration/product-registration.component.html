@@ -12,27 +12,41 @@
         <div class="form1">
             <div class="components-form1">
             
-            <label for="txtProducts">Nome Produto</label>
+            <label for="txtProducts">Nome Produto <span class="required">*</span></label>
             <input type="text" name="txtProducts" id="txtProducts" [(ngModel)]="product.name" required>
 
-            <label for="txtDescription">Descrição do Produto</label>
+            <label for="txtDescription">Descrição do Produto <span class="required">*</span></label>
             <textarea id="txtDescription" [(ngModel)]="product.description" required></textarea>
 
             </div>
-            
 
-            <div class="upload-box" (click)="fileInput.click()">
-                <p *ngIf="!product.image">Clique ou arraste uma imagem aqui</p>
-                <input type="file" #fileInput (change)="imagemDestaque($event)">
-                <img *ngIf="product.image" [src]="product.image" alt="Preview">
-            </div>
+            <div class="images">
+                <div class="upload-box" (click)="fileInput.click()">
+                    <p *ngIf="!product.image">Clique ou arraste uma imagem de destaque aqui <span class="required">*</span></p>
+                    <input type="file" #fileInput (change)="imagemDestaque($event)">
+                    <img *ngIf="product.image" [src]="product.image" alt="Preview">
+                </div>
+    
+                <div class="upload-box-images">
+                    <div *ngFor="let img of otherImagePreviews; let i = index" style="position: relative;">
+                      <label>
+                        <input class="file-images" type="file" accept="image/*" (change)="onSingleImageSelected($event, i)" />
+                        <div>
+                          <img class="img-images" *ngIf="img" [src]="img" />
+                          <span *ngIf="!img" class="span-images">Selecionar</span>
+                        </div>
+                      </label>
+                  
+                      <button type="button" (click)="removerImagem(i)" class="remove-button">X</button>
+                    </div>
+                  </div>
+        </div>
         </div>
 
-        
-       
+              
 
         <div class="form2">
-            <label>Categoria</label>
+            <label>Categoria <span class="required">*</span></label>
             <select id="select-Categories" name="categoryId" [(ngModel)]="product.categoryId" required>
                 <option>Insira uma categoria</option>
                 <option *ngFor="let category of categories" [value]="category.id">{{ category.nome }}</option>
@@ -42,24 +56,24 @@
 
        <div class="form3">
             <div class="column">
-                <label for="txtColor">Cor</label>
+                <label for="txtColor">Cor <span class="required">*</span></label>
                 <input type="text" name="txtColor" id="txtColor"  [(ngModel)]="product.color" required>
             </div>
                 
             <div class="column">
-                <label for="txtSize">Tamanho</label>
+                <label for="txtSize">Tamanho <span class="required">*</span></label>
                 <input type="text" name="txtSize" id="txtSize"  [(ngModel)]="product.size" required>
             </div>
         </div>
 
         <div class="form3">
             <div class="column">
-                <label for="productValue">Valor</label>
+                <label for="productValue">Valor <span class="required">*</span></label>
                 <input  type="number" name="productValue" id="productValue"  [(ngModel)]="product.value" required>
             </div>
            
             <div class="column">
-                <label for="quantity">Quantidade em estoque</label>
+                <label for="quantity">Quantidade em estoque <span class="required">*</span></label>
                 <input type="number" name="quantity" id="quantity"  [(ngModel)]="product.quantity" required>
             </div>
 

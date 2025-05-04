@@ -1,7 +1,7 @@
 .cards{
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
+    width: 100%;
 }
 .card{
     display: flex;
@@ -10,7 +10,7 @@
     height: 300px;
     background-color: white;
     border-radius: 20px;
-    margin: 3em 0px 0px 1.7em;
+    margin: 2em 0px 0px 1.7em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 

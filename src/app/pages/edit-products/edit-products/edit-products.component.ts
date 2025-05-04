@@ -19,6 +19,8 @@ export class EditProductsComponent implements OnInit {
   productID: number | null = null; 
   product: Product = {} as Product;
   categories: categorias[] = [];
+  otherImages: (File | null)[] = [null, null, null];
+  otherImagePreviews: string[] = ['', '', ''];
 
   constructor(
     private service: ProductService,
@@ -32,19 +34,28 @@ export class EditProductsComponent implements OnInit {
 
     if (this.productID) {
       this.service.buscarPorId(this.productID).subscribe(product => {
-        if (product) {
-          this.product = product;
+        this.product = product;
+      
+        this.otherImagePreviews = product.images || [];
+        while (this.otherImagePreviews.length < 3) {
+          this.otherImagePreviews.push('');
         }
+
+        this.otherImages = [null, null, null]; 
+      
       });
     }
 
     this.categoryService.listar().subscribe((categories) => {
       this.categories = categories;
     });
+
   }
 
   salvarEdicao(): void {
   if (!this.product.id) return;
+
+  this.product.images = this.otherImagePreviews.filter(img => !!img);
 
   this.service.editarProduto(this.product).subscribe(() => {
     this.router.navigate(['/products/list']);
@@ -52,5 +63,22 @@ export class EditProductsComponent implements OnInit {
 }
   cancelar(): void {
     this.router.navigate(['/products/list']);
+  }
+  
+  onSingleImageSelected(event: any, index: number): void {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.otherImagePreviews[index] = reader.result as string;
+      this.otherImages[index] = file;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  removerImagem(index: number): void {
+    this.otherImagePreviews[index] = '';
+    this.otherImages[index] = null;
   }
 }

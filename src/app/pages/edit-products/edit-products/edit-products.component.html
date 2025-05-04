@@ -15,20 +15,33 @@
             <input type="text" name="txtProducts" id="txtProducts" [(ngModel)]="product.name" [ngModelOptions]="{standalone: true}">
 
             <label for="txtDescription">Descrição do Produto</label>
-            <textarea id="txtDescription" [(ngModel)]="product.description" [ngModelOptions]="{standalone: true}"></textarea>
+            <textarea id="txtDescription" name="txtDescription" [(ngModel)]="product.description" [ngModelOptions]="{standalone: true}"></textarea>
 
             </div>
             
-
-            <div class="upload-box" (click)="fileInput.click()">
-                <p *ngIf="!product.image">Clique ou arraste uma imagem aqui</p>
-                <input type="file" #fileInput>
-                <img *ngIf="product.image" [src]="product.image" alt="Preview">
+            <div class="images">
+                <div class="upload-box" (click)="fileInput.click()">
+                    <p *ngIf="!product.image">Clique ou arraste uma imagem aqui</p>
+                    <input type="file" #fileInput>
+                    <img *ngIf="product.image" [src]="product.image" alt="Preview">
+                </div>
             </div>
-        </div>
+    
+            <div class="upload-box-images">
+                <div *ngFor="let img of otherImagePreviews; let i = index" style="position: relative;">
+                  <label>
+                    <input class="file-images" type="file" accept="image/*" (change)="onSingleImageSelected($event, i)" />
+                    <div>
+                      <img class="img-images" *ngIf="img" [src]="img" />
+                      <span *ngIf="!img" class="span-images">Selecionar</span>
+                    </div>
+                  </label>
+              
+                  <button type="button" (click)="removerImagem(i)" class="remove-button">X</button>
+                </div>
+              </div>
+    </div>
 
-        
-       
 
         <div class="form2">
             <label>Categoria</label>
