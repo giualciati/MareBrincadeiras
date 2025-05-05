@@ -17,6 +17,7 @@ import { CadastroUsuarioComponent } from "./pages/cadastro-usuario/cadastro-usua
 import { CollaboratorsComponent } from "./pages/collaborators/collaborators.component"
 import { EditProductsComponent } from "./pages/edit-products/edit-products/edit-products.component"
 import { RegisterCardComponent } from "./pages/register-card/register-card.component"
+import { CustumersEditComponent } from "./pages/custumers-edit/custumers-edit.component"
 
 
 
@@ -36,9 +37,10 @@ export const routes: Routes = [
   { path: "register/card", component: RegisterCardComponent},
   { path: "information", component: PersonalInformationComponent},
   { path: "landing/adm", component: LandingAdmComponent},
-  { path: "cadastro-usuario", component: CadastroUsuarioComponent },
+  { path: "customers", component: CadastroUsuarioComponent },
   { path: "pagina-de-pedidos", component: PaginaDePedidosComponent },
   { path: "collaborators", component: CollaboratorsComponent },
   { path: "product/edit/:id", component: EditProductsComponent },
+  { path: "customer/edit", component:  CustumersEditComponent },
   { path: "**", redirectTo: "" }
 ];

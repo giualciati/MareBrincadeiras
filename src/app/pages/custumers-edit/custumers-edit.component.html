@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="container_personal">
+  <h2 class="title_personal">Olá, {{ customer.name }}!</h2>
+
+  <div class="sidebar_personal">
+    <ul>
+      <li class="menu-Item active" data-section="dados-pessoais">Dados Pessoais</li>
+      <li class="menu-Item" data-section="cartoes">Cartões</li>
+      <li class="menu-Item" data-section="enderecos">Endereços</li>
+      <li class="menu-Item" data-section="Meus pedidos">Meus pedidos</li>
+    </ul>
+  </div>
+
+  <div class="content_personal">
+    <div id="dados-pessoais" class="active">
+      <h3>Editar Dados Pessoais</h3>
+      <form>
+        <div class="info">
+          <label><strong>Nome Completo</strong>
+            <input type="text" [(ngModel)]="customer.name" name="name">
+          </label>
+
+          <label><strong>CPF</strong>
+            <input type="text" [(ngModel)]="customer.cpf" name="cpf">
+          </label>
+
+          <label><strong>Email</strong>
+            <input type="email" [(ngModel)]="customer.email" name="email">
+          </label>
+
+          <label><strong>RG</strong>
+            <input type="text" [(ngModel)]="customer.rg" name="rg">
+          </label>
+
+          <label><strong>Telefone</strong>
+            <input type="text" [(ngModel)]="customer.telephone" name="telephone">
+          </label>
+
+          <label><strong>Data de Nascimento</strong>
+            <input type="date" [(ngModel)]="customer.dateOfBirth" name="dateOfBirth">
+          </label>
+        </div>
+
+        <button class="save-btn" type="button" (click)="salvarEdicao()">Salvar Alterações</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="cartoes" class="section"></div>
+  <div id="enderecos" class="section"></div>
+</div>

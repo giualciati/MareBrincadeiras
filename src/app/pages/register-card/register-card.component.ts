@@ -12,7 +12,7 @@ import { RegisterCardService } from '../../services/register-card.service';
 })
 export class RegisterCardComponent implements OnInit{
 
-  formCard: any = {} //dados do formulário
+  formCard: any = {} 
   endereco : any = {}
 
   constructor(private registerCard:RegisterCardService){}
