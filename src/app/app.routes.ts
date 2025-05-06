@@ -18,7 +18,7 @@ import { CollaboratorsComponent } from "./pages/collaborators/collaborators.comp
 import { EditProductsComponent } from "./pages/edit-products/edit-products/edit-products.component"
 import { RegisterCardComponent } from "./pages/register-card/register-card.component"
 import { CustumersEditComponent } from "./pages/custumers-edit/custumers-edit.component"
-
+import { FavoritosComponent } from './favoritos/favoritos.component'
 
 
 export const routes: Routes = [
@@ -42,5 +42,6 @@ export const routes: Routes = [
   { path: "collaborators", component: CollaboratorsComponent },
   { path: "product/edit/:id", component: EditProductsComponent },
   { path: "customer/edit", component:  CustumersEditComponent },
+  { path: 'favoritos', component: FavoritosComponent },
   { path: "**", redirectTo: "" }
 ];
