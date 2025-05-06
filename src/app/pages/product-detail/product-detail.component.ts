@@ -1,10 +1,8 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, type OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { ActivatedRoute, Router, RouterLink } from "@angular/router"
 import { ProductService } from "../../core/services/product.service"
-import { FeedbackService } from "../../core/services/feedback.service"
-import type { Feedback } from "../../core/services/feedback.service"
-import type { Product } from "../../models/product"
+import { Product, Feedback } from "../../models/product"
 import { ProductCardComponent } from "../../components/product-card/product-card.component"
 import { HeaderComponent } from "../../components/header/header.component"
 import { FooterComponent } from "../../components/footer/footer.component"
@@ -27,15 +25,15 @@ export class ProductDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService,
-    private feedbackService: FeedbackService,
   ) {}
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
-    
+    // Adicionar log para depuração
+    console.log("ProductDetailComponent initialized")
+
     this.route.paramMap.subscribe((params) => {
       const productId = params.get("id") || ""
-      console.log("Product ID:", productId)
+      console.log("Product ID from route:", productId)
 
       // Obter o produto diretamente
       this.product = this.productService.getProductById(productId)
@@ -48,13 +46,13 @@ export class ProductDetailComponent implements OnInit {
         return
       }
 
+      // Obter feedbacks do produto
+      this.feedbacks = this.product.feedbacks
+      console.log("Feedbacks loaded:", this.feedbacks.length)
+
       // Obter produtos relacionados
       this.relatedProducts = this.productService.getRelatedProducts(productId)
-
-      // Obter feedback
-      this.feedbackService.getFeedbackForProduct(productId).subscribe((feedbacks) => {
-        this.feedbacks = feedbacks
-      })
+      console.log("Related products:", this.relatedProducts.length)
     })
   }
 

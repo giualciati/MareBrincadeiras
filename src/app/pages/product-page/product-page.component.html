@@ -7,6 +7,36 @@
   <div class="products">
     <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
   </div>
+  
+  <!-- Paginação -->
+  <div class="pagination" *ngIf="totalPages > 1">
+    <button 
+      class="pagination-button" 
+      [disabled]="currentPage === 1"
+      (click)="previousPage()"
+    >
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <div class="pagination-numbers">
+      <button 
+        *ngFor="let page of pages" 
+        class="pagination-number" 
+        [class.active]="page === currentPage"
+        (click)="goToPage(page)"
+      >
+        {{ page }}
+      </button>
+    </div>
+    
+    <button 
+      class="pagination-button" 
+      [disabled]="currentPage === totalPages"
+      (click)="nextPage()"
+    >
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
 </main>
 
 <app-footer></app-footer>
