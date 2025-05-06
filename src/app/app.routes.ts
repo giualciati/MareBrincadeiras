@@ -1,4 +1,4 @@
-import type { Routes } from "@angular/router"
+import { Routes } from "@angular/router";
 import { HomeComponent } from "./pages/home/home.component"
 import { ProductPageComponent } from "./pages/product-page/product-page.component"
 import { ProductDetailComponent } from "./pages/product-detail/product-detail.component"
@@ -18,7 +18,7 @@ import { CollaboratorsComponent } from "./pages/collaborators/collaborators.comp
 import { EditProductsComponent } from "./pages/edit-products/edit-products/edit-products.component"
 import { RegisterCardComponent } from "./pages/register-card/register-card.component"
 import { CustumersEditComponent } from "./pages/custumers-edit/custumers-edit.component"
-
+import { CarrinhoComponent } from "./pages/carrinho/carrinho.component"
 
 
 export const routes: Routes = [
@@ -41,6 +41,5 @@ export const routes: Routes = [
   { path: "pagina-de-pedidos", component: PaginaDePedidosComponent },
   { path: "collaborators", component: CollaboratorsComponent },
   { path: "product/edit/:id", component: EditProductsComponent },
-  { path: "customer/edit", component:  CustumersEditComponent },
   { path: "**", redirectTo: "" }
 ];
