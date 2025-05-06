@@ -26,8 +26,6 @@ export class CustomersService {
     return this.http.get<Customer>(`${this.API}/${id}`);
   }
 
-
-
   atualizarUsuarioLogado(novosDados: Customer): void {
     localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(novosDados));
   }

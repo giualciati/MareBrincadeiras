@@ -15,7 +15,8 @@ import { MessageService } from 'primeng/api';
   standalone: true,
   imports: [SidebarManagementComponent, FormsModule, CommonModule, ToastModule],
   templateUrl: './product-registration.component.html',
-  styleUrl: './product-registration.component.scss'
+  styleUrl: './product-registration.component.scss',
+  providers: [MessageService]
 })
 export class ProductRegistrationComponent {
   productID?: number;
@@ -30,6 +31,7 @@ export class ProductRegistrationComponent {
     private categoryService: CategoryService, 
     private router: Router,
     private route: ActivatedRoute,
+    private messageService: MessageService 
   ) {}
 
   ngOnInit(): void {
@@ -41,18 +43,57 @@ export class ProductRegistrationComponent {
     this.otherImages = [null, null, null];
   }
 
+  
+
   submeter() {
-    
     this.product.images = this.otherImagePreviews.filter(img => !!img);
 
-    this.service.criarProduto(this.product).subscribe(() => {
-      this.router.navigate(['/products/list']);
+    if (!this.product.name || !this.product.value || !this.product.description || !this.product.categoryId ||
+      !this.product.image || !this.product.color || !this.product.size || !this.product.quantity) {
+     this.messageService.add({
+       severity: 'warn',
+       summary: 'Campos obrigatórios',
+       detail: 'Por favor, preencha todos os campos obrigatórios.',
+       life: 3000
+     });
+     return;
+   }
+  
+    this.service.criarProduto(this.product).subscribe({
+      next: () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Sucesso',
+          detail: 'Produto cadastrado com sucesso!',
+          life: 3000
+        });
+        setTimeout(() => {
+          this.router.navigate(['/products/list']);
+        }, 1000);
+      },
+      error: () => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro',
+          detail: 'Erro ao cadastrar o produto.',
+          life: 3000
+        });
+      }
     });
   }
-
+  
   cancelar(): void {
-    this.router.navigate(['/products/list']);
+    this.messageService.add({
+      severity: 'info',
+      summary: 'Cancelado',
+      detail: 'Cadastro cancelado.',
+      life: 2000
+    });
+    setTimeout(() => {
+      this.router.navigate(['/products/list']);
+    }, 2000);
   }
+  
 
   imagemDestaque(event: any): void {
     const file = event.target.files[0];

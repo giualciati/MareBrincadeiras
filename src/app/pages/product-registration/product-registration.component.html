@@ -1,4 +1,5 @@
 <app-sidebar-management></app-sidebar-management>
+<p-toast></p-toast>
 <div class="container-principal">
   
 <div class="test">
@@ -7,7 +8,7 @@
 </div>
 
 <div class="div-form">
-    <form class="form-products">
+    <form class="form-products"  #form="ngForm" novalidate>
         
         <div class="form1">
             <div class="components-form1">
@@ -16,7 +17,7 @@
             <input type="text" name="txtProducts" id="txtProducts" [(ngModel)]="product.name" required>
 
             <label for="txtDescription">Descrição do Produto <span class="required">*</span></label>
-            <textarea id="txtDescription" [(ngModel)]="product.description" required></textarea>
+            <textarea id="txtDescription" name="txtDescription" [(ngModel)]="product.description" required></textarea>
 
             </div>
 
@@ -48,7 +49,7 @@
         <div class="form2">
             <label>Categoria <span class="required">*</span></label>
             <select id="select-Categories" name="categoryId" [(ngModel)]="product.categoryId" required>
-                <option>Insira uma categoria</option>
+                <option value="">Insira uma categoria</option>
                 <option *ngFor="let category of categories" [value]="category.id">{{ category.nome }}</option>
             </select>
         </div>
@@ -79,7 +80,7 @@
 
             <div class="cancel-save">
                 <button type="button" (click)="cancelar()">Cancelar</button>
-                <button type="button" (click)="submeter()">Salvar</button> 
+                <button type="submit" (click)="submeter()">Salvar</button> 
               </div>
 
 

@@ -7,13 +7,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SidebarManagementComponent } from '../../../components/sidebar-management/sidebar-management.component';
+import { MessageService } from 'primeng/api';  
+import { ToastModule } from 'primeng/toast';
+
 
 @Component({
   selector: 'app-edit-products',
   standalone: true,
-  imports: [SidebarManagementComponent, FormsModule, CommonModule],
+  imports: [SidebarManagementComponent, FormsModule, CommonModule, ToastModule],
   templateUrl: './edit-products.component.html',
-  styleUrl: './edit-products.component.scss'
+  styleUrl: './edit-products.component.scss',
+  providers: [MessageService]
 })
 export class EditProductsComponent implements OnInit {
   productID: number | null = null; 
@@ -27,6 +31,7 @@ export class EditProductsComponent implements OnInit {
     private categoryService: CategoryService,
     private router: Router,
     private route: ActivatedRoute,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -58,8 +63,18 @@ export class EditProductsComponent implements OnInit {
   this.product.images = this.otherImagePreviews.filter(img => !!img);
 
   this.service.editarProduto(this.product).subscribe(() => {
-    this.router.navigate(['/products/list']);
-  });
+    
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Sucesso',
+        detail: 'Produto cadastrado com sucesso!',
+        life: 3000
+      });
+      setTimeout(() => {
+        this.router.navigate(['/products/list']);
+      }, 3000);
+    },
+   );
 }
   cancelar(): void {
     this.router.navigate(['/products/list']);

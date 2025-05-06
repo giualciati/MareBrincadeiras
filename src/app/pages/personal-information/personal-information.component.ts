@@ -25,6 +25,14 @@ export class PersonalInformationComponent implements OnInit {
     if (customer) {
       this.customer = customer;
      
-    }
+    };
   }
+  editInformation() {
+    this.router.navigate(['/customer/edit'])
+  }     
+
+  get primeiroNome(): string {
+    return this.customer?.name?.split(' ')[0] || '';
+  }
+    
 }

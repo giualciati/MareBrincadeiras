@@ -54,6 +54,37 @@
       "email": "guilhermediasgomes2@gmail.com",
       "telephone": "2345678",
       "password": "123"
+    },
+   
+    {
+      "id": "c1ca",
+      "name": "vf",
+      "dateOfBirth": "2025-03-02",
+      "cpf": "2345689",
+      "rg": "2346",
+      "email": "sbkb@bkn",
+      "telephone": "12346",
+      "password": "234567"
+    },
+    {
+      "id": "0a46",
+      "name": "dnwjq",
+      "dateOfBirth": "2025-02-26",
+      "cpf": "23456",
+      "rg": "345678",
+      "email": "camilevitoriarosa2005@gmail.com",
+      "telephone": "456",
+      "password": "34689"
+    },
+    {
+      "id": "0a13",
+      "name": "Camile Rosa",
+      "dateOfBirth": "2005-05-01",
+      "cpf": "569.561.658-13",
+      "rg": "12345689",
+      "email": "camilevitoriarosa2005@gmail.com",
+      "telephone": "1235689",
+      "password": "123"
     }
   ]
 }

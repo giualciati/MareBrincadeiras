@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container_personal">
-    <h2 class="title_personal">Olá, Fulano!</h2>
+    <h2 class="title_personal">Olá, {{primeiroNome}}</h2>
     <div class="sidebar_personal">
             <ul>
                 <li class="menu-Item active" data-section="dados-pessoais">Dados Pessoais</li>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="edit-icon">
-        <i class="fa-regular fa-pen-to-square"></i>
+        <i (click)="editInformation()" class="fa-regular fa-pen-to-square"></i>
     </div>
     </div>
     <div id="cartoes" class="section">

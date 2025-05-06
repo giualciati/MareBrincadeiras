@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="body">
     <div class="container">
         <form>
@@ -22,7 +23,7 @@
             <button (click)="fazerLogin()" class="enter" type="button">Login</button>
             
             <div class="register-link">
-                <p>Não tem uma conta?<a href="user_SignUp.html">Clique aqui.</a> </p>
+                <p>Não tem uma conta?<a (click)="onLogin()">Clique aqui.</a> </p>
             </div>        
         </form>
     </div>

@@ -3,6 +3,8 @@ import { RouterLink } from "@angular/router"
 import { CommonModule } from "@angular/common"
 import type { Product } from "../../models/product"
 
+
+
 @Component({
   selector: "app-product-card",
   standalone: true,
