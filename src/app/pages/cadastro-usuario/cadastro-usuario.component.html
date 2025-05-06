@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 <main class="cadastro-usuario" style="background-image: url('assets/img/seaBackground.png'); background-size: cover; background-position: center;">
   <form>
     <h1>Cadastre sua conta!</h1>
+=======
+<p-toast></p-toast>
+>>>>>>> d47c393cf275f2ad6b43c0fcff3636f24f91feac
 
-    <h3>Continue com e-mail:</h3>
+<div class="body">
+  <div class="container">
+    <form #form="ngForm">
+      <h1>Cadastre sua conta!</h1>
+      <h3>Continue com e-mail:</h3>
 
+<<<<<<< HEAD
     <div class="input-box">
       <input placeholder="E-mail" type="email">
       <i class="bx bxs-envelope"></i>
@@ -36,3 +45,46 @@
     </div>
   </form>
 </main>
+=======
+      <div class="input-box">
+        <input name="name" id="txtNome" [(ngModel)]="customer.name" placeholder="Nome" type="text" />
+        <i class="bx bxs-user"></i>
+      </div>
+
+      <div class="input-box">
+        <label for="dataNasc">Data de nascimento</label>
+        <input name="dataNasc" id="dataNasc" [(ngModel)]="customer.dateOfBirth" placeholder="Nascimento" type="date" />
+        <i class="bx bxs-date"></i>
+      </div>
+
+      <div class="input-box">
+        <input name="cpf" id="cpf" [(ngModel)]="customer.cpf" placeholder="CPF" type="text" />
+        <i class="bx bxs-id-card"></i>
+      </div>
+      <div class="input-box">
+        <input  name="rg" id="rg" [(ngModel)]="customer.rg" placeholder="rg" type="text"/>
+        <i class="bx bxs-date"></i>
+      </div>
+
+      <div class="input-box">
+        <input name="email" id="txtEmail" [(ngModel)]="customer.email" placeholder="E-mail" type="email" />
+        <i class="bx bxs-envelope"></i>
+      </div>
+
+      <div class="input-box">
+        <input name="telephone" id="txtTel" [(ngModel)]="customer.telephone" placeholder="Telefone" type="tel" />
+        <i class="bx bxs-phone"></i>
+      </div>
+
+      <div class="input-box">
+        <input name="password" id="txtSenha" [(ngModel)]="customer.password" placeholder="Senha" type="password" />
+        <i class="bx bxs-lock-alt"></i>
+      </div>
+
+      <button type="button" (click)="novoCliente()" class="enter">Cadastre</button>
+    </form>
+  </div>
+</div>
+
+
+>>>>>>> d47c393cf275f2ad6b43c0fcff3636f24f91feac
