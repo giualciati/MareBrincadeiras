@@ -67,7 +67,7 @@ export class EditProductsComponent implements OnInit {
       this.messageService.add({
         severity: 'success',
         summary: 'Sucesso',
-        detail: 'Produto cadastrado com sucesso!',
+        detail: 'Produto atualizado com sucesso!',
         life: 3000
       });
       setTimeout(() => {
