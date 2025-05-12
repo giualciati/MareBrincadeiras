@@ -19,7 +19,7 @@ import { EditProductsComponent } from "./pages/edit-products/edit-products/edit-
 import { RegisterCardComponent } from "./pages/register-card/register-card.component";
 import { CustumersEditComponent } from "./pages/custumers-edit/custumers-edit.component";
 import { CarrinhoComponent } from "./pages/carrinho/carrinho.component"; 
-import { FavoritosComponent } from './pages/favoritos/favoritos.component';
+import { FavoritosComponent } from "./pages/favoritos/favoritos.component";
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -42,6 +42,7 @@ export const routes: Routes = [
   { path: "collaborators", component: CollaboratorsComponent },
   { path: "product/edit/:id", component: EditProductsComponent },
   { path: "customer/edit", component: CustumersEditComponent },
-  { path: 'favoritos', component: FavoritosComponent },
+  { path: "favoritos", component: FavoritosComponent },
+  {path: "carrinho", component: CarrinhoComponent},
   { path: "**", redirectTo: "" }
 ];
