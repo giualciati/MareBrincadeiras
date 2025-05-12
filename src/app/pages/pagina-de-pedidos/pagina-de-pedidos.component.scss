@@ -332,22 +332,41 @@ main {
   gap: 100px;
 }
 
-.botao-finalizar {
-  margin-top: 0px;
+.botoes-finalizacao {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
+  justify-content: flex-end; 
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .btn-vermelho {
-  background-color: #e94e77;
+  background-color: #43a047;
   color: white;
+  padding: 10px 20px;
   border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 16px;
 }
+
+.btn-vermelho:hover {
+  background-color: #c92a34;
+}
+
+.btn-avaliar {
+  background-color: #1490FC;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-avaliar:hover {
+  background-color: #0d6cbc;
+}
+
 
 
 .totais .linha-total {
@@ -372,18 +391,7 @@ main {
   text-align: center; 
 }
 
-.btn-vermelho {
-  background-color: #43a047;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  width: 100%; 
- margin-top: 10px;
- margin-right: 50px;
-}
+
 
 .linha-cinza {
   height: 1px; 
@@ -399,5 +407,13 @@ a {
 a:hover {
   color: #e94e77;
 }
+
+
+.editar-cartao-button {
+  font-size: 22px;
+  color: #0077B6;
+  cursor: pointer;
+}
+
 
 

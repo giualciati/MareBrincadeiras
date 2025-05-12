@@ -51,24 +51,24 @@
           </div>
       
           <div class="quantidade-controle">
-            <button class="menos">−</button>
+            
             <span class="quantidade">1</span>
-            <button class="mais">+</button>
+           
           </div>
       
           <div class="preco-unidade">R$94,90</div>
           <div class="subtotal">R$94,90</div>
       
-          <button class="remover-produto">&times;</button>
+         
         </div>
       </div>
   
       <div class="opcao-envio">
         
         <div class="envio-info">
-          <p><strong>Opção de envio:</strong> Entrega Padrão</p>
-          <p class="entrega-data">Receba entre 7 e 14 de mai</p>
-          <a href="#" class="trocar-envio">Trocar</a>
+          <p><strong>Opção de envio:</strong> Entrega Padrão (CORREIOS)</p>
+          <p class="entrega-data">Receba até 25 dias úteis</p>
+          
         </div>
         <div class="frete-preco">R$23,87</div>
       </div>
@@ -79,15 +79,18 @@
   <div class="resumo-pedido">
     
     <div class="bloco metodos-pagamento">
-      <p>Método de pagamento</p>
+      <p>Detalhes de pagamento</p>
       <div class="opcoes-pagamento">
-        <button class="ativo">Pix</button>
-        <button>Cartão de Crédito</button>
-        <button>Boleto Bancário</button>
-        <button>Google Pay</button>
+        <button>
+          <i class="icon-cartao"></i> Cartão de Crédito
+        </button>
+        <button class="editar-cartao-button" [routerLink]="['/register/card']" title="Editar cartão">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
       </div>
-
     </div>
+    
+
       <div class="linha-cinza"></div>
   
     <div class="bloco totais">
@@ -106,12 +109,16 @@
     </div>
   </div>
   
- 
-  <div class="botao-finalizar">
-    <a href="pagina-de-finalizacao.html">
-      <button class="btn-vermelho">Fazer pedido</button>
-    </a>
+  <div class="botoes-finalizacao">
+    <button class="btn-vermelho" [routerLink]="['/products']">
+      Compre novamente
+    </button>
+    <button class="btn-avaliar" [routerLink]="['/']">
+      Avaliar
+    </button>
   </div>
+  
+  
   
   
 

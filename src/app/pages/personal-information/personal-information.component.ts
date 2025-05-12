@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../components/header/header.component";
+import { RouterModule } from '@angular/router'; 
 import { Router } from '@angular/router';
 import { CustomersService } from '../../services/customers.service';
 import { Customer } from '../../services/types/customers';
@@ -7,7 +8,7 @@ import { Customer } from '../../services/types/customers';
 @Component({
   selector: 'app-personal-information',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [ RouterModule, HeaderComponent],
   templateUrl: './personal-information.component.html',
   styleUrl: './personal-information.component.scss'
 })

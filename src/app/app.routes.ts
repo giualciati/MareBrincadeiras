@@ -18,8 +18,8 @@ import { CollaboratorsComponent } from "./pages/collaborators/collaborators.comp
 import { EditProductsComponent } from "./pages/edit-products/edit-products/edit-products.component";
 import { RegisterCardComponent } from "./pages/register-card/register-card.component";
 import { CustumersEditComponent } from "./pages/custumers-edit/custumers-edit.component";
-import { CarrinhoComponent } from "./pages/carrinho/carrinho.component"; // Mantido CarrinhoComponent
-import { FavoritosComponent } from './favoritos/favoritos.component'; // Mantido FavoritosComponent
+import { CarrinhoComponent } from "./pages/carrinho/carrinho.component"; 
+import { FavoritosComponent } from './pages/favoritos/favoritos.component';
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },

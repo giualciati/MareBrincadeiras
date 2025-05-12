@@ -6,7 +6,9 @@
                 <li class="menu-Item active" data-section="dados-pessoais">Dados Pessoais</li>
                 <li class="menu-Item" data-section="cartoes">Cartões</li>
                 <li class="menu-Item" data-section="enderecos">Endereços</li>
-                <li class="menu-Item" data-section="Meus pedidos">Meus pedidos</li>
+                <a [routerLink]="['/pagina-de-pedidos']"><li class="menu-Item" data-section="Meus pedidos">Meus pedidos</li></a>   
+                <a [routerLink]="['/favoritos']"><li class="favoritos" data-section="favoritos">Favoritos</li></a>   
+                  
             </ul>
     </div>
     <div class="content_personal">
