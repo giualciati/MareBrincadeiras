@@ -1,0 +1,120 @@
+@use 'colors' as *;
+
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+
+.header h1 {
+  font-size: 2.5em;
+  color: #1490FC;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 20px;
+}
+
+.favoritos-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.favorito-item {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.favorito-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  margin-bottom: 15px;
+}
+
+.image-container img {
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.item-details h2 {
+  font-size: 1.3em;
+  color: #333;
+  margin: 10px 0 5px;
+}
+
+.item-details p {
+  color: #666;
+  font-size: 0.95em;
+}
+
+.favorite-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+.add-favorite-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.add-favorite-button {
+  width: 60px;
+  height: 60px;
+  font-size: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: #1490FC;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.add-favorite-button:hover {
+  background-color: #083d6b;
+}
+
+.add-favorite-text {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #555;
+}
+
+.favoritos-page {
+  display: flex;
+  height: 100vh; 
+}
+
