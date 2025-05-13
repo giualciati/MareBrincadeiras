@@ -10,6 +10,7 @@ import { ProductListComponent } from "./pages/product-list/product-list.componen
 import { CategoryManagementComponent } from "./pages/category-management/category-management.component";
 import { ProductRegistrationComponent } from "./pages/product-registration/product-registration.component";
 import { LoginUserComponent } from "./pages/login-user/login-user.component";
+import { ForgetPasswordUserComponent } from "./pages/forget-password-user/forget-password-user.component";
 import { PersonalInformationComponent } from "./pages/personal-information/personal-information.component";
 import { LandingAdmComponent } from "./pages/landing-adm/landing-adm.component";
 import { PaginaDePedidosComponent } from "./pages/pagina-de-pedidos/pagina-de-pedidos.component";
@@ -34,6 +35,7 @@ export const routes: Routes = [
   { path: "products/list", component: ProductListComponent },
   { path: "products/registration", component: ProductRegistrationComponent },
   { path: "login/user", component: LoginUserComponent },
+  { path: "login/forget-password", component: ForgetPasswordUserComponent},
   { path: "register/card", component: RegisterCardComponent },
   { path: "information", component: PersonalInformationComponent },
   { path: "landing/adm", component: LandingAdmComponent },
