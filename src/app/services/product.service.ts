@@ -20,14 +20,15 @@ export class ProductService {
     return this.http.post<Product>(this.API, product);
   }
 
-  buscarPorId(id : number): Observable<Product | undefined>{
-    return this.http.get<Product>(this.API + `/${id}`);
+  buscarPorId(id : number): Observable<Product>{
+    return this.http.get<Product>(`${this.API}/${id}`);
   }
 
-  editarProduto(product : Product):Observable<Product> {
+  editarProduto(product: Product): Observable<Product>{
     const url = `${this.API}/${product.id}`;
     return this.http.put<Product>(url, product);
-  }
+  };
+  
 
   excluirProduto(id: number): Observable<void> {
     return this.http.delete<void>(`${this.API}/${id}`);

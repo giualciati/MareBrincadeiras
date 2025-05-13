@@ -9,7 +9,7 @@
         <div>
             <div class="title-button">
                 <h1>Produtos Cadastrados</h1>
-                <button onclick="window.location.href='registerProducts.html'" class="new-product">Novo Produto</button>
+                <button (click)="novoProduto()" class="new-product">Novo Produto</button>
             </div>
             <div class="productsList">
                 <app-product-card-manager [products]="productCard"></app-product-card-manager>

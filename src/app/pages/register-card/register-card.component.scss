@@ -1,0 +1,130 @@
+body {
+    background-color: whitesmoke;
+  }
+  
+  header {
+    padding: 10px;
+    background-color: #FFBE0B;
+  }
+  
+  nav {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    background-color: #FFBE0B;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+  
+    h2 {
+      color: #1490FC;
+      margin: 4px 0 10px 20px;
+      font-size: 30px;
+    }
+  }
+  
+  #information {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .information-container {
+    h2 {
+      align-items: center;
+      justify-content: center;
+      color: black;
+      margin-bottom: 0;
+      font-size: 25px;
+    }
+  }
+  
+  .informationCard,
+  .information-BillingAddress {
+    margin-bottom: 20px;
+    height: 180px;
+    width: 600px;
+    padding: 20px 0;
+    text-align: start;
+  }
+  
+  .informationCard-container,
+  .billingAddress-container {
+    display: flex;
+    border: solid 2px black;
+    border-radius: 10px;
+    height: 130px;
+    width: 450px;
+    padding: 10px 5px;
+    flex-direction: column;
+  
+    input {
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid black;
+      padding: 5px;
+      height: 25px;
+    }
+  
+    #inpNumCard,
+    #inpExpirationDate,
+    #inpNameCard {
+      width: 300px;
+    }
+  
+    #inpCVV {
+      width: 70px;
+    }
+  }
+  
+  .form-row {
+    input {
+      width: 90px;
+    }
+  }
+  
+  .billingAddress-container {
+    #inpAddressNumber {
+      width: 80px;
+    }
+  
+    #inpAddress,
+    #inpComplement {
+      width: 300px;
+    }
+  }
+  
+  .botoes {
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+  
+    button {
+      width: 100px;
+      height: 30px;
+      margin: 10px;
+      border: solid 1px black;
+      border-radius: 5px;
+      cursor: pointer;
+  
+      &:active {
+        transform: scale(0.9);
+      }
+  
+      &:hover {
+        color: #1490FC;
+      }
+  
+      &#btnCancelar {
+        background-color: rgba(128, 128, 128, 0.397);
+        font-weight: 700;
+      }
+  
+      &#btnEnviar {
+        background-color: #FFBE0B;
+        font-weight: 700;
+      }
+    }
+  }

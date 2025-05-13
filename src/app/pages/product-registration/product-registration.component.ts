@@ -7,75 +7,93 @@ import { categorias } from '../../services/types/types';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ToastModule } from 'primeng/toast'; 
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-product-registration',
   standalone: true,
-  imports: [SidebarManagementComponent, FormsModule, CommonModule],
+  imports: [SidebarManagementComponent, FormsModule, CommonModule, ToastModule],
   templateUrl: './product-registration.component.html',
-  styleUrl: './product-registration.component.scss'
+  styleUrl: './product-registration.component.scss',
+  providers: [MessageService]
 })
 export class ProductRegistrationComponent {
-
   productID?: number;
   product: Product = {} as Product;
   categories: categorias[] = []; 
+
+  otherImages: (File | null)[] = [null, null, null];  
+  otherImagePreviews: string[] = ['', '', ''];        
 
   constructor(
     private service: ProductService,
     private categoryService: CategoryService, 
     private router: Router,
     private route: ActivatedRoute,
-  ) {
-      this.productID = Number(this.route.snapshot.params['id']);
-
-      if (this.productID) {
-        service.buscarPorId(this.productID).subscribe({
-          next: (product) => {
-            if (product) {
-              this.product.id = product.id;
-              this.product.name = product.name;
-              this.product.description = product.description;
-              this.product.categoryId = product.categoryId;
-              this.product.color = product.color;
-              this.product.size = product.size;
-              this.product.value = product.value;
-              this.product.quantity = product.quantity;
-              this.product.image = product.image;
-            } else {
-              console.log('Produto não encontrado');
-            }
-          },
-          error: (err) => {
-            console.error('Erro ao buscar produto', err);
-          }
-        });
-      } else {
-        console.log('Produto não encontrado');
-      }
-  }
+    private messageService: MessageService 
+  ) {}
 
   ngOnInit(): void {
     this.categoryService.listar().subscribe((categories) => {
       this.categories = categories;
     });
+
+    this.otherImagePreviews = ['', '', ''];
+    this.otherImages = [null, null, null];
   }
+
+  
 
   submeter() {
-    if (this.productID) {
-      this.service.editarProduto(this.product).subscribe(() => {
-        this.router.navigate(['/products/list']);
-      });
-    } else {
-      this.service.criarProduto(this.product).subscribe(() => {
-        this.router.navigate(['/products/list']);
-      });
-    }
-  }
+    this.product.images = this.otherImagePreviews.filter(img => !!img);
 
-  cancelar(): void {
-    this.router.navigate(['/products/list']);
+    if (!this.product.name || !this.product.value || !this.product.description || !this.product.categoryId ||
+      !this.product.image || !this.product.color || !this.product.size || !this.product.quantity) {
+     this.messageService.add({
+       severity: 'warn',
+       summary: 'Campos obrigatórios',
+       detail: 'Por favor, preencha todos os campos obrigatórios.',
+       life: 3000
+     });
+     return;
+   }
+  
+    this.service.criarProduto(this.product).subscribe({
+      next: () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Sucesso',
+          detail: 'Produto cadastrado com sucesso!',
+          life: 3000
+        });
+        setTimeout(() => {
+          this.router.navigate(['/products/list']);
+        }, 1000);
+      },
+      error: () => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro',
+          detail: 'Erro ao cadastrar o produto.',
+          life: 3000
+        });
+      }
+    });
   }
+  
+  cancelar(): void {
+    this.messageService.add({
+      severity: 'info',
+      summary: 'Cancelado',
+      detail: 'Cadastro cancelado.',
+      life: 2000
+    });
+    setTimeout(() => {
+      this.router.navigate(['/products/list']);
+    }, 2000);
+  }
+  
 
   imagemDestaque(event: any): void {
     const file = event.target.files[0];
@@ -86,5 +104,22 @@ export class ProductRegistrationComponent {
       };
       reader.readAsDataURL(file);
     }
+  }
+
+  onSingleImageSelected(event: any, index: number): void {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.otherImagePreviews[index] = reader.result as string;
+      this.otherImages[index] = file;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  removerImagem(index: number): void {
+    this.otherImagePreviews[index] = '';
+    this.otherImages[index] = null;
   }
 }

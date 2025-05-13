@@ -1,0 +1,50 @@
+    <header>
+        <nav>
+            <a href=""><img src="./assets/img/seta-esquerda.png" alt="Seta para retornar para a página anterior"></a>
+            <h2>Cadastrar cartão</h2>
+        </nav>
+    </header>
+
+    <main id="information">
+        <div class="information-container">
+            <div class="informationCard">
+                <h2>Informações do cartão</h2>
+                <form class="informationCard-container">
+
+                    <div class="form-row">
+                    <input type="text" name="numCard" id="inpNumCard" maxlength="19" pattern="^[0-9]{13,19}$" (input)="formatCardNumberInput()" placeholder="Número do cartão" required [(ngModel)] = "formCard.numCard">
+                    <input type="text" maxlength="3" name="cvv" id="inpCVV" maxlength="3" placeholder="cvv" required [(ngModel)] = "formCard.cvv">
+                    </div>
+
+                    <input type="text" name="expirationDate" id="inpExpirationDate" maxlength="7" (input)="formatExpirationDateInput()" placeholder="Data de validade (MM/AA)" required [(ngModel)] = "formCard.expirationDate">
+                    <input type="text" name="nameCard" id="inpNameCard" placeholder="Nome no cartão" required [(ngModel)] = "formCard.nameCard">
+                </form>
+            </div>
+
+            <div class="information-BillingAddress">
+                <h2>Endereço de cobrança</h2>
+                <form class="billingAddress-container">
+
+                    <div class="form-row">
+                        <input type="text" name="cepCob" id="inpCep" placeholder="CEP" maxlength="8" required (blur)="bucarEnderecoPorCep()" [(ngModel)]="formCard.cepCob">
+                        <input type="text" name="stateCob" id="inpState" placeholder="Estado" required [(ngModel)]="formCard.stateCob">
+                        <input type="text" name="cityCob" id="inpCity" placeholder="Cidade" required [(ngModel)] = "formCard.cityCob">
+                    </div>
+
+                    <div class="form-row">
+                        <input type="text" name="addressCob" id="inpAddress" placeholder="Rua/Avenida" required [(ngModel)] = "formCard.addressCob"> 
+                        <input type="number" name="addressNumberCob" id="inpAddressNumber" placeholder="Número" required [(ngModel)] = "formCard.addressNumberCob">
+                    </div>
+
+                    <input type="text" name="complementCob" id="inpComplement" placeholder="Complemento" [(ngModel)]="formCard.complementCob">
+                </form>
+
+                <div class="botoes">
+                    <button type="button" id="btnCancelar">Cancelar</button>
+                    <button type="submit" id="btnEnviar" (click)="enviarDadosCartao()">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+ 
+    

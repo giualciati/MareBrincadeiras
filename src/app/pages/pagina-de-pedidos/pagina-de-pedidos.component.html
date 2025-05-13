@@ -21,69 +21,108 @@
 
   <section class="container endereco">
     <div class="endereco-box">
-      <h2>Endereço de entrega
-        <a href="#" class="editar-endereco">
+      <h2>Endereço de entrega</h2>
+      <div class="endereco-info">
+        <p>Antônio Batista Roberto (+55) 11 99999-0909 - R. Noberto Fraga, APTO 365, Paraíso, São Paulo, SP, 04125-090</p>
+        <a href="#" class="editar-endereco" title="Editar endereço">
           <i class="fa-solid fa-pen-to-square"></i>
         </a>
-      </h2>
-      <p>Antônio Batista Roberto (+55) 11 99999-0909 - R. Noberto Fraga, APTO 365, Paraíso, São Paulo, SP, 04125-090</p>
-    </div>
-  </section>
-
-  <section class="container produtos-pedidos">
-    <div class="produto-container">
-      <div class="produto-imagem"></div>
-      <div class="produto-detalhes endereco-box"> 
-        <h2>Produtos Pedidos</h2>
-        <img src="assets/img/moranguinho-1500-1.jpg" alt="Boneca Moranguinho">
-        <p>Rara boneca ‘Moranguinho’ do ano 1980</p>
-        <div class="produto-info">
-          <span>Preço: 358,82</span>
-          <span>Quantidade: 1</span>
-          <span>Subtotal: 358,82</span>
-        </div>
-        <p>Opção de envio: <a href="#">Sedex (5 a 20 dias úteis)</a></p>
+        
       </div>
     </div>
   </section>
-
-  <section class="container metodos-pagamento">
-    <div class="metodos-pagamento-box">
-      <h2>Métodos de pagamento</h2>
-      <ul>
-        <li>
-          <input type="radio" id="pix" name="metodo" class="metodo-radio">
-          <label for="pix"><i class="fab fa-cc-pix"></i> Pix</label>
-        </li>
-        <li>
-          <input type="radio" id="cartao" name="metodo" class="metodo-radio">
-          <label for="cartao"><i class="fas fa-credit-card"></i> Cartão</label>
-        </li>
-        <li>
-          <input type="radio" id="googlepay" name="metodo" class="metodo-radio">
-          <label for="googlepay"><i class="fab fa-google-pay"></i> Google Pay</label>
-        </li>
-        <li>
-          <input type="radio" id="boleto" name="metodo" class="metodo-radio">
-          <label for="boleto"><i class="fas fa-file-invoice"></i> Boleto</label>
-        </li>
-      </ul>
+  
+  <section class="pedido-produtos container">
+    <h2 class="titulo-secao">Produtos Pedidos</h2>
+  
+    <div class="pedido-box">
+      <div class="info-vendedor">
+        <i class="fa-solid fa-store"></i>
+        <span>Produto fornecido por Oceano Encantado</span>
+      </div>
+  
+      <div class="lista-produtos">
+     
+        <div class="produto-detalhado">
+          <img src="assets/img/moranguinho-1500-1.jpg" alt="Produto" />
+          
+          <div class="detalhes-produto">
+            <p class="nome-produto">Boneca Moranguinho anos 2000</p>
+          </div>
+      
+          <div class="quantidade-controle">
+            
+            <span class="quantidade">1</span>
+           
+          </div>
+      
+          <div class="preco-unidade">R$94,90</div>
+          <div class="subtotal">R$94,90</div>
+      
+         
+        </div>
+      </div>
+  
+      <div class="opcao-envio">
+        
+        <div class="envio-info">
+          <p><strong>Opção de envio:</strong> Entrega Padrão (CORREIOS)</p>
+          <p class="entrega-data">Receba até 25 dias úteis</p>
+          
+        </div>
+        <div class="frete-preco">R$23,87</div>
+      </div>
     </div>
   </section>
-
-  <section class="container detalhes-pagamento">
-    <div class="detalhes-pagamento-box">
-      <h2>Detalhes de Pagamento</h2>
-      <p><strong>Nome do destinatário:</strong> Antônio Batista Roberto</p>
-      <p><strong>Telefone:</strong> (11) 99999-0909</p>
-      <p><strong>CPF:</strong> 123.456.789-00</p>
-      <p><strong>Total dos produtos:</strong> 358,82</p>
-      <p><strong>Total do frete:</strong> 20,00</p>
-      <p><strong>Total a pagar:</strong> 378,82</p>
-      <p><strong>Forma de pagamento:</strong> Cartão de Crédito</p>
-      <p><strong>Endereço de entrega:</strong> R. Noberto Fraga, APTO 365, Paraíso, São Paulo, SP, 04125-090</p>
+  
+  
+  <div class="resumo-pedido">
+    
+    <div class="bloco metodos-pagamento">
+      <p>Detalhes de pagamento</p>
+      <div class="opcoes-pagamento">
+        <button>
+          <i class="icon-cartao"></i> Cartão de Crédito
+        </button>
+        <button class="editar-cartao-button" [routerLink]="['/register/card']" title="Editar cartão">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+      </div>
     </div>
-  </section>
+    
+
+      <div class="linha-cinza"></div>
+  
+    <div class="bloco totais">
+      <div class="linha-total">
+        <span>Total dos Produtos</span>
+        <strong>R$94,90</strong>
+      </div>
+      <div class="linha-total">
+        <span>Total do Frete</span>
+        <strong>R$23,87</strong>
+      </div>
+      <div class="linha-total total-final">
+        <span>Pagamento Total</span>
+        <strong class="preco-final">R$118,77</strong>
+      </div>
+    </div>
+  </div>
+  
+  <div class="botoes-finalizacao">
+    <button class="btn-vermelho" [routerLink]="['/products']">
+      Compre novamente
+    </button>
+    <button class="btn-avaliar" [routerLink]="['/']">
+      Avaliar
+    </button>
+  </div>
+  
+  
+  
+  
+
+  
 </main>
 
 

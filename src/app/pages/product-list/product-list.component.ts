@@ -45,10 +45,13 @@ export class ProductListComponent implements OnInit {
     console.log('Excluir produto com ID:', id);
   }
 
- 
   getCategoryName(categoryId: number): string {
     const category = this.categories.find(c => c.id === categoryId);
     return category ? category.nome : 'Categoria desconhecida';
+  }
+
+  novoProduto() {
+    this.router.navigate(['/products/registration']);  
   }
   
 }

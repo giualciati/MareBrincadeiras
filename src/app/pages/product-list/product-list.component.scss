@@ -3,26 +3,22 @@
     font-family: "Poppins", sans-serif;
 }
 
-
-
 .container-principal{
     display: flex;
     margin-left: 350px;
+    height: auto;
+    padding-bottom: 3em;
+
 }
 
 .products-area{
     width: 100%;
-    padding: 1em;
 }
-
-
 
 .icons{
     display: flex;
     justify-content: end;
 }
-
-
 
 .icons img{
     margin: 1em;

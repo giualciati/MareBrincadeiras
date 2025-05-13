@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="body">
     <div class="container">
         <form>
@@ -5,12 +6,12 @@
     
             <div class="input-box">
                 <label for="txtEmail">E-mail</label>
-                <input type="email" name="txtEmail" id="txtEmail" required>
+                <input type="email" name="txtEmail" id="txtEmail" [(ngModel)]="login.email" required>
             </div>
     
             <div class="input-box">
                 <label for="txtPassword">Senha</label>
-                <input type="password" name="txtPassword" id="txtPassword" required>
+                <input type="password" name="txtPassword" id="txtPassword"  [(ngModel)]="login.password" required>
             </div>
             
             <div class="forgot">
@@ -19,10 +20,10 @@
             </div>
                     
             
-            <button onclick="login()" class="enter" type="button">Login</button>
+            <button (click)="fazerLogin()" class="enter" type="button">Login</button>
             
             <div class="register-link">
-                <p>Não tem uma conta?<a href="user_SignUp.html">Clique aqui.</a> </p>
+                <p>Não tem uma conta?<a (click)="onLogin()">Clique aqui.</a> </p>
             </div>        
         </form>
     </div>

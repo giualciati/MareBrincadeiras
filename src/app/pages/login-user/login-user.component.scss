@@ -109,6 +109,7 @@ form{
     justify-content: center;
     margin: 10px;
     font-size: 15px;
+    cursor: pointer;
    
 
     a{
@@ -131,3 +132,27 @@ form{
 .register-link a:hover{
     text-decoration: underline;
 }
+
+
+::ng-deep .p-toast .p-toast-message {
+    border-radius: 8px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    padding: 1em;
+  }
+  
+  ::ng-deep .p-toast .p-toast-message-success {
+    background-color: #43a047;
+    color: #fff;
+  }
+
+  ::ng-deep .p-toast .p-toast-message-info {
+    background-color: #a04343;
+    color: #fff;
+   
+  }
+  
+  ::ng-deep .p-toast .p-toast-message-error {
+    background-color: #e53935;
+    color: #fff;
+  }

@@ -1,15 +1,13 @@
-<app-header></app-header>
+
 <main class="login">
     <div class="login-container">
         <h1 class="login-title">Login Administração</h1>
         <form class="login-form">
-            <input class="login-input" type="email" placeholder="e-mail" id="txtEmail" [{ngModel}] = "login" required>
+            <input class="login-input" type="email" placeholder="e-mail" id="txtEmail" name="login" [(ngModel)] ="login" required>
            
-            <input class="login-input" type="password" placeholder="senha" id="txtSenha" [{ngModel}] = "senha" required>
-            <a class="recuperar-senha" href="#">Esqueci a senha</a>
-            <button class="login-submit" (click)="onBotaoClicado()">>Entrar</button>
-            
+            <input class="login-input" type="password" placeholder="senha" id="txtSenha" name="senha" [(ngModel)] ="senha" required>
+            <button class="login-submit" (disabled)="botaoDesabilitado" (click)="onBotaoClicado()">Entrar</button>
         </form>
     </div>
 </main>
-<app-footer></app-footer>
+
