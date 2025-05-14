@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from '../../components/header/header.component'; // ajuste o caminho conforme seu projeto
 
 @Component({
   selector: 'app-carrinho',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HeaderComponent], // adicione aqui
   templateUrl: './carrinho.component.html',
   styleUrls: ['./carrinho.component.scss']
+
 })
 export class CarrinhoComponent {
   items = [

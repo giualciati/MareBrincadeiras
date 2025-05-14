@@ -21,6 +21,8 @@ import { RegisterCardComponent } from "./pages/register-card/register-card.compo
 import { CustumersEditComponent } from "./pages/custumers-edit/custumers-edit.component";
 import { CarrinhoComponent } from "./pages/carrinho/carrinho.component"; 
 import { FavoritosComponent } from "./pages/favoritos/favoritos.component";
+import { EnderecoComponent } from "./pages/endereco/endereco.component";
+import { EnderecoFormComponent } from './pages/endereco-form/endereco-form.component';
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -46,5 +48,7 @@ export const routes: Routes = [
   { path: "customer/edit", component: CustumersEditComponent },
   { path: "favoritos", component: FavoritosComponent },
   {path: "carrinho", component: CarrinhoComponent},
-  { path: "**", redirectTo: "" }
+  {path: "endereco", component: EnderecoComponent},
+  { path: "endereco-form", component: EnderecoFormComponent },
+{ path: "**", redirectTo: "" }
 ];

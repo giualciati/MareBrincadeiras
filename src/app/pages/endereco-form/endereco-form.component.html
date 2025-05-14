@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="header">
+      <span class="back" (click)="voltar()">&larr;</span>
+      <h1>Endereço Novo</h1>
+    </div>
+  
+    <form id="enderecoForm">
+      <div class="section-title">Contato</div>
+      <input type="text" id="nome" name="nome" placeholder="Nome Completo" required />
+      <input type="tel" id="telefone" name="telefone" placeholder="Número de Telefone" required />
+  
+      <div class="section-title">Endereço</div>
+      <input type="text" id="cep" name="cep" placeholder="CEP" required />
+      <input type="text" id="cidade" name="cidade" placeholder="Estado - Cidade" required />
+      <input type="text" id="bairro" name="bairro" placeholder="Bairro" required />
+      <div class="row">
+        <input type="text" id="rua" name="rua" placeholder="Nome da Rua" required />
+        <input type="text" id="numero" name="numero" placeholder="Número" required />
+      </div>
+      <input type="text" id="complemento" name="complemento" placeholder="Complemento/ Referencia" />
+  
+      <div class="section-title small">Configurações</div>
+      <label for="tipo">Salvar como:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="tipo" value="Trabalho" required /> Trabalho</label>
+        <label><input type="radio" name="tipo" value="Casa" /> Casa</label>
+      </div>
+  
+      <button type="submit" id="salvarBtn" disabled>Salvar</button>
+    </form>
+  </div>
+  

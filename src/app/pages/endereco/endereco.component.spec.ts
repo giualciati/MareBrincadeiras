@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CarrinhoComponent } from './carrinho.component';
+import { EnderecoComponent } from './endereco.component';
 
-describe('CarrinhoComponent', () => {
-  let component: CarrinhoComponent;
-  let fixture: ComponentFixture<CarrinhoComponent>;
+describe('EnderecoComponent', () => {
+  let component: EnderecoComponent;
+  let fixture: ComponentFixture<EnderecoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CarrinhoComponent]
+      declarations: [EnderecoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CarrinhoComponent);
+    fixture = TestBed.createComponent(EnderecoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,3 +20,4 @@ describe('CarrinhoComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

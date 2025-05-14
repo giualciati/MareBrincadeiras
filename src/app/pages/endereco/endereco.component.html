@@ -1,0 +1,20 @@
+<app-header></app-header> 
+<header class="top-bar">
+  <span class="back-arrow" (click)="voltar()">←</span>
+  <h1>Meus endereços</h1>
+</header>
+
+<div class="enderecos-lista" id="enderecos-lista">
+  <div *ngFor="let item of enderecos" class="endereco">
+    <strong>{{ item.nome }}</strong>
+    <span class="telefone">| {{ item.telefone }}</span>
+    <div class="endereco-info">
+      {{ item.endereco }}<br />
+      {{ item.cidade }}
+    </div>
+  </div>
+</div>
+
+<footer class="rodape" (click)="irParaFormulario()">
+  + Adicione um Novo Endereço
+</footer>

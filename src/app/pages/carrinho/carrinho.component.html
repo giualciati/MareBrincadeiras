@@ -1,28 +1,26 @@
+<app-header></app-header>
 <header class="header-carrinho">
- <h1>Carrinho</h1>
-  </header>
+  <h1>Carrinho</h1>
+</header>
 
-  <div class="cart-item" *ngFor="let item of items; let i = index">
-    <input type="checkbox" [(ngModel)]="item.selecionado" (change)="toggleItemSelecionado()">
+ <div class="cart-item" *ngFor="let item of items; let i = index">
+  <input type="checkbox" [(ngModel)]="item.selecionado" (change)="toggleItemSelecionado()" class="item-checkbox" />
+  <div class="cart-item-img-wrapper">
     <img [src]="item.imagem" alt="{{ item.nome }}">
-    <div class="cart-item-details">
-      <h3>{{ item.nome }}</h3>
-      <p class="price">R$ {{ item.preco.toFixed(2).replace('.', ',') }}</p>
-      <div class="purchase-actions">
-        <div class="quantity-selector">
-          <button class="quantity-btn minus-btn" (click)="alterarQuantidade(i, -1)">
-            <i class="fas fa-minus"></i>
-          </button>
-          <input type="text" [value]="item.quantidade" class="quantity-input" readonly />
-          <button class="quantity-btn plus-btn" (click)="alterarQuantidade(i, 1)">
-            <i class="fas fa-plus"></i>
-          </button>
-        </div>
-        <button class="cart-item-remove" (click)="removerItem(i)">Remover</button>
-      </div>
+  </div>
+  <div class="cart-item-details">
+    <h3>{{ item.nome }}</h3>
+    <p class="price">R$ {{ item.preco.toFixed(2).replace('.', ',') }}</p>
+  </div>
+  <div class="purchase-actions">
+    <div class="quantity-selector">
+      <button class="quantity-btn minus-btn" (click)="alterarQuantidade(i, -1)">-</button>
+      <input type="text" [value]="item.quantidade" class="quantity-input" readonly />
+      <button class="quantity-btn plus-btn" (click)="alterarQuantidade(i, 1)">+</button>
     </div>
   </div>
-    
+</div>
+
    <div class="cart-summary">
     <div class="select-all">
       <input type="checkbox" id="select-all" [(ngModel)]="selectAll" (change)="toggleSelectAll()">

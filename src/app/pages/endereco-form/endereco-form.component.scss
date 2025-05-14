@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #fff;
+  }
+  
+  .header {
+    background-color: #ffc107;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    gap: 10px;
+  }
+  
+  .header .back {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .header h1 {
+    font-size: 26px;
+    color: #007bff;
+    margin: 0;
+  }
+  
+  form {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+  }
+  
+  .section-title {
+    background: #eee;
+    padding: 10px;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  .section-title.small {
+    font-size: 12px;
+    background: none;
+    padding: 5px 0;
+  }
+  
+  input[type="text"],
+  input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    font-size: 16px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .row input {
+    flex: 1;
+  }
+  
+  .radio-group {
+    display: flex;
+    gap: 20px;
+    margin: 10px 0;
+  }
+  
+  button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ccc;
+    border: none;
+    color: white;
+    font-size: 18px;
+    position: sticky;
+    bottom: 0;
+    cursor: not-allowed;
+    transition: background-color 0.3s;
+  }
+  
+  button.enabled {
+    background-color: #007bff;
+    cursor: pointer;
+  }
+  

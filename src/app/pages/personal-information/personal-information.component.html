@@ -5,10 +5,10 @@
             <ul>
                 <li class="menu-Item active" data-section="dados-pessoais">Dados Pessoais</li>
                 <li class="menu-Item" data-section="cartoes">Cartões</li>
-                <li class="menu-Item" data-section="enderecos">Endereços</li>
-                <a [routerLink]="['/pagina-de-pedidos']"><li class="menu-Item" data-section="Meus pedidos">Meus pedidos</li></a>   
-                <a [routerLink]="['/favoritos']"><li class="favoritos" data-section="favoritos">Favoritos</li></a>   
-                  
+                <li class="menu-Item" routerLink="/endereco" routerLinkActive="active">Endereços</li>
+                <li class="menu-Item" routerLink="/pagina-de-pedidos" data-section="Meus pedidos">Meus pedidos</li>
+                <li class="favoritos" routerLink="/favoritos" data-section="favoritos">Favoritos</li>
+                
             </ul>
     </div>
     <div class="content_personal">
