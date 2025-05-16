@@ -300,3 +300,24 @@ html {
   width: 95%;
   max-width: 1700px;
 }
+.btn-vermelho {
+  background-color: #43a047;
+  color: white;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+
+  &:hover:not(:disabled) {
+    background-color: #388e3c;
+  }
+
+  &:disabled {
+    background-color: #a5d6a7;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
+

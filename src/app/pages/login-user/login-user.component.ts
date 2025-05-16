@@ -24,19 +24,23 @@ export class LoginUserComponent {
     private router: Router,
     private messageService: MessageService 
   ) { }
-
   fazerLogin() {
     this.service.loginCliente(this.login.email, this.login.password).subscribe({
       next: (customer) => {
         if (customer) {
+          // Salvar no localStorage para manter logado
+          localStorage.setItem('usuarioLogado', JSON.stringify(customer));
+  
           this.messageService.add({
             severity: 'success',
             summary: 'Sucesso',
             detail: `Bem-vindo, ${customer.name}!`,
             life: 1000
           });
+  
           this.service.setUsuarioLogado(customer);
           this.service.atualizarUsuarioLogado(customer);
+  
           setTimeout(() => {
             this.router.navigate(['/information']);
           }, 2000);
@@ -59,9 +63,6 @@ export class LoginUserComponent {
       }
     });
   }
-     
-     onLogin() {
-    this.router.navigate(['/customers']);  
-  }
+  
 
 }

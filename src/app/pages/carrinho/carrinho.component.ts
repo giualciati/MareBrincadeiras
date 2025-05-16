@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+
 import { HeaderComponent } from '../../components/header/header.component'; // ajuste o caminho conforme seu projeto
 
 @Component({
   selector: 'app-carrinho',
   standalone: true,
-  imports: [CommonModule, FormsModule, HeaderComponent], // adicione aqui
+  imports: [CommonModule, FormsModule, HeaderComponent,   RouterModule], // adicione aqui
   templateUrl: './carrinho.component.html',
   styleUrls: ['./carrinho.component.scss']
 
 })
 export class CarrinhoComponent {
+  constructor(private router: Router){}
   items = [
     {
       nome: 'Casa de Atividades',
@@ -69,6 +73,12 @@ export class CarrinhoComponent {
   getQuantidadeSelecionada(): number {
     return this.items.filter(i => i.selecionado).length;
   }
+  irParaPaginaDePedidos() {
+    const produtosSelecionados = this.items.filter(item => item.selecionado);
+    console.log('Produtos selecionados:', produtosSelecionados);
+    this.router.navigate(['/pagina-de-pedidos'], { state: { produtos: produtosSelecionados } });
+  }
+  
   
 }
 

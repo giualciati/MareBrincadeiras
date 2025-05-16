@@ -1,0 +1,161 @@
+.barra-pedidos {
+    position: relative; /* importante para o botão absoluto */
+    background-color: #3A86FF; 
+    padding: 20px 30px;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    border-radius: 4px 4px 0 0;
+    max-width: 700px;
+    margin: 20px auto 10px;
+    text-align: center;
+  }
+  
+  .btn-voltar {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .seta {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-left: 4px solid #fff; 
+    border-bottom: 4px solid #fff; 
+    transform: rotate(45deg);
+    margin-left: 2px; 
+  }
+  .pedido-container {
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 700px;
+    margin: 10px auto 0; 
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  
+  .status {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  
+    .entregue {
+      color: #0a66c2;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  
+    .numero-pedido {
+      color: #333;
+    }
+  
+    .finalizado {
+      color: #43a047;
+      font-weight: bold;
+      margin-left: auto;
+    }
+  }
+  
+  .pedido-produto {
+    display: flex;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 16px 0;
+    align-items: flex-start;
+  
+    .produto-img {
+      width: 60px;
+      margin-right: 16px;
+    }
+  
+    .produto-info {
+      flex: 1;
+  
+      h3 {
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0 0 8px 0;
+      }
+  
+      p {
+        font-size: 12px;
+        color: #555;
+        margin: 2px 0;
+      }
+    }
+  
+    .preco {
+      text-align: right;
+  
+      .original {
+        text-decoration: line-through;
+        font-size: 13px;
+        color: #999;
+        display: block;
+      }
+  
+      .promocional {
+        color: #0a66c2;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  .pedido-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    padding-top: 16px;
+  
+    .total {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+  
+      strong {
+        color: #0a66c2;
+        font-size: 18px;
+        margin-left: 8px;
+      }
+    }
+  
+    .frete-preco {
+      font-size: 14px;
+      color: #555;
+    }
+  
+    .acoes {
+      display: flex;
+      gap: 12px;
+  
+      .btn {
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+  
+        &.comprar {
+          background-color: #43a047;
+          color: white;
+        }
+      }
+    }
+  }
+  
+  
+  

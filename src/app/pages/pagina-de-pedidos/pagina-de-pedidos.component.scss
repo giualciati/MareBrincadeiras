@@ -178,31 +178,39 @@ main {
 }
 
 .opcao-envio {
-  display: grid;
-  grid-template-columns: 1fr 1fr 100px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-top: 15px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  
 }
 
-
 .envio-info {
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 1.4;
+
+  p {
+    margin: 0;
+  }
 }
 
 .entrega-data {
   color: #3A86FF;
-}
-
-.trocar-envio {
-  color: #43a047;
-  font-size: 13px;
-  text-decoration: none;
+  font-weight: 600;
+  margin-top: 4px;
 }
 
 .frete-preco {
-  text-align: right;
   font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  min-width: 80px;
+  text-align: right;
 }
+
 .lista-produtos {
   display: flex;
   flex-direction: column;
@@ -342,7 +350,7 @@ main {
 .btn-vermelho {
   background-color: #43a047;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 50px;
   border: none;
   border-radius: 6px;
   cursor: pointer;

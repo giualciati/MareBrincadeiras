@@ -23,6 +23,9 @@ import { CarrinhoComponent } from "./pages/carrinho/carrinho.component";
 import { FavoritosComponent } from "./pages/favoritos/favoritos.component";
 import { EnderecoComponent } from "./pages/endereco/endereco.component";
 import { EnderecoFormComponent } from './pages/endereco-form/endereco-form.component';
+import { PedidosComponent } from "./pages/pedidos/pedidos.component";
+import { FinalizarComponent } from './pages/finalizar/finalizar.component';
+
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -50,5 +53,8 @@ export const routes: Routes = [
   {path: "carrinho", component: CarrinhoComponent},
   {path: "endereco", component: EnderecoComponent},
   { path: "endereco-form", component: EnderecoFormComponent },
+  { path: "pedidos", component: PedidosComponent }, 
+  { path: "finish", component: FinalizarComponent }, 
+
 { path: "**", redirectTo: "" }
 ];

@@ -1,0 +1,64 @@
+.finalizacao-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #3A86FF;
+    }
+  }
+  
+  .produto-detalhe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+  
+    img {
+      width: 140px;
+      height: auto;
+      border-radius: 10px;
+    }
+  
+    .info {
+      text-align: left;
+  
+      h2 {
+        margin: 0 0 10px;
+        font-size: 1.4em;
+        color: #333;
+      }
+  
+      .preco {
+        font-size: 1.2em;
+        color: #3A86FF;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  .btn-confirmar {
+    background-color: #3A86FF;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  
+    &:hover {
+      background-color: #265fcf;
+      transform: scale(1.03);
+    }
+  }
+  
+  
+  

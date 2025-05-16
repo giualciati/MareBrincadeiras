@@ -1,30 +1,49 @@
 import { Injectable } from '@angular/core';
+import { CustomersService } from './services/customers.service'; // ajuste o caminho se precisar
+import { Product } from './models/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritosService {
-  private brinquedos = [
-    {
-      nome: 'Brinquedo de Construção',
-      descricao: 'Um conjunto de peças para montar diversas formas e estruturas.',
-      imagem: 'https://via.placeholder.com/150'
-    },
-    {
-      nome: 'Boneca Fashion',
-      descricao: 'Boneca estilosa com roupas e acessórios modernos.',
-      imagem: 'https://via.placeholder.com/150'
-    },
-    {
-      nome: 'Carrinho de Controle Remoto',
-      descricao: 'Carrinho veloz para diversão a qualquer hora.',
-      imagem: 'https://via.placeholder.com/150'
+  private favoritosKeyPrefix = 'favoritos_';
+
+  constructor(private customersService: CustomersService) {}
+
+  private getUsuarioId(): string | null {
+    const usuario = this.customersService.getUsuarioLogado();
+    return usuario ? usuario.id.toString() : null;
+  }
+
+  listar(): Product[] {
+    const usuarioId = this.getUsuarioId();
+    if (!usuarioId) return [];
+
+    const favoritosJson = localStorage.getItem(this.favoritosKeyPrefix + usuarioId);
+    return favoritosJson ? JSON.parse(favoritosJson) : [];
+  }
+
+  adicionar(product: Product): void {
+    const usuarioId = this.getUsuarioId();
+    if (!usuarioId) return;
+
+    const favoritos = this.listar();
+
+    if (!favoritos.find(p => p.id === product.id)) {
+      favoritos.push(product);
+      localStorage.setItem(this.favoritosKeyPrefix + usuarioId, JSON.stringify(favoritos));
     }
-  ];
+  }
 
-  constructor() { }
+  remover(productId: number): void {
+    const usuarioId = this.getUsuarioId();
+    if (!usuarioId) return;
 
-  getFavoritos() {
-    return this.brinquedos;
+    let favoritos = this.listar();
+    favoritos = favoritos.filter(p => Number(p.id) !== productId);
+
+    localStorage.setItem(this.favoritosKeyPrefix + usuarioId, JSON.stringify(favoritos));
   }
 }
+
+

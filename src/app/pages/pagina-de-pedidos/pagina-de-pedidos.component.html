@@ -24,60 +24,47 @@
       <h2>Endereço de entrega</h2>
       <div class="endereco-info">
         <p>Antônio Batista Roberto (+55) 11 99999-0909 - R. Noberto Fraga, APTO 365, Paraíso, São Paulo, SP, 04125-090</p>
-        <a href="#" class="editar-endereco" title="Editar endereço">
+        <a [routerLink]="['/endereco']" class="editar-endereco" title="Editar endereço">
           <i class="fa-solid fa-pen-to-square"></i>
         </a>
-        
       </div>
     </div>
   </section>
-  
+
   <section class="pedido-produtos container">
     <h2 class="titulo-secao">Produtos Pedidos</h2>
-  
+
     <div class="pedido-box">
       <div class="info-vendedor">
         <i class="fa-solid fa-store"></i>
-        <span>Produto fornecido por Oceano Encantado</span>
+        <span>Produto fornecido por Mare de brincadeiras</span>
       </div>
-  
-      <div class="lista-produtos">
-     
-        <div class="produto-detalhado">
-          <img src="assets/img/moranguinho-1500-1.jpg" alt="Produto" />
-          
-          <div class="detalhes-produto">
-            <p class="nome-produto">Boneca Moranguinho anos 2000</p>
-          </div>
-      
-          <div class="quantidade-controle">
-            
-            <span class="quantidade">1</span>
-           
-          </div>
-      
-          <div class="preco-unidade">R$94,90</div>
-          <div class="subtotal">R$94,90</div>
-      
-         
+
+      <div *ngFor="let produto of produtos" class="produto-item">
+        <img [src]="produto.imagem" alt="{{ produto.nome }}" width="120" height="120" />
+        <p>{{ produto.nome }}</p>
+
+        <div class="quantidade-controle">
+          <span class="quantidade">{{ produto.quantidade }}</span>
+        </div>
+
+        <div class="subtotal">
+          R$ {{ produto.preco * produto.quantidade }}
         </div>
       </div>
-  
-      <div class="opcao-envio">
-        
-        <div class="envio-info">
-          <p><strong>Opção de envio:</strong> Entrega Padrão (CORREIOS)</p>
-          <p class="entrega-data">Receba até 25 dias úteis</p>
-          
-        </div>
-        <div class="frete-preco">R$23,87</div>
+    </div> 
+
+    <div class="opcao-envio">
+      <div class="envio-info">
+        <p><strong>Opção de envio:</strong> Entrega Padrão (SEDEX)</p>
+        <p class="entrega-data">Receba até 25 dias úteis</p>
       </div>
+      <div class="frete-preco">R$ 23,87</div>
     </div>
-  </section>
-  
-  
-  <div class="resumo-pedido">
     
+  </section> 
+
+  <div class="resumo-pedido">
     <div class="bloco metodos-pagamento">
       <p>Detalhes de pagamento</p>
       <div class="opcoes-pagamento">
@@ -89,40 +76,32 @@
         </button>
       </div>
     </div>
-    
 
-      <div class="linha-cinza"></div>
-  
+    <div class="linha-cinza"></div>
+
     <div class="bloco totais">
       <div class="linha-total">
         <span>Total dos Produtos</span>
-        <strong>R$94,90</strong>
+        <strong>R$ {{ totalProdutos | number:'1.2-2' }}</strong>
       </div>
       <div class="linha-total">
         <span>Total do Frete</span>
-        <strong>R$23,87</strong>
+        <strong>R$ {{ frete | number:'1.2-2' }}</strong>
       </div>
       <div class="linha-total total-final">
         <span>Pagamento Total</span>
-        <strong class="preco-final">R$118,77</strong>
+        <strong class="preco-final">R$ {{ pagamentoTotal | number:'1.2-2' }}</strong>
       </div>
     </div>
-  </div>
-  
-  <div class="botoes-finalizacao">
-    <button class="btn-vermelho" [routerLink]="['/products']">
-      Compre novamente
-    </button>
-    <button class="btn-avaliar" [routerLink]="['/']">
-      Avaliar
-    </button>
-  </div>
-  
-  
-  
-  
+  </div> 
 
-  
+  <div class="botoes-finalizacao">
+    <button class="btn-vermelho" [routerLink]="['/finish']">
+      Finalizar
+    </button>
+  </div>
 </main>
+
+
 
 

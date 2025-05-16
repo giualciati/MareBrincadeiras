@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="barra-pedidos">
+    <button class="btn-voltar" routerLink="/information" aria-label="Voltar">
+      <span class="seta"></span>
+    </button>
+    <span>Pedidos</span>
+  </div>
+  
+  
+
+<div class="pedido-container">
+  
+  <div class="status">
+    <span class="entregue"><i class="icon-truck"></i> Pedido entregue</span>
+    <span class="numero-pedido">#123456</span>
+    <span class="finalizado">FINALIZADO</span>
+  </div>
+
+  <div class="pedido-produto">
+    <img src="/assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png" alt="Termômetro" class="produto-img" />
+    <div class="produto-info">
+      <h3>Grande conjunto de presente com chocalhos e mordedores para bebês</h3>
+      <p>Variação: </p>
+      <p>x1</p>
+    </div>
+    <div class="preco">
+      <span class="original">R$400,00</span>
+      <span class="promocional">R$375,00</span>
+    </div>
+  </div>
+
+  <div class="pedido-footer">
+    <div class="total">
+      <span>Total do Pedido:</span>
+      <strong>R$375,00</strong>
+    </div>
+    <div class="frete-preco">Frete: R$ 23,87</div>
+    <div class="acoes">
+        <button class="btn comprar" [routerLink]="['/products']">Comprar Novamente</button>
+
+    </div>
+  </div>
+  
+</div>
+
+  
