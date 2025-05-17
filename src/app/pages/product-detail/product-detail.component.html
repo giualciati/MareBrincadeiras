@@ -1,11 +1,31 @@
 <app-header></app-header>
 
-<div class="container" *ngIf="product">
+<div *ngIf="loading" class="loading-container">
+  <p>Carregando detalhes do produto...</p>
+</div>
+
+<div *ngIf="error" class="error-container">
+  <div class="error-message">
+    <h2>Produto não encontrado</h2>
+    <p>Desculpe, não conseguimos encontrar o produto que você está procurando.</p>
+    <button class="back-button" routerLink="/produtos">Voltar para produtos</button>
+  </div>
+</div>
+
+<div class="container" *ngIf="!loading && !error && product">
   <!-- Product Details Section -->
   <div class="product-container">
-    <!-- Product Image -->
-    <div class="product-image">
-      <img [src]="product.imageUrl" [alt]="product.name" />
+    <!-- Product Image Gallery -->
+    <div class="product-gallery">
+      <div class="main-image">
+        <img [src]="selectedImage" [alt]="product.name" />
+      </div>
+      <div class="thumbnail-images" *ngIf="product.images && product.images.length > 1">
+        <div *ngFor="let image of product.images" class="thumbnail" [class.active]="selectedImage === image"
+          (click)="changeImage(image)">
+          <img [src]="image" [alt]="product.name" />
+        </div>
+      </div>
     </div>
 
     <!-- Product Info -->
@@ -13,17 +33,23 @@
       <h1 class="product-title">{{ product.name }}</h1>
 
       <div class="price-container product-price-main">
-        <p class="price">R${{ product.price.toFixed(2).replace('.', ',') }}</p>
-        <p class="old-price" *ngIf="product.oldPrice">R${{ product.oldPrice.toFixed(2).replace('.', ',') }}</p>
+        <p class="price">R${{ product.value.toFixed(2).replace('.', ',') }}</p>
+        <p class="old-price" *ngIf="product.oldValue">R${{ product.oldValue.toFixed(2).replace('.', ',') }}</p>
+        <span class="discount-badge" *ngIf="product.discount">-{{ product.discount }}%</span>
       </div>
 
       <div class="product-description">
         <p>{{ product.description }}</p>
       </div>
 
+      <div class="stock-info" [ngClass]="{'low-stock': isLowStock(), 'out-of-stock': !isInStock()}">
+        <span *ngIf="isInStock()">Em estoque: {{ product.quantity }} unidades</span>
+        <span *ngIf="!isInStock()">Produto fora de estoque</span>
+      </div>
+
       <!-- Share buttons -->
       <div class="share-section">
-        <p>Share this:</p>
+        <p>Compartilhar:</p>
         <div class="share-buttons">
           <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
           <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
@@ -34,16 +60,17 @@
       <!-- Quantity and Add to Cart -->
       <div class="purchase-actions">
         <div class="quantity-selector">
-          <button class="quantity-btn minus-btn" (click)="decreaseQuantity()">
+          <button class="quantity-btn minus-btn" (click)="decreaseQuantity()" [disabled]="!isInStock()">
             <i class="fas fa-minus"></i>
           </button>
           <input type="text" [value]="quantity" class="quantity-input" readonly />
-          <button class="quantity-btn plus-btn" (click)="increaseQuantity()">
+          <button class="quantity-btn plus-btn" (click)="increaseQuantity()"
+            [disabled]="!isInStock() || quantity >= product.quantity">
             <i class="fas fa-plus"></i>
           </button>
         </div>
 
-        <button class="buy-now-btn">Comprar agora</button>
+        <button class="buy-now-btn" [disabled]="!isInStock()">Comprar agora</button>
 
         <button class="favorite-btn" [class.active]="product.isFavorite" (click)="toggleFavorite()">
           <i class="fa-heart" [ngClass]="product.isFavorite ? 'fas' : 'far'"></i>
@@ -59,7 +86,7 @@
         Descrição
       </button>
       <button class="tab-btn" [class.active]="activeTab === 'feedback'" (click)="setActiveTab('feedback')">
-        Feedback <span>({{ feedbacks.length }})</span>
+        Avaliações <span>({{ feedbacks.length }})</span>
       </button>
     </div>
 
@@ -67,12 +94,13 @@
       <!-- Description Tab -->
       <div class="tab-pane" [class.active]="activeTab === 'description'" id="description">
         <p>{{ product.description }}</p>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-          cupidatat non proident, sunt in culpa qui officia deserunt mollit
-          anim id est laborum.
-        </p>
+        <div class="product-specs" *ngIf="product.color || product.size">
+          <h3>Especificações:</h3>
+          <ul>
+            <li *ngIf="product.color"><strong>Cor:</strong> {{ product.color }}</li>
+            <li *ngIf="product.size"><strong>Tamanho:</strong> {{ product.size }}</li>
+          </ul>
+        </div>
       </div>
 
       <!-- Feedback Tab -->
@@ -84,8 +112,8 @@
               <div class="feedback-date">{{ formatDate(feedback.date) }}</div>
             </div>
             <div class="star-rating">
-              <i *ngFor="let star of [1, 2, 3, 4, 5]" 
-                 [ngClass]="star <= feedback.rating ? 'fas fa-star' : 'far fa-star'"></i>
+              <i *ngFor="let star of [1, 2, 3, 4, 5]"
+                [ngClass]="star <= feedback.rating ? 'fas fa-star' : 'far fa-star'"></i>
             </div>
             <div class="feedback-text">{{ feedback.comment }}</div>
           </div>
@@ -96,19 +124,11 @@
 
   <!-- Related Products -->
   <div class="related-products">
-    <h2>Outros Produtos</h2>
+    <h2>Produtos Relacionados</h2>
 
     <div class="products">
       <app-product-card *ngFor="let product of relatedProducts" [product]="product"></app-product-card>
     </div>
-  </div>
-</div>
-
-<div class="container" *ngIf="!product">
-  <div class="error-message">
-    <h2>Produto não encontrado</h2>
-    <p>Desculpe, não conseguimos encontrar o produto que você está procurando.</p>
-    <button class="back-button" routerLink="/produtos">Voltar para produtos</button>
   </div>
 </div>
 

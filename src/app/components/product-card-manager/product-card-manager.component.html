@@ -1,17 +1,16 @@
 <p-toast></p-toast>
 <div class="cards">
-  
-    <div *ngFor="let product of products" class="card">
-      <div class="card-elements">
-        <img [src]="product.image" alt="{{ product.name }}"> 
-        <h1>{{ product.name }}</h1>
-        <p>CÓD {{ product.id }}</p>
-  
-        <div class="edit-delete-cards">
-          <img (click)="editarProduto(product.id)" src="./assets/img/edit.png" alt="Editar"> 
-          <img (click)="deletarProduto(product.id)" src="./assets/img/delete.png" alt="Excluir">
-        </div>
+
+  <div *ngFor="let product of products" class="card">
+    <div class="card-elements">
+      <img [src]="product.image" alt="{{ product.name }}">
+      <h1>{{ product.name }}</h1>
+      <p>CÓD {{ product.id }}</p>
+
+      <div class="edit-delete-cards">
+        <img (click)="editarProduto(product.id)" src="./assets/img/edit.png" alt="Editar">
+        <img (click)="deletarProduto(product.id)" src="./assets/img/delete.png" alt="Excluir">
       </div>
     </div>
   </div>
-  
+</div>

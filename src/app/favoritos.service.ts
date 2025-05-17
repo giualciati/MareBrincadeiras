@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CustomersService } from './services/customers.service'; // ajuste o caminho se precisar
-import { Product } from './models/product';
+import { Product } from './services/types/product';
 
 @Injectable({
   providedIn: 'root'

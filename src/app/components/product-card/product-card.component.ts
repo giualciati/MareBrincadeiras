@@ -1,7 +1,7 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { RouterLink, Router } from "@angular/router";
 import { CommonModule } from "@angular/common";
-import type { Product } from "../../models/product";
+import { Product } from "../../services/types/product";
 
 @Component({
   selector: "app-product-card",
@@ -12,26 +12,19 @@ import type { Product } from "../../models/product";
 })
 export class ProductCardComponent {
   @Input() product!: Product;
-  @Input() isFavorite: boolean = false;
-  @Output() favoriteToggled = new EventEmitter<{ event: Event; product: Product }>();
 
+  constructor(private router: Router) { }
 
-  constructor(private router: Router) {}
-
-  toggleFavorite(event: Event, product: Product): void {
+  toggleFavorite(event: Event): void {
     event.preventDefault();
-   this.favoriteToggled.emit({ event, product: this.product });
-   }
-
-  viewProduct(event: Event, productId: string): void {
-    event.preventDefault();
-    console.log("View product clicked for ID:", productId);
-    
+    this.product.isFavorite = !this.product.isFavorite;
+    console.log("Product favorite toggled:", this.product.id, this.product.isFavorite);
   }
+
+  viewProduct(event: Event, productId: number): void {
+    event.preventDefault();
+    this.router.navigate(["/product", productId]);
+  }
+
+
 }
-
-
-
-
-
-

@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
 import { FavoritosService } from '../../favoritos.service';
 import { HeaderComponent } from '../../components/header/header.component';
-import { Product } from "../../models/product";
+import { Product } from '../../services/types/product';
 
 @Component({
   selector: 'app-favoritos',

@@ -5,7 +5,7 @@ import { ProductCardComponent } from "../../components/product-card/product-card
 import { HeaderComponent } from "../../components/header/header.component";
 import { FooterComponent } from "../../components/footer/footer.component";
 import { ProductService } from "../../core/services/product.service";
-import { Product } from "../../models/product";
+import { Product } from "../../services/types/product";
 import { FavoritosService } from "../../favoritos.service";
 
 @Component({
@@ -96,13 +96,3 @@ export class ProductPageComponent implements OnInit {
   
 
 }
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core"
-import { type Observable, of } from "rxjs"
-import type { Product } from "../../models/product"
+import { Product } from "../../services/types/product"
 
 @Injectable({
   providedIn: "root",
@@ -8,14 +7,21 @@ import type { Product } from "../../models/product"
 export class ProductService {
   private products: Product[] = [
     {
-      id: "1",
+      id: 1,
       name: "Brinquedo prático para crianças: Guindaste de madeira",
-      price: 960,
-      oldPrice: 1160,
-      discount: 35,
-      imageUrl: "assets/img/6bca124e-2984-4a1d-9a60-9a92749cf036.png",
       description:
         "Este guindaste de madeira é perfeito para desenvolver habilidades motoras e criatividade em crianças. Fabricado com madeira de reflorestamento de alta qualidade, possui acabamento liso e seguro, sem farpas ou rebarbas. O brinquedo inclui peças móveis que permitem simular operações reais de um guindaste, estimulando o raciocínio lógico e a coordenação motora. Ideal para crianças a partir de 3 anos, este guindaste resistente proporcionará horas de diversão educativa.",
+      categoryId: 1, // Categoria: Brinquedos educativos
+      color: "Natural",
+      size: "Médio",
+      value: 960,
+      oldValue: 1160,
+      discount: 35,
+      quantity: 15,
+      image: "assets/img/6bca124e-2984-4a1d-9a60-9a92749cf036.png",
+      images: [
+        "assets/img/6bca124e-2984-4a1d-9a60-9a92749cf036.png",
+      ],
       isFavorite: false,
       feedbacks: [
         {
@@ -42,14 +48,21 @@ export class ProductService {
       ],
     },
     {
-      id: "2",
+      id: 2,
       name: "Grande conjunto de presente com chocalhos e mordedores para bebês",
-      price: 375,
-      oldPrice: 400,
-      discount: 25,
-      imageUrl: "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png",
       description:
         "Este conjunto completo de chocalhos e mordedores é o presente ideal para bebês em fase de desenvolvimento sensorial. Contém 8 peças coloridas com diferentes texturas, sons e formatos, projetadas para estimular os sentidos do bebê. Os mordedores possuem partes macias e texturizadas que aliviam o desconforto durante a dentição. Todos os itens são fabricados com materiais atóxicos, livres de BPA e fáceis de limpar. Recomendado para bebês a partir de 3 meses.",
+      categoryId: 2, // Categoria: Brinquedos para bebês
+      color: "Colorido",
+      size: "Pequeno",
+      value: 375,
+      oldValue: 400,
+      discount: 25,
+      quantity: 20,
+      image: "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png",
+      images: [
+        "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png",
+      ],
       isFavorite: false,
       feedbacks: [
         {
@@ -76,12 +89,19 @@ export class ProductService {
       ],
     },
     {
-      id: "3",
+      id: 3,
       name: "Estrutura de escalada para crianças",
-      price: 120,
-      imageUrl: "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png",
       description:
         "Esta estrutura de escalada foi projetada para proporcionar diversão e desenvolvimento físico para crianças. Fabricada com plástico resistente e durável, suporta até 50kg e pode ser usada tanto em ambientes internos quanto externos. A estrutura inclui diferentes níveis de escalada, escorregador e túnel, estimulando a coordenação motora, equilíbrio e confiança. As cores vibrantes e o design lúdico tornam este brinquedo irresistível para as crianças. Montagem fácil e rápida, sem necessidade de ferramentas especiais.",
+      categoryId: 3, // Categoria: Brinquedos para atividades físicas
+      color: "Multicolorido",
+      size: "Grande",
+      value: 120,
+      quantity: 8,
+      image: "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png",
+      images: [
+        "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png",
+      ],
       isFavorite: false,
       feedbacks: [
         {
@@ -108,14 +128,21 @@ export class ProductService {
       ],
     },
     {
-      id: "4",
+      id: 4,
       name: "Conjunto de chocalhos de madeira",
-      price: 370,
-      oldPrice: 400,
-      discount: 30,
-      imageUrl: "assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png",
       description:
         "Este conjunto de chocalhos de madeira traz 5 peças artesanais, cada uma com um som único e agradável. Fabricados com madeira natural e tingidos com corantes não tóxicos à base de água, são seguros para o contato com a boca do bebê. Os diferentes formatos e cores estimulam a percepção visual, enquanto os sons distintos desenvolvem a discriminação auditiva. O tamanho é ideal para as mãozinhas dos bebês, ajudando no desenvolvimento da preensão. Recomendado para bebês a partir de 6 meses.",
+      categoryId: 2, // Categoria: Brinquedos para bebês
+      color: "Madeira",
+      size: "Pequeno",
+      value: 370,
+      oldValue: 400,
+      discount: 30,
+      quantity: 12,
+      image: "assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png",
+      images: [
+        "assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png",
+      ],
       isFavorite: false,
       feedbacks: [
         {
@@ -142,14 +169,21 @@ export class ProductService {
       ],
     },
     {
-      id: "5",
+      id: 5,
       name: "Kit de blocos de construção magnéticos",
-      price: 450,
-      oldPrice: 520,
-      discount: 15,
-      imageUrl: "assets/img/6bca124e-2984-4a1d-9a60-9a92749cf036.png",
       description:
         "Este kit de blocos magnéticos contém 60 peças coloridas que se conectam facilmente através de ímãs embutidos. Ideal para estimular a criatividade e o raciocínio espacial, permite a construção de estruturas 2D e 3D. As peças são grandes o suficiente para evitar riscos de engasgamento e fabricadas com plástico ABS de alta qualidade. O conjunto vem em uma caixa organizadora e inclui um guia com sugestões de construções. Perfeito para crianças a partir de 3 anos que gostam de criar e explorar.",
+      categoryId: 1, // Categoria: Brinquedos educativos
+      color: "Colorido",
+      size: "Médio",
+      value: 450,
+      oldValue: 520,
+      discount: 15,
+      quantity: 10,
+      image: "assets/img/6bca124e-2984-4a1d-9a60-9a92749cf036.png",
+      images: [
+        "assets/img/6bca124e-2984-4a1d-9a60-9a92749cf036.png",
+      ],
       isFavorite: false,
       feedbacks: [
         {
@@ -176,14 +210,21 @@ export class ProductService {
       ],
     },
     {
-      id: "6",
+      id: 6,
       name: "Boneca interativa com sons e movimentos",
-      price: 290,
-      oldPrice: 350,
-      discount: 20,
-      imageUrl: "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png",
       description:
         "Esta boneca interativa responde ao toque e à voz com mais de 50 sons e frases diferentes. Seus braços e pernas são articulados, permitindo diversas posições. Os olhos se abrem e fecham, e ela emite sons de risada quando balançada. Vem vestida com roupas removíveis e laváveis, e acompanha mamadeira, chupeta e uma muda extra de roupa. Funciona com 3 pilhas AA (inclusas). A boneca estimula o cuidado, a afetividade e a imaginação em crianças a partir de 2 anos.",
+      categoryId: 4, // Categoria: Bonecas e bonecos
+      color: "Rosa",
+      size: "Médio",
+      value: 290,
+      oldValue: 350,
+      discount: 20,
+      quantity: 18,
+      image: "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png",
+      images: [
+        "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png",
+      ],
       isFavorite: false,
       feedbacks: [
         {
@@ -210,12 +251,19 @@ export class ProductService {
       ],
     },
     {
-      id: "7",
+      id: 7,
       name: "Tapete de atividades com piano para bebês",
-      price: 180,
-      imageUrl: "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png",
       description:
         "Este tapete de atividades multifuncional possui um mini piano que emite sons quando pressionado pelos pezinhos do bebê. Inclui 5 brinquedos pendentes removíveis com diferentes texturas e sons, além de um espelho seguro para o bebê se reconhecer. O Atapete é acolchoado, com tecido macio e lavável, proporcionando conforto durante as brincadeiras. As cores vibrantes e os elementos interativos estimulam o desenvolvimento sensorial, motor e cognitivo. Ideal para bebês desde o nascimento até 12 meses.",
+      categoryId: 2, // Categoria: Brinquedos para bebês
+      color: "Azul",
+      size: "Grande",
+      value: 180,
+      quantity: 14,
+      image: "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png",
+      images: [
+        "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png",
+      ],
       isFavorite: false,
       feedbacks: [
         {
@@ -242,14 +290,21 @@ export class ProductService {
       ],
     },
     {
-      id: "8",
+      id: 8,
       name: "Kit de instrumentos musicais infantis",
-      price: 210,
-      oldPrice: 250,
-      discount: 16,
-      imageUrl: "assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png",
       description:
         "Este kit completo de instrumentos musicais infantis contém 10 peças, incluindo tambor, xilofone, maracas, castanholas, pandeiro e apito. Todos os instrumentos são fabricados com materiais resistentes e seguros, em tamanhos adequados para mãos pequenas. O conjunto estimula a percepção auditiva, o senso rítmico e a coordenação motora, além de proporcionar momentos de diversão em família. Vem em uma sacola de tecido para fácil armazenamento. Recomendado para crianças a partir de 2 anos que amam música e sons.",
+      categoryId: 5, // Categoria: Instrumentos musicais infantis
+      color: "Multicolorido",
+      size: "Médio",
+      value: 210,
+      oldValue: 250,
+      discount: 16,
+      quantity: 9,
+      image: "assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png",
+      images: [
+        "assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png",
+      ],
       isFavorite: false,
       feedbacks: [
         {
@@ -275,141 +330,9 @@ export class ProductService {
         },
       ],
     },
-    {
-      id: "9",
-      name: "Quebra-cabeça educativo de madeira",
-      price: 85,
-      imageUrl: "assets/img/6bca124e-2984-4a1d-9a60-9a92749cf036.png",
-      description:
-        "Este quebra-cabeça educativo de madeira apresenta o mapa-múndi com cores vibrantes e detalhes dos continentes e oceanos. Contém 48 peças de tamanho adequado para mãos pequenas, com encaixes perfeitos e acabamento liso. Além de ser divertido, ajuda a desenvolver habilidades cognitivas, coordenação motora fina e conhecimentos geográficos. A madeira utilizada é proveniente de fontes sustentáveis e os corantes são atóxicos. Ideal para crianças a partir de 5 anos que gostam de desafios e aprendizado.",
-      isFavorite: false,
-      feedbacks: [
-        {
-          name: "Cristina Alves",
-          rating: 5,
-          date: "2023-11-15",
-          comment:
-            "Excelente quebra-cabeça! Meu filho de 6 anos está aprendendo geografia enquanto se diverte. A qualidade da madeira é ótima e as peças são resistentes.",
-        },
-        {
-          name: "Ricardo Nunes",
-          rating: 4,
-          date: "2023-10-28",
-          comment:
-            "Muito bom para o desenvolvimento cognitivo. As peças são bem cortadas e o encaixe é perfeito. Só não dou 5 estrelas porque a caixa poderia ser mais resistente para guardar.",
-        },
-        {
-          name: "Mônica Silveira",
-          rating: 5,
-          date: "2023-10-05",
-          comment:
-            "Comprei para minha sala de aula e as crianças adoraram! É um ótimo recurso pedagógico e muito divertido. Recomendo para pais e professores.",
-        },
-      ],
-    },
-    {
-      id: "10",
-      name: "Cozinha infantil completa",
-      price: 550,
-      oldPrice: 650,
-      discount: 15,
-      imageUrl: "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png",
-      description:
-        "Esta cozinha infantil completa é perfeita para estimular a imaginação e o jogo de faz-de-conta. Fabricada em MDF de alta qualidade, possui fogão, pia, geladeira, micro-ondas e armários com portas que abrem e fecham. Acompanha 15 acessórios, incluindo panelinhas, talheres e alimentos de brinquedo. As torneiras giram e os botões do fogão fazem barulho de clique. Com altura ideal para crianças de 3 a 8 anos, proporciona horas de diversão enquanto desenvolve habilidades sociais e criatividade.",
-      isFavorite: false,
-      feedbacks: [
-        {
-          name: "Vanessa Martins",
-          rating: 5,
-          date: "2023-11-20",
-          comment:
-            "Cozinha maravilhosa! Minha filha não sai de perto. A qualidade é excelente e a montagem foi mais fácil do que esperava. Vale cada centavo!",
-        },
-        {
-          name: "Bruno Campos",
-          rating: 4,
-          date: "2023-10-30",
-          comment:
-            "Produto muito bom, resistente e bonito. Meus gêmeos adoraram. Só não dou 5 estrelas porque algumas instruções de montagem não estavam muito claras.",
-        },
-        {
-          name: "Tatiana Ferreira",
-          rating: 5,
-          date: "2023-10-12",
-          comment:
-            "Melhor brinquedo que já comprei! Minha filha brinca todos os dias, inventando receitas e servindo 'comidinha'. Ótimo para desenvolver a criatividade e independência.",
-        },
-      ],
-    },
-    {
-      id: "11",
-      name: "Pista de carrinhos com looping",
-      price: 320,
-      oldPrice: 380,
-      discount: 16,
-      imageUrl: "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png",
-      description:
-        "Esta incrível pista de carrinhos possui um looping de 360 graus e rampas de alta velocidade que garantem manobras emocionantes. O conjunto inclui 2 carrinhos de metal com rodas de alta performance e um lançador automático que impulsiona os veículos. A pista é modular e pode ser montada em diferentes configurações, estimulando a criatividade e o raciocínio espacial. Fabricada com plástico resistente e colorido, proporciona horas de diversão para crianças a partir de 4 anos que amam carros e velocidade.",
-      isFavorite: false,
-      feedbacks: [
-        {
-          name: "Felipe Mendonça",
-          rating: 5,
-          date: "2023-11-18",
-          comment:
-            "Pista sensacional! Meu filho de 5 anos ficou encantado com o looping. Os carrinhos são rápidos e a pista é muito resistente. Diversão garantida!",
-        },
-        {
-          name: "Aline Rodrigues",
-          rating: 4,
-          date: "2023-10-25",
-          comment:
-            "Produto muito bom, meu filho adora. A montagem é relativamente fácil e as peças encaixam bem. Só não dou 5 estrelas porque o lançador às vezes falha.",
-        },
-        {
-          name: "Gustavo Lima",
-          rating: 5,
-          date: "2023-10-08",
-          comment:
-            "Melhor pista que já comprei! As manobras são incríveis e os carrinhos realmente completam o looping. Meu filho e os amigos passam horas brincando.",
-        },
-      ],
-    },
-    {
-      id: "12",
-      name: "Jogo de tabuleiro educativo sobre ciências",
-      price: 140,
-      imageUrl: "assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png",
-      description:
-        "Este jogo de tabuleiro educativo sobre ciências combina diversão e aprendizado em uma experiência única. Os jogadores avançam pelo tabuleiro respondendo perguntas sobre biologia, química, física e astronomia, com níveis de dificuldade ajustáveis. Inclui 200 cartas de perguntas, peões coloridos, dado e manual com regras e curiosidades científicas. Desenvolvido por educadores, o jogo estimula o raciocínio lógico, trabalho em equipe e interesse pelas ciências. Ideal para crianças a partir de 8 anos e excelente para atividades em família.",
-      isFavorite: false,
-      feedbacks: [
-        {
-          name: "Cláudia Ferreira",
-          rating: 5,
-          date: "2023-11-22",
-          comment:
-            "Jogo fantástico! Como professora de ciências, fiquei impressionada com a qualidade das perguntas e informações. Meus alunos adoraram e aprenderam muito.",
-        },
-        {
-          name: "Marcelo Dias",
-          rating: 5,
-          date: "2023-11-05",
-          comment:
-            "Excelente jogo educativo! Compramos para jogar em família e todos se divertem, inclusive os adultos. As perguntas são interessantes e os níveis diferentes permitem que todos participem.",
-        },
-        {
-          name: "Luciana Castro",
-          rating: 4,
-          date: "2023-10-18",
-          comment:
-            "Muito bom para estimular o interesse por ciências. Meu filho de 9 anos adora e sempre quer jogar. Só não dou 5 estrelas porque algumas cartas são um pouco avançadas para a idade dele.",
-        },
-      ],
-    },
   ]
 
-  constructor() {}
+  constructor() { }
 
   getAllProducts(): Product[] {
     console.log("getAllProducts called, returning", this.products.length, "products")
@@ -433,18 +356,33 @@ export class ProductService {
     return this.products.slice(0, 4)
   }
 
-  getProductById(id: string): Product | undefined {
+  getProductById(id: number): Product | undefined {
     console.log("getProductById called with id:", id)
     const product = this.products.find((product) => product.id === id)
     console.log("Product found:", product ? "Yes" : "No")
     return product
   }
 
-  getRelatedProducts(currentProductId: string): Product[] {
+  getRelatedProducts(currentProductId: number): Product[] {
     console.log("getRelatedProducts called for product id:", currentProductId)
     const related = this.products.filter((product) => product.id !== currentProductId).slice(0, 3)
     console.log("Related products found:", related.length)
     return related
   }
-}
 
+  // Método para obter produtos por categoria
+  getProductsByCategory(categoryId: number): Product[] {
+    return this.products.filter((product) => product.categoryId === categoryId)
+  }
+
+  // Método para buscar produtos
+  searchProducts(term: string): Product[] {
+    term = term.toLowerCase()
+    return this.products.filter(
+      (product) =>
+        product.name.toLowerCase().includes(term) ||
+        product.description.toLowerCase().includes(term) ||
+        product.color.toLowerCase().includes(term),
+    )
+  }
+}
