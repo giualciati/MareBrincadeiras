@@ -1,12 +1,12 @@
 import { Component, Input } from "@angular/core";
-import { RouterLink, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { Product } from "../../services/types/product";
 
 @Component({
   selector: "app-product-card",
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [CommonModule],
   templateUrl: "./product-card.component.html",
   styleUrls: ["./product-card.component.scss"],
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ProductCardComponent } from "../../components/product-card/product-card.component";
 import { HeaderComponent } from "../../components/header/header.component";
 import { FooterComponent } from "../../components/footer/footer.component";
@@ -16,7 +16,6 @@ import { FavoritosService } from "../../favoritos.service";
     ProductCardComponent,
     HeaderComponent,
     FooterComponent,
-    RouterLink
   ],
   templateUrl: "./product-page.component.html",
   styleUrls: ["./product-page.component.scss"]
@@ -34,7 +33,7 @@ export class ProductPageComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private favoritosService: FavoritosService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -82,17 +81,17 @@ export class ProductPageComponent implements OnInit {
 
   toggleFavorite(event: Event, product: Product): void {
     event.preventDefault();
-  
-    
+
+
     if (product.isFavorite) {
       this.favoritosService.remover(Number(product.id));
 
     } else {
       this.favoritosService.adicionar(product);
     }
-  
+
     product.isFavorite = !product.isFavorite;
   }
-  
+
 
 }
