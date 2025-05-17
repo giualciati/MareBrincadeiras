@@ -1,9 +1,10 @@
 <div class="product">
   <span class="discount" *ngIf="product.discount">-{{ product.discount }}%</span>
   <div class="icons">
-    <a href="#" (click)="toggleFavorite($event)">
-      <i class="fas fa-heart" [ngClass]="{'active': product.isFavorite}"></i>
-    </a>
+    <button class="favorite-icon" (click)="toggleFavorite($event)" [class.active]="product.isFavorite"
+      aria-label="Favoritar produto">
+      <i [ngClass]="product.isFavorite ? 'fas fa-heart' : 'far fa-heart'"></i>
+    </button>
     <a href="#" (click)="viewProduct($event, product.id)">
       <i class="fas fa-eye"></i>
     </a>

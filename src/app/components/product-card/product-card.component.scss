@@ -98,9 +98,10 @@
     right: 10px;
     gap: 10px;
 
-    a {
+    a, button {
       color: $primary-color;
       font-size: 24px;
+      background: transparent;
       transition: color 0.3s ease;
 
       &:hover {

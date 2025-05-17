@@ -20,11 +20,9 @@ export class ProductCardComponent {
     this.product.isFavorite = !this.product.isFavorite;
     console.log("Product favorite toggled:", this.product.id, this.product.isFavorite);
   }
-
   viewProduct(event: Event, productId: number): void {
     event.preventDefault();
     this.router.navigate(["/product", productId]);
   }
-
 
 }
