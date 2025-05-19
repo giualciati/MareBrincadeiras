@@ -1,39 +1,45 @@
 <app-header></app-header>
 
-<!-- Conteúdo Principal - Produtos -->
 <main class="produtos-container">
-  <h1 class="produtos-titulo">Produtos</h1>
-  
-  <div class="products">
-    <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+  <div class="produtos-header">
+    <h1 class="produtos-titulo">Produtos</h1>
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterProducts()" placeholder="Pesquisar produtos..."
+        class="search-input">
+      <i class="fas fa-search search-icon"></i>
+      <button *ngIf="searchTerm" class="clear-search" (click)="clearSearch()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
   </div>
-  
+
+  <!-- Mensagem de Nenhum Produto Encontrado -->
+  <div class="no-products-found" *ngIf="searchTerm && filteredProducts.length === 0">
+    <div class="no-products-message">
+      <i class="fas fa-search no-products-icon"></i>
+      <p>Nenhum produto encontrado para "<strong>{{ searchTerm }}</strong>"</p>
+    </div>
+  </div>
+
+  <!-- Lista de Produtos -->
+  <div class="products" *ngIf="!searchTerm || filteredProducts.length > 0">
+    <app-product-card *ngFor="let product of displayedProducts" [product]="product"></app-product-card>
+  </div>
+
   <!-- Paginação -->
-  <div class="pagination" *ngIf="totalPages > 1">
-    <button 
-      class="pagination-button" 
-      [disabled]="currentPage === 1"
-      (click)="previousPage()"
-    >
+  <div class="pagination" *ngIf="totalPages > 1 && (!searchTerm || filteredProducts.length > 0)">
+    <button class="pagination-button" [disabled]="currentPage === 1" (click)="previousPage()">
       <i class="fas fa-chevron-left"></i>
     </button>
-    
+
     <div class="pagination-numbers">
-      <button 
-        *ngFor="let page of pages" 
-        class="pagination-number" 
-        [class.active]="page === currentPage"
-        (click)="goToPage(page)"
-      >
+      <button *ngFor="let page of pages" class="pagination-number" [class.active]="page === currentPage"
+        (click)="goToPage(page)">
         {{ page }}
       </button>
     </div>
-    
-    <button 
-      class="pagination-button" 
-      [disabled]="currentPage === totalPages"
-      (click)="nextPage()"
-    >
+
+    <button class="pagination-button" [disabled]="currentPage === totalPages" (click)="nextPage()">
       <i class="fas fa-chevron-right"></i>
     </button>
   </div>

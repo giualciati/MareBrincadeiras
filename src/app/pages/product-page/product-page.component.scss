@@ -3,13 +3,93 @@
 .produtos-container {
   max-width: 1400px;
   margin: 30px auto;
+  min-height: 70vh;
   padding: 0 20px;
+}
+
+.produtos-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 240px;
 }
 
 .produtos-titulo {
   color: $primary-color;
   font-size: 46px;
-  margin-bottom: 30px;
+  margin: 0;
+}
+
+// Campo de Pesquisa
+.search-container {
+  position: relative;
+  width: 300px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 40px 10px 40px;
+  border: 2px solid $primary-color;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
+  }
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $primary-color;
+}
+
+.clear-search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 5px;
+  
+  &:hover {
+    color: #666;
+  }
+}
+
+// Mensagem de Nenhum Produto Encontrado
+.no-products-found {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.no-products-message {
+  text-align: center;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  max-width: 500px;
+  
+  .no-products-icon {
+    font-size: 40px;
+    color: #ccc;
+    margin-bottom: 15px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #666;
+    margin: 0;
+  }
 }
 
 .products {
@@ -87,9 +167,19 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
+  .produtos-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
   .produtos-titulo {
     font-size: 36px;
     text-align: center;
+    width: 100%;
+  }
+  
+  .search-container {
+    width: 100%;
   }
   
   .products { 

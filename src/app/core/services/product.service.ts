@@ -330,6 +330,90 @@ export class ProductService {
         },
       ],
     },
+
+    {
+      id: 9,
+      name: "Kit de instrumentos musicais infantis",
+      description:
+        "Este kit completo de instrumentos musicais infantis contém 10 peças, incluindo tambor, xilofone, maracas, castanholas, pandeiro e apito. Todos os instrumentos são fabricados com materiais resistentes e seguros, em tamanhos adequados para mãos pequenas. O conjunto estimula a percepção auditiva, o senso rítmico e a coordenação motora, além de proporcionar momentos de diversão em família. Vem em uma sacola de tecido para fácil armazenamento. Recomendado para crianças a partir de 2 anos que amam música e sons.",
+      categoryId: 5, // Categoria: Instrumentos musicais infantis
+      color: "Multicolorido",
+      size: "Médio",
+      value: 210,
+      oldValue: 250,
+      discount: 16,
+      quantity: 9,
+      image: "assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png",
+      images: [
+        "assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png",
+      ],
+      isFavorite: false,
+      feedbacks: [
+        {
+          name: "Fábio Cardoso",
+          rating: 5,
+          date: "2023-11-12",
+          comment:
+            "Kit fantástico! Meu filho de 3 anos está adorando explorar os diferentes sons. A qualidade dos instrumentos é surpreendente para o preço. Ótimo para desenvolver habilidades musicais.",
+        },
+        {
+          name: "Amanda Rocha",
+          rating: 4,
+          date: "2023-10-19",
+          comment:
+            "Excelente conjunto de instrumentos. As crianças adoram e os sons são agradáveis (para instrumentos infantis). A sacola para guardar é muito útil. Só não dou 5 estrelas porque o tambor poderia ser um pouco mais resistente.",
+        },
+        {
+          name: "Eduardo Mello",
+          rating: 5,
+          date: "2023-09-27",
+          comment:
+            "Comprei para minha escola de música infantil e foi um sucesso! As crianças adoram explorar os diferentes instrumentos e sons. Ótima qualidade e durabilidade.",
+        },
+      ],
+    },
+
+    {
+      id: 10,
+      name: "Kit de instrumentos musicais infantis",
+      description:
+        "Este kit completo de instrumentos musicais infantis contém 10 peças, incluindo tambor, xilofone, maracas, castanholas, pandeiro e apito. Todos os instrumentos são fabricados com materiais resistentes e seguros, em tamanhos adequados para mãos pequenas. O conjunto estimula a percepção auditiva, o senso rítmico e a coordenação motora, além de proporcionar momentos de diversão em família. Vem em uma sacola de tecido para fácil armazenamento. Recomendado para crianças a partir de 2 anos que amam música e sons.",
+      categoryId: 5, // Categoria: Instrumentos musicais infantis
+      color: "Multicolorido",
+      size: "Médio",
+      value: 210,
+      oldValue: 250,
+      discount: 16,
+      quantity: 9,
+      image: "assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png",
+      images: [
+        "assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png",
+      ],
+      isFavorite: false,
+      feedbacks: [
+        {
+          name: "Fábio Cardoso",
+          rating: 5,
+          date: "2023-11-12",
+          comment:
+            "Kit fantástico! Meu filho de 3 anos está adorando explorar os diferentes sons. A qualidade dos instrumentos é surpreendente para o preço. Ótimo para desenvolver habilidades musicais.",
+        },
+        {
+          name: "Amanda Rocha",
+          rating: 4,
+          date: "2023-10-19",
+          comment:
+            "Excelente conjunto de instrumentos. As crianças adoram e os sons são agradáveis (para instrumentos infantis). A sacola para guardar é muito útil. Só não dou 5 estrelas porque o tambor poderia ser um pouco mais resistente.",
+        },
+        {
+          name: "Eduardo Mello",
+          rating: 5,
+          date: "2023-09-27",
+          comment:
+            "Comprei para minha escola de música infantil e foi um sucesso! As crianças adoram explorar os diferentes instrumentos e sons. Ótima qualidade e durabilidade.",
+        },
+      ],
+    },
   ]
 
   constructor() { }
