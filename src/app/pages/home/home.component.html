@@ -17,7 +17,7 @@
   <h1>Categoria</h1>
   <div class="products">
     @for (product of products; track product.id) {
-      <app-product-card [product]="product"></app-product-card>
+    <app-product-card [product]="product"></app-product-card>
     }
   </div>
   <div class="all-products">
@@ -39,33 +39,33 @@
         <p class="original-price">R$ 299,90</p>
         <p class="discounted-price">R$ 199,90</p>
       </div>
-      
+
       <!-- Countdown -->
       @if (!isFinished) {
-        <div class="countdown">
-          <div class="time-box">
-            <span>{{countdown.days | number:'2.0-0'}}</span>
-            <p>Dias</p>
-          </div>
-          <div class="time-box">
-            <span>{{countdown.hours | number:'2.0-0'}}</span>
-            <p>Horas</p>
-          </div>
-          <div class="time-box">
-            <span>{{countdown.minutes | number:'2.0-0'}}</span>
-            <p>Minutos</p>
-          </div>
-          <div class="time-box">
-            <span>{{countdown.seconds | number:'2.0-0'}}</span>
-            <p>Segundos</p>
-          </div>
+      <div class="countdown">
+        <div class="time-box">
+          <span>{{countdown.days | number:'2.0-0'}}</span>
+          <p>Dias</p>
         </div>
+        <div class="time-box">
+          <span>{{countdown.hours | number:'2.0-0'}}</span>
+          <p>Horas</p>
+        </div>
+        <div class="time-box">
+          <span>{{countdown.minutes | number:'2.0-0'}}</span>
+          <p>Minutos</p>
+        </div>
+        <div class="time-box">
+          <span>{{countdown.seconds | number:'2.0-0'}}</span>
+          <p>Segundos</p>
+        </div>
+      </div>
       } @else {
-        <div class="promo-encerrada">Promoção encerrada!</div>
+      <div class="promo-encerrada">Promoção encerrada!</div>
       }
-      
-     <button routerLink="/carrinho" class="buy-button">
-  Compre agora
+
+      <button routerLink="/carrinho" class="buy-button">
+        Compre agora
 
       </button>
     </div>

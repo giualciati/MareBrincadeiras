@@ -1,4 +1,4 @@
-import { Component, type OnInit } from "@angular/core"
+import { Component, OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { ActivatedRoute, Router, RouterLink } from "@angular/router"
 import { ProductService } from "../../core/services/product.service"
@@ -6,6 +6,7 @@ import { Product, Feedback } from "../../services/types/product"
 import { ProductCardComponent } from "../../components/product-card/product-card.component"
 import { HeaderComponent } from "../../components/header/header.component"
 import { FooterComponent } from "../../components/footer/footer.component"
+import { FavoritosService } from "../../favoritos.service"
 
 @Component({
   selector: "app-product-detail",
@@ -28,10 +29,11 @@ export class ProductDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService,
+    private favoritosService: FavoritosService,
   ) { }
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
 
     this.route.paramMap.subscribe((params) => {
       const productId = params.get("id") || ""
@@ -83,6 +85,12 @@ export class ProductDetailComponent implements OnInit {
   toggleFavorite(): void {
     if (this.product) {
       this.product.isFavorite = !this.product.isFavorite
+
+      if (this.product.isFavorite) {
+        this.favoritosService.adicionar(this.product)
+      } else {
+        this.favoritosService.remover(this.product.id)
+      }
     }
   }
 

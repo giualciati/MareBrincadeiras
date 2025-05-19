@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   isFinished = false
   countdownInterval: any
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     // Obter produtos em destaque diretamente do serviço

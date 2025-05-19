@@ -1,17 +1,21 @@
 <app-header></app-header>
- 
-  <main class="main-content">
-    <header class="header">
-      <h1>Meus Brinquedos Favoritos</h1>
-      <p class="subtitle">Explore sua sessão especial!</p>
-    </header>
-  
-    <div class="add-favorite-container">
-      <button class="add-favorite-button" [routerLink]="['/products']">+</button>
-      <p class="add-favorite-text">Adicione seus brinquedos favoritos</p>
-    </div>
 
+<main class="main-content">
+  <header class="header">
+    <h1>Meus Brinquedos Favoritos</h1>
+    <p class="subtitle">Explore sua sessão especial!</p>
+  </header>
 
-  </main>
-  
+  <!-- Exibir quando não há favoritos -->
+  <div *ngIf="favoritos.length === 0" class="add-favorite-container">
+    <button class="add-favorite-button" [routerLink]="['/products']">+</button>
+    <p class="add-favorite-text">Adicione seus brinquedos favoritos</p>
+  </div>
 
+  <!-- Exibir quando há favoritos -->
+  <div *ngIf="favoritos.length > 0" class="favorites-grid">
+    <app-product-card *ngFor="let produto of favoritos" [product]="produto"></app-product-card>
+  </div>
+</main>
+
+<app-footer></app-footer>
