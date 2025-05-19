@@ -1,4 +1,4 @@
-import { Component, type OnInit } from "@angular/core"
+import { Component, OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { RouterLink } from "@angular/router"
 import { FormsModule } from "@angular/forms"
@@ -7,6 +7,8 @@ import { HeaderComponent } from "../../components/header/header.component"
 import { FooterComponent } from "../../components/footer/footer.component"
 import { ProductService } from "../../core/services/product.service"
 import { Product } from "../../services/types/product"
+import { ToastModule } from "primeng/toast"
+import { MessageService } from "primeng/api"
 
 interface AgeGroup {
   id: number
@@ -31,9 +33,10 @@ interface Testimonial {
 @Component({
   selector: "app-home",
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, ProductCardComponent, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, FormsModule, ProductCardComponent, HeaderComponent, FooterComponent, ToastModule],
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
+  providers: [MessageService],
 })
 export class HomeComponent implements OnInit {
   products: Product[] = []
@@ -54,22 +57,22 @@ export class HomeComponent implements OnInit {
     {
       id: 1,
       name: "0 a 12 meses",
-      image: "/placeholder.svg?height=180&width=300&query=baby+toys+0-12+months",
+      image: "/baby-toys-0-12-months.png",
     },
     {
       id: 2,
       name: "1 a 3 anos",
-      image: "/placeholder.svg?height=180&width=300&query=toddler+toys+1-3+years",
+      image: "/toddler-toys.png",
     },
     {
       id: 3,
       name: "4 a 6 anos",
-      image: "/placeholder.svg?height=180&width=300&query=preschool+toys+4-6+years",
+      image: "/preschool-toys-4-6.png",
     },
     {
       id: 4,
       name: "7 a 12 anos",
-      image: "/placeholder.svg?height=180&width=300&query=kids+toys+7-12+years",
+      image: "/kids-toys-7-12.png",
     },
   ]
 
@@ -99,7 +102,7 @@ export class HomeComponent implements OnInit {
       id: 5,
       name: "Playmobil",
       logo: "../../../assets/img/logos/PlaymobilLogo.svg.png",
-    }
+    },
   ]
 
   // Depoimentos
@@ -127,7 +130,10 @@ export class HomeComponent implements OnInit {
     },
   ]
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private messageService: MessageService,
+  ) { }
 
   ngOnInit(): void {
     // Obter produtos em destaque
@@ -181,13 +187,29 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  // Inscrição na newsletter
+  // Inscrição na newsletter com toast
   subscribeNewsletter(): void {
     if (this.newsletterEmail) {
       // Aqui você implementaria a lógica para salvar o email
       console.log("Email cadastrado na newsletter:", this.newsletterEmail)
-      alert("Obrigado por se inscrever em nossa newsletter!")
+
+      // Exibir toast de sucesso
+      this.messageService.add({
+        severity: "success",
+        summary: "Inscrição realizada",
+        detail: "Obrigado por se inscrever em nossa newsletter!",
+        life: 3000,
+      })
+
       this.newsletterEmail = ""
+    } else {
+      // Exibir toast de aviso se o email estiver vazio
+      this.messageService.add({
+        severity: "warn",
+        summary: "Campo obrigatório",
+        detail: "Por favor, informe seu e-mail para se inscrever.",
+        life: 3000,
+      })
     }
   }
 }
