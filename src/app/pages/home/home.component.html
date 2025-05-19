@@ -6,15 +6,15 @@
     <h1>Diversão sem fim</h1>
     <p>
       Explore nossa coleção de brinquedos encantadores e garanta momentos
-      inesquecíveis para os pequenos.
+      inesquecíveis para as crianças.
     </p>
     <a routerLink="/products" class="hero-button">Ver todos os brinquedos</a>
   </div>
 </section>
 
-<!-- Category -->
+<!-- Produtos em Destaque -->
 <section class="container">
-  <h1>Categoria</h1>
+  <h2 class="section-title">Produtos em Destaque</h2>
   <div class="products">
     @for (product of products; track product.id) {
     <app-product-card [product]="product"></app-product-card>
@@ -22,6 +22,22 @@
   </div>
   <div class="all-products">
     <button routerLink="/products">Ver todos os produtos</button>
+  </div>
+</section>
+
+<!-- Produtos por Faixa Etária -->
+<section class="age-section">
+  <div class="container">
+    <h2 class="section-title">Brinquedos por Idade</h2>
+    <div class="age-groups">
+      <div class="age-card" *ngFor="let age of ageGroups">
+        <div class="age-image">
+          <img [src]="age.image" [alt]="age.name">
+        </div>
+        <h3>{{age.name}}</h3>
+        <a [routerLink]="['/products']" [queryParams]="{age: age.id}">Ver brinquedos</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -66,11 +82,126 @@
 
       <button routerLink="/carrinho" class="buy-button">
         Compre agora
-
       </button>
     </div>
     <div class="promo-image">
       <img src="assets/img/cd7d6395-de7a-4032-bf55-3171ddae75cc.png" alt="Casa de Atividades Montessori" />
+    </div>
+  </div>
+</section>
+
+<!-- Mais Vendidos -->
+<section class="bestsellers-section">
+  <div class="container">
+    <h2 class="section-title">Mais Vendidos</h2>
+    <div class="bestsellers-carousel">
+      <div class="carousel-container">
+        <div class="carousel-track" [style.transform]="'translateX(' + carouselPosition + 'px)'">
+          <div class="carousel-item" *ngFor="let product of bestSellers">
+            <app-product-card [product]="product"></app-product-card>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control prev" (click)="moveCarousel('prev')">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="carousel-control next" (click)="moveCarousel('next')">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Marcas Parceiras -->
+<section class="brands-section">
+  <div class="container">
+    <h2 class="section-title">Nossas Marcas Parceiras</h2>
+    <div class="brands-container">
+      <div class="brand-logo" *ngFor="let brand of brands">
+        <img [src]="brand.logo" [alt]="brand.name">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Depoimentos -->
+<section class="testimonials-section">
+  <div class="container">
+    <h2 class="section-title">O que nossos clientes dizem</h2>
+    <div class="testimonials-container">
+      <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+        <div class="testimonial-rating">
+          <span *ngFor="let star of [1,2,3,4,5]">
+            <i class="fas fa-star" [class.active]="star <= testimonial.rating"></i>
+          </span>
+        </div>
+        <p class="testimonial-text">"{{testimonial.text}}"</p>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <h4>{{testimonial.name}}</h4>
+            <p>{{testimonial.location}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Benefícios -->
+<section class="benefits-section">
+  <div class="benefits-container">
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <i class="fas fa-truck"></i>
+      </div>
+      <div class="benefit-text">
+        <h3>Entrega Rápida</h3>
+        <p>Em todo o Brasil</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <i class="fas fa-credit-card"></i>
+      </div>
+      <div class="benefit-text">
+        <h3>Pagamento Seguro</h3>
+        <p>Diversas formas de pagamento</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <i class="fas fa-exchange-alt"></i>
+      </div>
+      <div class="benefit-text">
+        <h3>Troca Garantida</h3>
+        <p>7 dias para trocar</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">
+        <i class="fas fa-headset"></i>
+      </div>
+      <div class="benefit-text">
+        <h3>Suporte ao Cliente</h3>
+        <p>Atendimento especializado</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Newsletter -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-content">
+      <div class="newsletter-text">
+        <h2>Fique por dentro das novidades!</h2>
+        <p>Cadastre-se para receber ofertas exclusivas, lançamentos e dicas para as crianças.</p>
+      </div>
+      <form class="newsletter-form" (ngSubmit)="subscribeNewsletter()">
+        <input type="email" [(ngModel)]="newsletterEmail" name="email" placeholder="Seu melhor e-mail" required>
+        <button type="submit">Cadastrar</button>
+      </form>
     </div>
   </div>
 </section>

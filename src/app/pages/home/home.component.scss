@@ -1,5 +1,62 @@
 @use 'colors' as *;
 
+// Variáveis
+$border-radius: 8px;
+$box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+$transition: all 0.3s ease;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin section-padding {
+  padding: 60px 0;
+}
+
+@mixin card-style {
+  background-color: $white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  transition: $transition;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Estilos gerais
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  color: $primary-color;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: $primary-color;
+  }
+}
+
+// Hero
 .hero {
   display: flex;
   justify-content: flex-start;
@@ -11,7 +68,7 @@
   width: 100%;
   min-height: 75vh;
   padding: 0 10%;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 
   .hero-content {
     max-width: 620px;
@@ -64,18 +121,58 @@
   }
 }
 
-.container {
-  width: 100%;
-  max-width: 1400px;
-  margin: auto;
-
-  h1 {
-    color: $primary-color;
-    font-size: 46px;
-    margin: 0 0 15px 30px;
+// Seção de Benefícios
+.benefits-section {
+  background-color: #f8f9fa;
+  padding: 30px 0;
+  
+  .benefits-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      width: calc(25% - 20px);
+      
+      .benefit-icon {
+        @include flex-center;
+        width: 60px;
+        height: 60px;
+        background-color: rgba($primary-color, 0.1);
+        border-radius: 50%;
+        margin-right: 15px;
+        
+        i {
+          font-size: 24px;
+          color: $primary-color;
+        }
+      }
+      
+      .benefit-text {
+        h3 {
+          font-size: 16px;
+          font-weight: 600;
+          margin: 0 0 5px;
+          color: #333;
+        }
+        
+        p {
+          font-size: 14px;
+          color: #666;
+          margin: 0;
+        }
+      }
+    }
   }
 }
 
+// Produtos
 .products {
   display: flex;
   justify-content: center;
@@ -87,21 +184,78 @@
   display: flex;
   justify-content: center;
   margin-top: 24px;
+  margin-bottom: 40px;
 
   button {
     background: $primary-color;
     color: $white;
-    padding: 10px 40px;
+    padding: 12px 40px;
     border-radius: 5px;
     border: none;
     display: block;
-    margin-top: 10px;
     transition: background 0.3s ease;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
 
     &:hover {
       background: $hover-color;
+    }
+  }
+}
+
+// Produtos por Faixa Etária
+.age-section {
+  @include section-padding;
+  background-color: #f8f9fa;
+  
+  .age-groups {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+    .age-card {
+      @include card-style;
+      width: calc(25% - 20px);
+      text-align: center;
+      overflow: hidden;
+      
+      .age-image {
+        height: 180px;
+        overflow: hidden;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: $transition;
+        }
+      }
+      
+      &:hover .age-image img {
+        transform: scale(1.05);
+      }
+      
+      h3 {
+        padding: 15px 10px 5px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+      }
+      
+      a {
+        display: inline-block;
+        padding: 0 10px 15px;
+        color: $primary-color;
+        font-weight: 500;
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }
@@ -114,6 +268,7 @@
   margin: 40px auto 0;
 }
 
+// Promoção
 .promo-section {
   background-color: $primary-color;
   width: 100%;
@@ -122,6 +277,7 @@
   padding: 60px 80px;
   display: flex;
   justify-content: center;
+  border-radius: $border-radius;
 
   .promo-container {
     display: flex;
@@ -225,6 +381,254 @@
   }
 }
 
+// Mais Vendidos
+.bestsellers-section {
+  @include section-padding;
+  
+  .bestsellers-carousel {
+    position: relative;
+    padding: 0 50px;
+    
+    .carousel-container {
+      overflow: hidden;
+      
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        
+        .carousel-item {
+          flex: 0 0 calc(25% - 20px);
+          margin: 0 10px;
+        }
+      }
+    }
+    
+    .carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $white;
+      border: 1px solid #eee;
+      box-shadow: $box-shadow;
+      @include flex-center;
+      cursor: pointer;
+      z-index: 2;
+      
+      i {
+        color: $primary-color;
+      }
+      
+      &.prev {
+        left: 0;
+      }
+      
+      &.next {
+        right: 0;
+      }
+      
+      &:hover {
+        background-color: $primary-color;
+        
+        i {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+// Marcas Parceiras
+.brands-section {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+  
+  .brands-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    .brand-logo {
+      width: calc(16.666% - 20px);
+      padding: 15px;
+      text-align: center;
+      
+      img {
+        max-width: 100%;
+        max-height: 60px;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: $transition;
+        
+        &:hover {
+          filter: grayscale(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// Depoimentos
+.testimonials-section {
+  @include section-padding;
+  
+  .testimonials-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    
+    .testimonial-card {
+      @include card-style;
+      width: calc(33.333% - 20px);
+      padding: 30px;
+      
+      .testimonial-rating {
+        margin-bottom: 15px;
+        
+        i {
+          color: #ddd;
+          font-size: 18px;
+          margin-right: 2px;
+          
+          &.active {
+            color: #FFAD33;
+          }
+        }
+      }
+      
+      .testimonial-text {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+      
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        
+        .author-info {
+          h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 5px;
+            color: #333;
+          }
+          
+          p {
+            font-size: 14px;
+            color: #777;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Newsletter
+.newsletter-section {
+  background-color: $primary-color;
+  padding: 60px 0;
+  
+  .newsletter-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    .newsletter-text {
+      width: 45%;
+      color: $white;
+      
+      h2 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+      
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+        opacity: 0.9;
+      }
+    }
+    
+    .newsletter-form {
+      width: 50%;
+      display: flex;
+      
+      input {
+        flex: 1;
+        height: 50px;
+        padding: 0 20px;
+        border: none;
+        border-radius: $border-radius 0 0 $border-radius;
+        font-size: 16px;
+        
+        &:focus {
+          outline: none;
+        }
+      }
+      
+      button {
+        height: 50px;
+        padding: 0 30px;
+        background-color: #FFAD33;
+        color: $white;
+        border: none;
+        border-radius: 0 $border-radius $border-radius 0;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: $transition;
+        
+        &:hover {
+          background-color: darken(#FFAD33, 10%);
+        }
+      }
+    }
+  }
+}
+
+// Media Queries
+@media (max-width: 1200px) {
+  .age-section .age-groups .age-card,
+  .testimonials-section .testimonials-container .testimonial-card {
+    width: calc(50% - 15px);
+  }
+  
+  .bestsellers-section .bestsellers-carousel .carousel-container .carousel-track .carousel-item {
+    flex: 0 0 calc(33.333% - 20px);
+  }
+}
+
+@media (max-width: 992px) {
+  .benefits-section .benefits-container .benefit-item {
+    width: calc(50% - 20px);
+    margin-bottom: 20px;
+  }
+  
+  .newsletter-section .newsletter-content .newsletter-text,
+  .newsletter-section .newsletter-content .newsletter-form {
+    width: 100%;
+  }
+  
+  .newsletter-section .newsletter-content .newsletter-text {
+    margin-bottom: 30px;
+  }
+  
+  .bestsellers-section .bestsellers-carousel .carousel-container .carousel-track .carousel-item {
+    flex: 0 0 calc(50% - 20px);
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 0 5%;
@@ -247,34 +651,48 @@
     }
   }
 
-  .container {
-    h1 {
-      font-size: 36px;
-    }
+  .section-title {
+    font-size: 28px;
   }
-
-  .products {
-    justify-content: center;
-    gap: 10px;
+  
+  .age-section .age-groups .age-card,
+  .testimonials-section .testimonials-container .testimonial-card {
+    width: 100%;
   }
-
+  
+  .brands-section .brands-container .brand-logo {
+    width: calc(33.333% - 20px);
+    margin-bottom: 20px;
+  }
+  
+  .bestsellers-section .bestsellers-carousel .carousel-container .carousel-track .carousel-item {
+    flex: 0 0 calc(100% - 20px);
+  }
+  
   .promo-section {
-    .promo-container {
-      .promo-text {
-        .countdown {
-          justify-content: center;
-          gap: 10px;
+    padding: 30px 20px;
+  }
+}
 
-          .time-box {
-            width: 80px;
-            height: 80px;
-
-            p {
-              font-size: 12px;
-            }
-          }
-        }
-      }
+@media (max-width: 576px) {
+  .benefits-section .benefits-container .benefit-item {
+    width: 100%;
+  }
+  
+  .brands-section .brands-container .brand-logo {
+    width: calc(50% - 20px);
+  }
+  
+  .newsletter-section .newsletter-content .newsletter-form {
+    flex-direction: column;
+    
+    input {
+      border-radius: $border-radius $border-radius 0 0;
+      margin-bottom: 10px;
+    }
+    
+    button {
+      border-radius: 0 0 $border-radius $border-radius;
     }
   }
 }
