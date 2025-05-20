@@ -1,8 +1,9 @@
-import { Component } from "@angular/core"
+import { Component, AfterViewInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { FormsModule } from "@angular/forms"
 import { HeaderComponent } from "../../components/header/header.component"
 import { FooterComponent } from "../../components/footer/footer.component"
+import { ActivatedRoute } from "@angular/router"
 
 @Component({
   selector: "app-contact",
@@ -11,7 +12,36 @@ import { FooterComponent } from "../../components/footer/footer.component"
   templateUrl: "./contact.component.html",
   styleUrls: ["./contact.component.scss"],
 })
-export class ContactComponent {
+export class ContactComponent implements AfterViewInit {
+  showNotification = false
+
+  constructor(private route: ActivatedRoute) { }
+
+  ngAfterViewInit(): void {
+    this.route.fragment.subscribe((fragment) => {
+      if (fragment) {
+        const el = document.getElementById(fragment)
+        if (el) {
+          setTimeout(() => {
+            el.scrollIntoView({ behavior: "smooth" })
+          }, 100)
+        }
+      }
+    })
+
+    // Verificar se há um parâmetro de seção para exibir as perguntas frequentes
+    this.route.queryParams.subscribe((params) => {
+      if (params["section"] === "faq") {
+        const faqSection = document.getElementById("faq-section")
+        if (faqSection) {
+          setTimeout(() => {
+            faqSection.scrollIntoView({ behavior: "smooth" })
+          }, 100)
+        }
+      }
+    })
+  }
+
   formData = {
     nome: "",
     email: "",
@@ -58,12 +88,20 @@ export class ContactComponent {
 
   enviarFormulario(): void {
     console.log("Formulário enviado:", this.formData)
-    alert("Mensagem enviada com sucesso! Entraremos em contato em breve.")
+
+    // Mostrar a notificação em vez do alert
+    this.showNotification = true
+
+    // Limpar o formulário
     this.formData = {
       nome: "",
       email: "",
       assunto: "",
       mensagem: "",
     }
+  }
+
+  closeNotification(): void {
+    this.showNotification = false
   }
 }
