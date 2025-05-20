@@ -13,35 +13,103 @@
     </div>
   </div>
 
-  <!-- Mensagem de Nenhum Produto Encontrado -->
-  <div class="no-products-found" *ngIf="searchTerm && filteredProducts.length === 0">
-    <div class="no-products-message">
-      <i class="fas fa-search no-products-icon"></i>
-      <p>Nenhum produto encontrado para "<strong>{{ searchTerm }}</strong>"</p>
+  <div class="produtos-content">
+    <!-- Filtros Avançados -->
+    <div class="filtros-avancados">
+      <div class="filtro-header">
+        <h2>Filtros Avançados</h2>
+        <button *ngIf="isAnyFilterActive()" class="limpar-filtros" (click)="clearAllFilters()">
+          Limpar Filtros
+        </button>
+      </div>
+
+      <!-- Filtro por Faixa Etária -->
+      <div class="filtro-grupo">
+        <h3>Faixa Etária</h3>
+        <div class="filtro-opcoes">
+          <div *ngFor="let age of ageRanges" class="filtro-opcao">
+            <input type="checkbox" [id]="'age-' + age" [value]="age" [checked]="selectedAgeRanges.includes(age)"
+              (change)="toggleAgeRange(age)">
+            <label [for]="'age-' + age">{{ age }}</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtro por Preço -->
+      <div class="filtro-grupo">
+        <h3>Preço</h3>
+        <div class="filtro-preco">
+          <div class="preco-range">
+            <span>R$ {{ priceRange[0] }}</span>
+            <span>R$ {{ priceRange[1] }}</span>
+          </div>
+          <div class="range-inputs">
+            <input type="range" [min]="minPrice" [max]="maxPrice" [(ngModel)]="priceRange[0]"
+              (ngModelChange)="filterProducts()">
+            <input type="range" [min]="minPrice" [max]="maxPrice" [(ngModel)]="priceRange[1]"
+              (ngModelChange)="filterProducts()">
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtro por Tipo de Brinquedo -->
+      <div class="filtro-grupo">
+        <h3>Tipo de Brinquedo</h3>
+        <div class="filtro-opcoes">
+          <div *ngFor="let type of toyTypes" class="filtro-opcao">
+            <input type="checkbox" [id]="'type-' + type" [value]="type" [checked]="selectedToyTypes.includes(type)"
+              (change)="toggleToyType(type)">
+            <label [for]="'type-' + type">{{ type }}</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtro por Marca -->
+      <div class="filtro-grupo">
+        <h3>Marca</h3>
+        <div class="filtro-opcoes">
+          <div *ngFor="let brand of brands" class="filtro-opcao">
+            <input type="checkbox" [id]="'brand-' + brand" [value]="brand" [checked]="selectedBrands.includes(brand)"
+              (change)="toggleBrand(brand)">
+            <label [for]="'brand-' + brand">{{ brand }}</label>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <!-- Lista de Produtos -->
-  <div class="products" *ngIf="!searchTerm || filteredProducts.length > 0">
-    <app-product-card *ngFor="let product of displayedProducts" [product]="product"></app-product-card>
-  </div>
+    <!-- Conteúdo Principal -->
+    <div class="produtos-main">
+      <!-- Mensagem de Nenhum Produto Encontrado -->
+      <div class="no-products-found" *ngIf="(searchTerm || isAnyFilterActive()) && filteredProducts.length === 0">
+        <div class="no-products-message">
+          <i class="fas fa-search no-products-icon"></i>
+          <p>Nenhum produto encontrado com os filtros selecionados</p>
+        </div>
+      </div>
 
-  <!-- Paginação -->
-  <div class="pagination" *ngIf="totalPages > 1 && (!searchTerm || filteredProducts.length > 0)">
-    <button class="pagination-button" [disabled]="currentPage === 1" (click)="previousPage()">
-      <i class="fas fa-chevron-left"></i>
-    </button>
+      <!-- Lista de Produtos -->
+      <div class="products" *ngIf="!searchTerm || filteredProducts.length > 0">
+        <app-product-card *ngFor="let product of displayedProducts" [product]="product"></app-product-card>
+      </div>
 
-    <div class="pagination-numbers">
-      <button *ngFor="let page of pages" class="pagination-number" [class.active]="page === currentPage"
-        (click)="goToPage(page)">
-        {{ page }}
-      </button>
+      <!-- Paginação -->
+      <div class="pagination" *ngIf="totalPages > 1 && (!searchTerm || filteredProducts.length > 0)">
+        <button class="pagination-button" [disabled]="currentPage === 1" (click)="previousPage()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="pagination-numbers">
+          <button *ngFor="let page of pages" class="pagination-number" [class.active]="page === currentPage"
+            (click)="goToPage(page)">
+            {{ page }}
+          </button>
+        </div>
+
+        <button class="pagination-button" [disabled]="currentPage === totalPages" (click)="nextPage()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
     </div>
-
-    <button class="pagination-button" [disabled]="currentPage === totalPages" (click)="nextPage()">
-      <i class="fas fa-chevron-right"></i>
-    </button>
   </div>
 </main>
 
