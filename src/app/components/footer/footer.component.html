@@ -13,10 +13,10 @@
           </div>
         </div>
         <div class="footer-top-right">
-          <a routerLink="/products">Produtos</a>
-          <a routerLink="/about">Quem Somos</a>
-          <a routerLink="/faq">Perguntas Frequentes</a>
-          <a routerLink="/contact">Entre em Contato</a>
+          <a routerLink="/products" (click)="scrollToTop()">Produtos</a>
+          <a routerLink="/about" (click)="scrollToTop()">Quem Somos</a>
+          <a [routerLink]="['/contact']" fragment="faq-section">Perguntas Frequentes</a>
+          <a routerLink="/contact" (click)="scrollToTop()">Entre em Contato</a>
         </div>
       </div>
 
@@ -30,8 +30,8 @@
           </p>
         </div>
         <div class="footer-bottom-right">
-          <a routerLink="/privacy">Política de Privacidade</a>
-          <a routerLink="/terms">Termos de Uso</a>
+          <a routerLink="/privacy" (click)="scrollToTop()">Política de Privacidade</a>
+          <a routerLink="/terms" (click)="scrollToTop()">Termos de Uso</a>
         </div>
       </div>
     </div>
