@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
   countdownInterval: any
   carouselPosition = 0
   newsletterEmail = ""
+  isLoading = true
 
   // Grupos por idade
   ageGroups: AgeGroup[] = [
@@ -136,12 +137,31 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Obter produtos em destaque
-    this.products = this.productService.getFeaturedProducts()
-    console.log("Produtos em destaque carregados:", this.products.length)
+    this.isLoading = true
 
-    // Obter produtos mais vendidos (usando os mesmos produtos para demonstração)
-    this.bestSellers = [...this.productService.getAllProducts()].slice(0, 8)
+    // Buscar produtos da API
+    this.productService.getProducts().subscribe({
+      next: (products) => {
+        // Obter produtos em destaque (primeiros 8 produtos)
+        this.products = products.slice(0, 4)
+        console.log("Produtos em destaque carregados:", this.products.length)
+
+        // Obter produtos mais vendidos (usando os mesmos produtos para demonstração)
+        this.bestSellers = products.slice(0, 8)
+
+        this.isLoading = false
+      },
+      error: (error) => {
+        console.error("Erro ao carregar produtos:", error)
+        this.isLoading = false
+        this.messageService.add({
+          severity: "error",
+          summary: "Erro",
+          detail: "Não foi possível carregar os produtos. Tente novamente mais tarde.",
+          life: 3000,
+        })
+      },
+    })
 
     this.startCountdown()
   }

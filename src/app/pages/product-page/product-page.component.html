@@ -13,7 +13,13 @@
     </div>
   </div>
 
-  <div class="produtos-content">
+  <!-- Indicador de carregamento -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <div class="spinner"></div>
+    <p>Carregando produtos...</p>
+  </div>
+
+  <div class="produtos-content" *ngIf="!isLoading">
     <!-- Filtros Avançados -->
     <div class="filtros-avancados">
       <div class="filtro-header">

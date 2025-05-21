@@ -40,9 +40,10 @@ export class FavoritosService {
     if (!usuarioId) return
 
     let favoritos = this.listar()
-    favoritos = favoritos.filter((p) => Number(p.id) !== productId)
+    favoritos = favoritos.filter((p) => Number(p.id) !== Number(productId))
 
     localStorage.setItem(this.favoritosKeyPrefix + usuarioId, JSON.stringify(favoritos))
+    console.log("Produto removido dos favoritos:", productId)
   }
 
   isFavorito(productId: number): boolean {

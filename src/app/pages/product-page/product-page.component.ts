@@ -23,14 +23,15 @@ export class ProductPageComponent implements OnInit {
   displayedProducts: Product[] = []
   produto!: Product
   currentPage = 1
-  itemsPerPage = 15
+  itemsPerPage = 16
   totalPages = 1
   pages: number[] = []
+  isLoading = true
 
   searchTerm = ""
 
   // Filtros avançados
-  ageRanges: string[] = ["0-12 meses", "1-3 anos", "4-6 anos", "7-9 anos", "10-12 anos"]
+  ageRanges: string[] = ["0-12 meses", "1-3 anos", "4-6 anos", "7-9 anos", "10-12 anos", "13+ anos"]
   selectedAgeRanges: string[] = []
 
   minPrice = 0
@@ -72,32 +73,34 @@ export class ProductPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.allProducts = this.productService.getAllProducts()
+    this.isLoading = true
 
-    if (this.allProducts.length > 0) {
-      this.minPrice = Math.min(...this.allProducts.map((p) => p.value))
-      this.maxPrice = Math.max(...this.allProducts.map((p) => p.value))
-      this.priceRange = [this.minPrice, this.maxPrice]
-    }
+    this.productService.getProducts().subscribe((products) => {
+      this.allProducts = products
 
-    // Primeiro carregamos todos os produtos sem filtros
-    this.loadProducts()
-
-    // Depois verificamos os parâmetros da URL
-    this.route.queryParams.subscribe((params) => {
-      const pageParam = params["page"]
-      const searchParam = params["search"]
-
-      // Apenas aplicamos a página e o termo de busca, não os filtros automaticamente
-      this.currentPage = pageParam ? Number(pageParam) : 1
-
-      if (searchParam) {
-        this.searchTerm = searchParam
-        this.filterProducts()
-      } else {
-        // Se não houver termo de busca, apenas atualizamos a exibição com base na página atual
-        this.updateDisplayedProducts()
+      if (this.allProducts.length > 0) {
+        this.minPrice = Math.min(...this.allProducts.map((p) => p.value))
+        this.maxPrice = Math.max(...this.allProducts.map((p) => p.value))
+        this.priceRange = [this.minPrice, this.maxPrice]
       }
+
+      this.loadProducts()
+
+      this.route.queryParams.subscribe((params) => {
+        const pageParam = params["page"]
+        const searchParam = params["search"]
+
+        this.currentPage = pageParam ? Number(pageParam) : 1
+
+        if (searchParam) {
+          this.searchTerm = searchParam
+          this.filterProducts()
+        } else {
+          this.updateDisplayedProducts()
+        }
+      })
+
+      this.isLoading = false
     })
   }
 
@@ -137,7 +140,6 @@ export class ProductPageComponent implements OnInit {
 
     this.filteredProducts = filtered
 
-    // Só atualizamos a URL com filtros quando o usuário aplica filtros explicitamente
     if (this.isAnyFilterActive() || this.searchTerm) {
       this.updateUrlWithFilters()
     }
@@ -171,7 +173,6 @@ export class ProductPageComponent implements OnInit {
       queryParams.brands = this.selectedBrands.join(",")
     }
 
-    // Adicionamos a página atual
     if (this.currentPage > 1) {
       queryParams.page = this.currentPage
     }
@@ -179,7 +180,6 @@ export class ProductPageComponent implements OnInit {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: queryParams,
-      // Não usamos merge para evitar manter parâmetros antigos
       replaceUrl: true,
     })
   }
@@ -254,14 +254,13 @@ export class ProductPageComponent implements OnInit {
     if (page !== this.currentPage && page >= 1 && page <= this.totalPages) {
       this.currentPage = page
 
-      // Apenas atualizamos o parâmetro de página, sem usar merge para evitar manter filtros não desejados
       this.router.navigate([], {
         relativeTo: this.route,
         queryParams: { page: page },
       })
 
       this.updateDisplayedProducts()
-      window.scrollTo(0, 0) // Scroll para o topo ao mudar de página
+      window.scrollTo(0, 0)
     }
   }
 

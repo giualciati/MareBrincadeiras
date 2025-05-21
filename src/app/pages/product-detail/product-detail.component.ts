@@ -23,6 +23,7 @@ export class ProductDetailComponent implements OnInit {
   quantity = 1
   loading = true
   error = false
+  errorMessage = "Não foi possível carregar o produto."
   selectedImage = ""
 
   constructor(
@@ -42,27 +43,49 @@ export class ProductDetailComponent implements OnInit {
       this.loading = true
       this.error = false
 
-      // Obter o produto pelo ID
-      const product = this.productService.getProductById(Number(productId))
+      // Obter o produto pelo ID da API
+      this.productService.getProductById(Number(productId)).subscribe({
+        next: (product) => {
+          if (product) {
+            this.product = product
+            this.selectedImage = product.image // Inicializa com a imagem principal
+            console.log("Product found:", this.product)
 
-      if (product) {
-        this.product = product
-        this.selectedImage = product.image // Inicializa com a imagem principal
-        console.log("Product found:", this.product)
+            // Obter feedbacks do produto
+            this.feedbacks = product.feedbacks || []
+            console.log("Feedbacks loaded:", this.feedbacks.length)
 
-        // Obter feedbacks do produto
-        this.feedbacks = product.feedbacks || []
-        console.log("Feedbacks loaded:", this.feedbacks.length)
+            // Buscar produtos relacionados
+            // Podemos buscar produtos da mesma categoria
+            this.productService.getProducts().subscribe({
+              next: (products) => {
+                // Filtrar produtos da mesma categoria, excluindo o produto atual
+                this.relatedProducts = products
+                  .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
+                  .slice(0, 4) // Limitar a 4 produtos relacionados
 
-        // Obter produtos relacionados
-        this.relatedProducts = this.productService.getRelatedProducts(Number(productId))
-        console.log("Related products:", this.relatedProducts.length)
-        this.loading = false
-      } else {
-        console.error("Product not found with ID:", productId)
-        this.error = true
-        this.loading = false
-      }
+                console.log("Related products:", this.relatedProducts.length)
+              },
+              error: (error) => {
+                console.error("Error loading related products:", error)
+              },
+            })
+
+            this.loading = false
+          } else {
+            console.error("Product not found with ID:", productId)
+            this.error = true
+            this.errorMessage = "Produto não encontrado."
+            this.loading = false
+          }
+        },
+        error: (error) => {
+          console.error("Error loading product:", error)
+          this.error = true
+          this.errorMessage = "Erro ao carregar o produto. Por favor, tente novamente mais tarde."
+          this.loading = false
+        },
+      })
     })
   }
 
