@@ -10,12 +10,6 @@ import { Product } from "../../services/types/product"
 import { ToastModule } from "primeng/toast"
 import { MessageService } from "primeng/api"
 
-interface AgeGroup {
-  id: number
-  name: string
-  image: string
-}
-
 interface Brand {
   id: number
   name: string
@@ -52,30 +46,6 @@ export class HomeComponent implements OnInit {
   carouselPosition = 0
   newsletterEmail = ""
   isLoading = true
-
-  // Grupos por idade
-  ageGroups: AgeGroup[] = [
-    {
-      id: 1,
-      name: "0 a 12 meses",
-      image: "/baby-toys-0-12-months.png",
-    },
-    {
-      id: 2,
-      name: "1 a 3 anos",
-      image: "/toddler-toys.png",
-    },
-    {
-      id: 3,
-      name: "4 a 6 anos",
-      image: "/preschool-toys-4-6.png",
-    },
-    {
-      id: 4,
-      name: "7 a 12 anos",
-      image: "/kids-toys-7-12.png",
-    },
-  ]
 
   // Marcas parceiras
   brands: Brand[] = [

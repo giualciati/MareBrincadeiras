@@ -28,22 +28,6 @@
   </div>
 </section>
 
-<!-- Produtos por Faixa Etária -->
-<section class="age-section">
-  <div class="container">
-    <h2 class="section-title">Brinquedos por Idade</h2>
-    <div class="age-groups">
-      <div class="age-card" *ngFor="let age of ageGroups">
-        <div class="age-image">
-          <img [src]="age.image" [alt]="age.name">
-        </div>
-        <h3>{{age.name}}</h3>
-        <a [routerLink]="['/products']" [queryParams]="{age: age.id}">Ver brinquedos</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Line -->
 <div class="line"></div>
 

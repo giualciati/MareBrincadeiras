@@ -199,61 +199,6 @@
   }
 }
 
-// Produtos por Faixa Etária
-.age-section {
-  @include section-padding;
-  background-color: #f8f9fa;
-  
-  .age-groups {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    
-    .age-card {
-      @include card-style;
-      width: calc(25% - 20px);
-      text-align: center;
-      overflow: hidden;
-      
-      .age-image {
-        height: 180px;
-        overflow: hidden;
-        
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: all 0.3s ease;
-        }
-      }
-      
-      &:hover .age-image img {
-        transform: scale(1.05);
-      }
-      
-      h3 {
-        padding: 15px 10px 5px;
-        font-size: 18px;
-        font-weight: 600;
-        color: #333;
-      }
-      
-      a {
-        display: inline-block;
-        padding: 0 10px 15px;
-        color: $primary-color;
-        font-weight: 500;
-        text-decoration: none;
-        
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-}
-
 .line {
   width: 95%;
   max-width: 1400px;
@@ -634,14 +579,6 @@
     }
   }
   
-  .age-section {
-    .age-groups {
-      .age-card {
-        width: calc(50% - 15px);
-      }
-    }
-  }
-  
   .testimonials-section {
     .testimonials-container {
       .testimonial-card {
@@ -736,14 +673,6 @@
 
   .section-title {
     font-size: 28px;
-  }
-  
-  .age-section {
-    .age-groups {
-      .age-card {
-        width: 100%;
-      }
-    }
   }
   
   .testimonials-section {

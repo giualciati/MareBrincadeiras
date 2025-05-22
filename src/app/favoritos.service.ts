@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { CustomersService } from "./services/customers.service" // ajuste o caminho se precisar
+import { CustomersService } from "./services/customers.service"
 import { Product } from "./services/types/product"
 
 @Injectable({
@@ -12,7 +12,7 @@ export class FavoritosService {
 
   private getUsuarioId(): string | null {
     const usuario = this.customersService.getUsuarioLogado()
-    return usuario ? usuario.id.toString() : "guest" // Usar "guest" para usuários não logados
+    return usuario ? usuario.id.toString() : "guest"
   }
 
   listar(): Product[] {

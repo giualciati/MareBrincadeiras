@@ -49,14 +49,16 @@
       "image": "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png",
       "name": "Grande conjunto de presente com chocalhos e mordedores para bebês",
       "description": "Este conjunto completo de chocalhos e mordedores é o presente ideal para bebês em fase de desenvolvimento sensorial. Contém 8 peças coloridas com diferentes texturas, sons e formatos, projetadas para estimular os sentidos do bebê. Os mordedores possuem partes macias e texturizadas que aliviam o desconforto durante a dentição. Todos os itens são fabricados com materiais atóxicos, livres de BPA e fáceis de limpar. Recomendado para bebês a partir de 3 meses.",
-      "categoryId": "2",
+      "categoryId": "3",
       "color": "Colorido",
       "size": "Pequeno",
       "value": 375,
       "quantity": 20,
       "images": [
         "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png"
-      ]
+      ],
+      "oldValue": 400,
+      "discount": 15
     },
     {
       "id": "3",
@@ -113,7 +115,7 @@
       "id": "5",
       "name": "Kit de blocos de construção magnéticos",
       "description": "Este kit de blocos magnéticos contém 60 peças coloridas que se conectam facilmente através de ímãs embutidos. Ideal para estimular a criatividade e o raciocínio espacial, permite a construção de estruturas 2D e 3D. As peças são grandes o suficiente para evitar riscos de engasgamento e fabricadas com plástico ABS de alta qualidade. O conjunto vem em uma caixa organizadora e inclui um guia com sugestões de construções. Perfeito para crianças a partir de 3 anos que gostam de criar e explorar.",
-      "categoryId": 1,
+      "categoryId": "5",
       "color": "Colorido",
       "size": "Médio",
       "value": 450,

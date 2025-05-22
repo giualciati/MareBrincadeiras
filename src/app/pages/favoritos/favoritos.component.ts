@@ -31,6 +31,6 @@ export class FavoritosComponent implements OnInit {
   removerFavorito(id: number) {
     console.log("Removendo favorito com ID:", id)
     this.favoritosService.remover(id)
-    this.carregarFavoritos() // Recarrega a lista após remover
+    this.carregarFavoritos()
   }
 }
