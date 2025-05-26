@@ -20,16 +20,25 @@
   </section>
 
   <section class="container endereco">
-    <div class="endereco-box">
-      <h2>Endereço de entrega</h2>
-      <div class="endereco-info">
-        <p>Antônio Batista Roberto (+55) 11 99999-0909 - R. Noberto Fraga, APTO 365, Paraíso, São Paulo, SP, 04125-090</p>
-        <a [routerLink]="['/endereco']" class="editar-endereco" title="Editar endereço">
-          <i class="fa-solid fa-pen-to-square"></i>
-        </a>
-      </div>
+  <div class="endereco-box">
+    <h2>Endereço de entrega</h2>
+    <div class="endereco-info" *ngIf="enderecoSelecionado; else semEndereco">
+      <p>
+        {{ enderecoSelecionado.nome }} ({{ enderecoSelecionado.telefone }}) - 
+        {{ enderecoSelecionado.endereco }}, {{ enderecoSelecionado.cidade }}
+      </p>
+      <a [routerLink]="['/endereco']" class="editar-endereco" title="Editar endereço">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </a>
     </div>
-  </section>
+    <ng-template #semEndereco>
+      <p>Nenhum endereço cadastrado.</p>
+      <a [routerLink]="['/endereco']" class="editar-endereco">
+        Adicionar endereço
+      </a>
+    </ng-template>
+  </div>
+</section>
 
   <section class="pedido-produtos container">
     <h2 class="titulo-secao">Produtos Pedidos</h2>

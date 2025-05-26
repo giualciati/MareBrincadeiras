@@ -15,13 +15,22 @@ import { AuthService } from '../../services/auth.service';
 export class PaginaDePedidosComponent {
   produtos: any[] = [];
   frete: number = 23.87;  
-  usuarioLogadoNome: string = 'Cliente';  
+  usuarioLogadoNome: string = 'Cliente'; 
+  enderecoSelecionado: any = null; 
 
   constructor(
     private router: Router,
     private vendaService: VendaService,
     private authService: AuthService  
   ) {
+    const dados = localStorage.getItem('endereco');
+const enderecos = dados ? JSON.parse(dados) : [];
+
+if (enderecos.length > 0) {
+  this.enderecoSelecionado = enderecos[enderecos.length - 1]; 
+} else {
+  this.enderecoSelecionado = null;
+}
     const navigation = this.router.getCurrentNavigation();
 
     if (navigation?.extras?.state?.['produtos']) {
