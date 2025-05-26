@@ -48,6 +48,11 @@ header {
     }
   }
 
+  .welcome-message a {
+  text-decoration: none;
+  color: $primary-color;
+}
+
   .user-actions {
     display: flex;
     align-items: center;
@@ -158,6 +163,19 @@ header {
       }
     }
   }
+
+  .logout-btn {
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.logout-btn:hover {
+  color: $primary-color;
+}
 
   // Responsividade
   @media (max-width: 1024px) {

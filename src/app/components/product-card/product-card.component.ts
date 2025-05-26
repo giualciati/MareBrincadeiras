@@ -22,17 +22,25 @@ export class ProductCardComponent {
   ) { }
 
   toggleFavorite(event: Event): void {
-    event.preventDefault()
-    this.product.isFavorite = !this.product.isFavorite
+  event.preventDefault();
 
-    if (this.product.isFavorite) {
-      this.favoritosService.adicionar(this.product)
-    } else {
-      this.favoritosService.remover(this.product.id)
-    }
+  const usuarioLogado = localStorage.getItem('usuarioLogado');
 
-    console.log("Product favorite toggled:", this.product.id, this.product.isFavorite)
+  if (!usuarioLogado) {
+    this.router.navigate(['/login/user']);
+    return;
   }
+
+  this.product.isFavorite = !this.product.isFavorite;
+
+  if (this.product.isFavorite) {
+    this.favoritosService.adicionar(this.product);
+  } else {
+    this.favoritosService.remover(this.product.id);
+  }
+
+  console.log('Product favorite toggled:', this.product.id, this.product.isFavorite);
+}
 
   viewProduct(event: Event, productId: number): void {
     event.preventDefault()

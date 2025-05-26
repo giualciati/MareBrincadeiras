@@ -6,41 +6,43 @@ import { CommonModule } from '@angular/common';
 import { Login } from '../../services/types/login';
 import { ToastModule } from 'primeng/toast'; 
 import { MessageService } from 'primeng/api';
+import { AuthService } from '../../services/auth.service';  
 
 @Component({
   selector: 'app-login-user',
   standalone: true,
   imports: [FormsModule, CommonModule, ToastModule],
   templateUrl: './login-user.component.html',
-  styleUrl: './login-user.component.scss',
+  styleUrls: ['./login-user.component.scss'],
   providers: [MessageService]
-
 })
 export class LoginUserComponent {
   login: Login = { email: '', password: '' };
 
   constructor(
-    private service : CustomersService,
+    private service: CustomersService,
     private router: Router,
-    private messageService: MessageService 
-  ) { }
+    private messageService: MessageService,
+    private authService: AuthService 
+  ) {}
+
   fazerLogin() {
     this.service.loginCliente(this.login.email, this.login.password).subscribe({
       next: (customer) => {
         if (customer) {
-          // Salvar no localStorage para manter logado
-          localStorage.setItem('usuarioLogado', JSON.stringify(customer));
-  
+          
+          this.authService.setUsuarioLogado(customer);
+
           this.messageService.add({
             severity: 'success',
             summary: 'Sucesso',
             detail: `Bem-vindo, ${customer.name}!`,
             life: 1000
           });
-  
+
           this.service.setUsuarioLogado(customer);
           this.service.atualizarUsuarioLogado(customer);
-  
+
           setTimeout(() => {
             this.router.navigate(['/information']);
           }, 2000);
@@ -63,6 +65,4 @@ export class LoginUserComponent {
       }
     });
   }
-  
-
 }

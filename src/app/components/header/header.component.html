@@ -14,10 +14,19 @@
       </nav>
     </div>
     <div class="user-actions">
-      <a routerLink="/login/user" class="login-btn">
-        <i class="fas fa-user"></i>
-        <span>faça o login ou cadastre-se</span>
-      </a>
+      <ng-container *ngIf="usuarioNome; else loginLink">
+        <span class="welcome-message">
+          <a routerLink="/information">Olá, {{ usuarioNome }}</a>
+        </span>
+        <button class="logout-btn" (click)="logout()">Sair</button>
+      </ng-container>
+      <ng-template #loginLink>
+        <a routerLink="/login/user" class="login-btn">
+          <i class="fas fa-user"></i>
+          <span>faça o login ou cadastre-se</span>
+        </a>
+      </ng-template>
+
       <a routerLink="/favoritos" class="favorites">
         <i class="fas fa-heart"></i>
       </a>
@@ -26,9 +35,11 @@
         <span class="cart-count">{{cartCount}}</span>
       </a>
     </div>
+
     <div class="mobile-menu-icon" (click)="toggleMenu()">
       <i class="fas" [ngClass]="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
     </div>
+
     <div class="mobile-menu" [ngClass]="{'open': isMenuOpen}">
       <ul>
         <li><a routerLink="/" (click)="toggleMenu()">Início</a></li>
@@ -36,13 +47,24 @@
         <li><a routerLink="/contact" (click)="toggleMenu()">Contato</a></li>
         <li><a routerLink="/about" (click)="toggleMenu()">Quem Somos</a></li>
       </ul>
+
       <div class="mobile-user-actions">
-        <a routerLink="/login/user" class="login-btn" (click)="toggleMenu()">
-          <i class="fas fa-user"></i>
-          <span>faça o login ou cadastre-se</span>
+        <ng-container *ngIf="usuarioNome; else mobileLoginLink">
+          <span class="welcome-message-mobile">
+            Olá, {{ usuarioNome }}
+          </span>
+          <button class="logout-btn" (click)="logout()">Sair</button>
+        </ng-container>
+        <ng-template #mobileLoginLink>
+          <a routerLink="/login/user" class="login-btn" (click)="toggleMenu()">
+            <i class="fas fa-user"></i>
+            <span>faça o login ou cadastre-se</span>
+          </a>
+        </ng-template>
+
+        <a routerLink="/favoritos" class="favoritos" (click)="toggleMenu()">
+          <i class="fas fa-heart"></i><span>Favoritos</span>
         </a>
-       <a routerLink="/favoritos" class="favoritos" (click)="toggleMenu()">
-        <i class="fas fa-heart"></i><span>Favoritos</span></a>
 
         <a routerLink="/carrinho" class="cart" (click)="toggleMenu()">
           <i class="fas fa-shopping-cart"></i>

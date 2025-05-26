@@ -26,6 +26,8 @@ import { EnderecoFormComponent } from './pages/endereco-form/endereco-form.compo
 import { PedidosComponent } from "./pages/pedidos/pedidos.component";
 import { FinalizarComponent } from './pages/finalizar/finalizar.component';
 import { LoginAdmComponent } from "./pages/login-adm/login-adm.component";
+import { SalesComponent } from "./pages/sales/sales.component";
+
 
 
 export const routes: Routes = [
@@ -57,6 +59,6 @@ export const routes: Routes = [
   { path: "endereco-form", component: EnderecoFormComponent },
   { path: "pedidos", component: PedidosComponent }, 
   { path: "finish", component: FinalizarComponent }, 
-
+  {path: 'sales', component: SalesComponent},
 { path: "**", redirectTo: "" }
 ];
