@@ -196,6 +196,16 @@
       "email": "Fulano@123",
       "telephone": "11 9 1123-4567",
       "password": "1234"
+    },
+    {
+      "id": "7ebf",
+      "name": "Giulia",
+      "dateOfBirth": "2004-08-17",
+      "cpf": "44778704851",
+      "rg": "397306544",
+      "email": "giualciati@gmail.com",
+      "telephone": "11961542672",
+      "password": "989317"
     }
   ]
 }
