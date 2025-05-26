@@ -1,58 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { Router } from '@angular/router';
-
-import { HeaderComponent } from '../../components/header/header.component'; // ajuste o caminho conforme seu projeto
+import { Router, RouterModule } from '@angular/router';
+import { HeaderComponent } from '../../components/header/header.component';
+import { CartService } from '../../services/cart.service';
+import { CartItem } from '../../services/types/cartItem';
 
 @Component({
   selector: 'app-carrinho',
   standalone: true,
-  imports: [CommonModule, FormsModule, HeaderComponent,   RouterModule], // adicione aqui
+  imports: [CommonModule, FormsModule, HeaderComponent,   RouterModule], 
   templateUrl: './carrinho.component.html',
   styleUrls: ['./carrinho.component.scss']
 
 })
-export class CarrinhoComponent {
-  constructor(private router: Router){}
-  items = [
-    {
-      nome: 'Casa de Atividades',
-      preco: 199.90,
-      quantidade: 1,
-      imagem: 'assets/img/cd7d6395-de7a-4032-bf55-3171ddae75cc.png',
-      selecionado: false
-    },
-    {
-      nome: 'Grande conjunto de presente',
-      preco: 375.00,
-      quantidade: 1,
-      imagem: 'assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png',
-      selecionado: false
-    },
-    {
-      nome: 'Conjunto de chocalhos de madeira',
-      preco: 370.00,
-      quantidade: 1,
-      imagem: 'assets/img/090319b0-9695-4ca2-b7e3-21908538d7e0.png',
-      selecionado: false
-    }
-  ];
-
+export class CarrinhoComponent implements OnInit {
+  items: CartItem[] = [];
   selectAll = false;
   subtotal = 0;
+  
+  constructor(
+    private router: Router, 
+    private cartService: CartService
+  ) {}
+
+  ngOnInit() {
+    this.items = this.cartService.getItems();
+    this.atualizarSubtotal();
+  }
 
   alterarQuantidade(index: number, delta: number): void {
-    const item = this.items[index];
-    item.quantidade = Math.max(1, item.quantidade + delta);
+  const item = this.items[index];
+  item.quantidade += delta;
+
+  if (item.quantidade < 1) {
+    this.removerItem(index);
+  } else {
     this.atualizarSubtotal();
   }
+}
 
   removerItem(index: number): void {
-    this.items.splice(index, 1);
-    this.atualizarSubtotal();
-  }
+  this.cartService.removeItem(index);
+  this.items = this.cartService.getItems();
+  this.atualizarSubtotal();
+}
 
   toggleSelectAll(): void {
     this.items.forEach(item => item.selecionado = this.selectAll);
@@ -69,17 +61,15 @@ export class CarrinhoComponent {
     this.selectAll = this.items.every(item => item.selecionado);
     this.atualizarSubtotal();
   }
- 
+
   getQuantidadeSelecionada(): number {
     return this.items.filter(i => i.selecionado).length;
   }
+
   irParaPaginaDePedidos() {
     const produtosSelecionados = this.items.filter(item => item.selecionado);
-    console.log('Produtos selecionados:', produtosSelecionados);
     this.router.navigate(['/pagina-de-pedidos'], { state: { produtos: produtosSelecionados } });
   }
-  
-  
 }
 
   

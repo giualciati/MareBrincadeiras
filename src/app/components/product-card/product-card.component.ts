@@ -1,8 +1,9 @@
-import { Component, Input } from "@angular/core"
-import { Router } from "@angular/router"
-import { CommonModule } from "@angular/common"
-import { Product } from "../../services/types/product"
-import { FavoritosService } from "../../favoritos.service"
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Product } from '../../services/types/product';
+import { CartService } from '../../services/cart.service';
+import { FavoritosService } from '../../favoritos.service';
 
 @Component({
   selector: "app-product-card",
@@ -17,6 +18,7 @@ export class ProductCardComponent {
   constructor(
     private router: Router,
     private favoritosService: FavoritosService,
+    private cartService: CartService,
   ) { }
 
   toggleFavorite(event: Event): void {
@@ -35,5 +37,10 @@ export class ProductCardComponent {
   viewProduct(event: Event, productId: number): void {
     event.preventDefault()
     this.router.navigate(["/product", productId])
+  }
+
+
+  addToCart(): void {
+    this.cartService.addToCart(this.product)
   }
 }
