@@ -207,5 +207,20 @@
       "telephone": "11961542672",
       "password": "989317"
     }
+  ],
+  "registerCard": [
+    {
+      "id": "f99c",
+      "numCard": "1234 5678 5120 0325",
+      "cvv": "122",
+      "expirationDate": "12/26",
+      "nameCard": "Teste",
+      "cepCob": "04696000",
+      "stateCob": "SP",
+      "cityCob": "São Paulo",
+      "addressCob": "Avenida Engenheiro Eusébio Stevaux",
+      "addressNumberCob": 12,
+      "complementCob": "portaria 2"
+    }
   ]
 }

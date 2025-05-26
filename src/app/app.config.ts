@@ -9,6 +9,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 
 export const appConfig: ApplicationConfig = {
-  providers: [importProvidersFrom(HttpClientModule),provideRouter(routes, withComponentInputBinding()), provideClientHydration(), provideAnimations(), provideAnimationsAsync()],
+  providers: [importProvidersFrom(HttpClientModule), provideRouter(routes, withComponentInputBinding()), provideClientHydration(), provideAnimations(), provideAnimationsAsync()],
 };
 
