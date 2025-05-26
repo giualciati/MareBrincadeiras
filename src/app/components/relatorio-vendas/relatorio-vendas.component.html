@@ -1,0 +1,25 @@
+<main class="relatorio-vendas">
+
+  <table *ngIf="(vendas$ | async) as vendas; else semVendas">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Data</th>
+        <th>Valor Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let venda of vendas">
+        <td>{{ venda.id }}</td>
+        <td>{{ venda.nomeCliente }}</td>
+        <td>{{ venda.data }}</td>
+        <td>R$ {{ venda.valorTotal | number:'1.2-2' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #semVendas>
+    <p>Nenhuma venda realizada.</p>
+  </ng-template>
+</main>
