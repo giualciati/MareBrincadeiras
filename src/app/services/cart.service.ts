@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { CartItem } from './types/cartItem';
 
 @Injectable({
@@ -7,11 +8,15 @@ import { CartItem } from './types/cartItem';
 export class CartService {
   private items: CartItem[] = [];
 
+  
+  private cartCount = new BehaviorSubject<number>(0);
+  cartCount$ = this.cartCount.asObservable();
+
   constructor() {
     this.loadCart();
+    this.updateCartCount();
   }
 
-  
   addToCart(product: any) {
     const existingItem = this.items.find(item => item.id === product.id);
 
@@ -30,35 +35,39 @@ export class CartService {
     }
 
     this.saveCart();
+    this.updateCartCount();
   }
 
-  
   getItems(): CartItem[] {
     return this.items;
   }
 
- 
   removeItem(index: number) {
     this.items.splice(index, 1);
     this.saveCart();
+    this.updateCartCount();
   }
-
 
   clearCart() {
     this.items = [];
     localStorage.removeItem('cartItems');
+    this.updateCartCount();
   }
 
- 
   private saveCart() {
     localStorage.setItem('cartItems', JSON.stringify(this.items));
   }
 
-  
   private loadCart() {
     const data = localStorage.getItem('cartItems');
     if (data) {
       this.items = JSON.parse(data);
     }
+  }
+
+  
+  private updateCartCount() {
+    const total = this.items.reduce((sum, item) => sum + item.quantidade, 0);
+    this.cartCount.next(total);
   }
 }

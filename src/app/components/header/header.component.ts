@@ -1,7 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router, RouterLink } from "@angular/router";
 import { NgClass, NgIf, CommonModule } from "@angular/common";
-import { AuthService } from '../../services/auth.service'; 
+import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: "app-header",
@@ -10,14 +12,17 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: "./header.component.html",
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   isMenuOpen = false;
-  cartCount = 1;
+  cartCount = 0;
   usuarioNome: string | null = null;
+
+  private cartSubscription!: Subscription;
 
   constructor(
     private authService: AuthService,
-    private router: Router  
+    private cartService: CartService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -25,6 +30,10 @@ export class HeaderComponent implements OnInit {
     if (usuario && usuario.name) {
       this.usuarioNome = usuario.name;
     }
+
+    this.cartSubscription = this.cartService.cartCount$.subscribe(count => {
+      this.cartCount = count;
+    });
   }
 
   toggleMenu() {
@@ -34,6 +43,12 @@ export class HeaderComponent implements OnInit {
   logout() {
     localStorage.removeItem('usuarioLogado');
     this.usuarioNome = null;
-    this.router.navigate(['/']); 
+    this.router.navigate(['/']);
+  }
+
+  ngOnDestroy() {
+    if (this.cartSubscription) {
+      this.cartSubscription.unsubscribe();
+    }
   }
 }
