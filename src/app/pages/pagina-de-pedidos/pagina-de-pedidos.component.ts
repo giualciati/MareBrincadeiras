@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterModule, Router } from '@angular/router'; 
+import { Router, RouterModule } from '@angular/router'; 
 import { HeaderComponent } from "../../components/header/header.component";
 import { CommonModule } from '@angular/common'; 
+import { VendaService } from '../../services/venda.service';
+import { AuthService } from '../../services/auth.service';  
 
 @Component({
   selector: 'app-pagina-de-pedidos',
@@ -13,10 +15,15 @@ import { CommonModule } from '@angular/common';
 export class PaginaDePedidosComponent {
   produtos: any[] = [];
   frete: number = 23.87;  
+  usuarioLogadoNome: string = 'Cliente';  
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private vendaService: VendaService,
+    private authService: AuthService  
+  ) {
     const navigation = this.router.getCurrentNavigation();
-  
+
     if (navigation?.extras?.state?.['produtos']) {
       this.produtos = navigation.extras.state['produtos'];
       sessionStorage.setItem('produtos', JSON.stringify(this.produtos));
@@ -29,6 +36,12 @@ export class PaginaDePedidosComponent {
       }
     }
 
+    
+    const usuario = this.authService.getUsuarioLogado();
+    if (usuario && usuario.name) {
+      this.usuarioLogadoNome = usuario.name;
+    }
+
     console.log('Produtos recebidos na página de pedidos:', this.produtos);
   }
  
@@ -39,5 +52,17 @@ export class PaginaDePedidosComponent {
   get pagamentoTotal(): number {
     return this.totalProdutos + this.frete;
   }
-}
 
+  finalizarCompra() {
+    const novaVenda = {
+      id: Date.now(), 
+      nomeCliente: this.usuarioLogadoNome,  
+      data: new Date().toLocaleDateString(),
+      valorTotal: this.pagamentoTotal
+    };
+
+    this.vendaService.adicionarVenda(novaVenda);
+
+    this.router.navigate(['/finish']); 
+  }
+}
