@@ -1,52 +1,15 @@
 <app-sidebar-management></app-sidebar-management>
 <div class="content">
-    <header>
-        <i class="fa-regular fa-bell"></i>
-        <i class="fa-regular fa-circle-user"></i>
-    </header>
     <h1 id="title_landingAdm">Bem-vindo à Maré de Brincadeiras!</h1>
     <section class="dashboard">
-        <div class="card"> <h3>Total de vendas</h3> <p>300</p> </div>
-        <div class="card"> <h3>Produtos cadastrados</h3> <p>300</p> </div>
-        <div class="card"> <h3>Clientes ativos</h3> <p>150</p> </div>
+        <div class="card"> <h3>Total de vendas</h3> <p>{{ totalVendas }}</p> </div>
+        <div class="card"> <h3>Produtos cadastrados</h3> <p>{{totalProdutos}}</p> </div>
+        <div class="card"> <h3>Clientes ativos</h3> <p>{{totalClientes}}</p> </div>
         <div class="card"> <h3>Avaliações</h3> <p>4.8 ★</p> </div>
     </section>
 
     <section class="orders">
         <h2>Últimos Pedidos</h2>
-        <table class="orders-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Cliente</th>
-                    <th>Data</th>
-                    <th>Status</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>#001</td>
-                    <td>João Silva</td>
-                    <td>30/03/2025</td>
-                    <td>Entregue</td>
-                    <td>R$ 250,00</td>
-                </tr>
-                <tr>
-                    <td>#002</td>
-                    <td>Maria Souza</td>
-                    <td>30/03/2025</td>
-                    <td>Pendente</td>
-                    <td>R$ 180,00</td>
-                </tr>
-                <tr>
-                    <td>#003</td>
-                    <td>Carlos Lima</td>
-                    <td>29/03/2025</td>
-                    <td>Cancelado</td>
-                    <td>R$ 0,00</td>
-                </tr>
-            </tbody>
-        </table>
+        <app-relatorio-vendas></app-relatorio-vendas>
     </section>
 </div>
