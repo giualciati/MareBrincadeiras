@@ -24,13 +24,14 @@ export class PaginaDePedidosComponent {
     private authService: AuthService  
   ) {
     const dados = localStorage.getItem('endereco');
-const enderecos = dados ? JSON.parse(dados) : [];
+    const enderecos = dados ? JSON.parse(dados) : [];
 
-if (enderecos.length > 0) {
-  this.enderecoSelecionado = enderecos[enderecos.length - 1]; 
-} else {
-  this.enderecoSelecionado = null;
-}
+    if (enderecos.length > 0) {
+      this.enderecoSelecionado = enderecos[enderecos.length - 1]; 
+    } else {
+      this.enderecoSelecionado = null;
+    }
+
     const navigation = this.router.getCurrentNavigation();
 
     if (navigation?.extras?.state?.['produtos']) {
@@ -45,7 +46,6 @@ if (enderecos.length > 0) {
       }
     }
 
-    
     const usuario = this.authService.getUsuarioLogado();
     if (usuario && usuario.name) {
       this.usuarioLogadoNome = usuario.name;
@@ -64,13 +64,17 @@ if (enderecos.length > 0) {
 
   finalizarCompra() {
     const novaVenda = {
-      id: Date.now(), 
-      nomeCliente: this.usuarioLogadoNome,  
+      id: Date.now(),
+      nomeCliente: this.usuarioLogadoNome,
       data: new Date().toLocaleDateString(),
-      valorTotal: this.pagamentoTotal
+      produtos: this.produtos,  
+      valorTotal: this.pagamentoTotal,
+      frete: this.frete          
     };
 
     this.vendaService.adicionarVenda(novaVenda);
+
+    sessionStorage.removeItem('produtos');
 
     this.router.navigate(['/finish']); 
   }
