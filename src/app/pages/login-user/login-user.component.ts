@@ -4,9 +4,9 @@ import { CustomersService } from '../../services/customers.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Login } from '../../services/types/login';
-import { ToastModule } from 'primeng/toast'; 
+import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { AuthService } from '../../services/auth.service';  
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-user',
@@ -23,14 +23,27 @@ export class LoginUserComponent {
     private service: CustomersService,
     private router: Router,
     private messageService: MessageService,
-    private authService: AuthService 
-  ) {}
+    private authService: AuthService
+  ) { }
 
   fazerLogin() {
+    if (this.login.email === 'admin@gmail.com' && this.login.password === 'admin123') {
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Sucesso',
+        detail: `Bem-vindo, Admin!`,
+        life: 1000
+      });
+      setTimeout(() => {
+        this.router.navigate(['/landing/adm']);
+      }, 2000);
+      return;
+    }
+    
     this.service.loginCliente(this.login.email, this.login.password).subscribe({
       next: (customer) => {
         if (customer) {
-          
+
           this.authService.setUsuarioLogado(customer);
 
           this.messageService.add({

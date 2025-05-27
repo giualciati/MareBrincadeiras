@@ -25,7 +25,6 @@ import { EnderecoComponent } from "./pages/endereco/endereco.component";
 import { EnderecoFormComponent } from './pages/endereco-form/endereco-form.component';
 import { PedidosComponent } from "./pages/pedidos/pedidos.component";
 import { FinalizarComponent } from './pages/finalizar/finalizar.component';
-import { LoginAdmComponent } from "./pages/login-adm/login-adm.component";
 import { SalesComponent } from "./pages/sales/sales.component";
 import { CardsUserComponent } from "./pages/cards-user/cards-user.component";
 import { ReviewsManagementComponent } from "./pages/reviews-management/reviews-management.component";
@@ -48,7 +47,6 @@ export const routes: Routes = [
   { path: "login/forget-password", component: ForgetPasswordUserComponent},
   { path: "register/card", component: RegisterCardComponent },
   { path: "information", component: PersonalInformationComponent },
-  {path: "login/adm", component: LoginAdmComponent},
   { path: "landing/adm", component: LandingAdmComponent },
   {path: "information/cards", component: CardsUserComponent},
   { path: "customers", component: CadastroUsuarioComponent },

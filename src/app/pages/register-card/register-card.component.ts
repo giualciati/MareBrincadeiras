@@ -122,14 +122,37 @@ export class RegisterCardComponent implements OnInit {
   }
 
   formatExpirationDateInput() {
-    let value = this.formCard.expirationDate.replace(/\D/g, '');
-    if (value.length > 2) {
-      value = value.substring(0, 2) + '/' + value.substring(2, 4);
-    } else if (value.length > 2) {
-      value = value.substring(0, 2);
-    }
-    this.formCard.expirationDate = value;
+  let value = this.formCard.expirationDate.replace(/\D/g, '');
+
+  if (value.length >= 3) {
+    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+  } else {
+    value = value.substring(0, 2);
   }
+
+  this.formCard.expirationDate = value;
+
+  if (value.length === 5 && value.includes('/')) {
+    const [monthStr, yearStr] = value.split('/');
+    const month = parseInt(monthStr, 10);
+    const year = parseInt('20' + yearStr, 10); 
+
+    const today = new Date();
+    const currentMonth = today.getMonth() + 1;
+    const currentYear = today.getFullYear();
+
+    const isExpired =
+      year < currentYear || (year === currentYear && month < currentMonth);
+
+    if (isExpired) {
+      this.mensagemFeedback = 'Digite uma data de validade válida';
+      this.tipoFeedback = 'erro';
+      this.limparFeedbackDepoisDeTempo();
+      this.formCard.expirationDate = '';
+    }
+  }
+}
+
 
   limparFeedbackDepoisDeTempo(): void {
     setTimeout(() => {

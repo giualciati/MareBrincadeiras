@@ -43,26 +43,13 @@ export class ProductPageComponent implements OnInit {
   categorias: categorias[] = [];
   selectedCategorias: string[] = [];
 
-  brands: string[] = [
-    "Mattel",
-    "Lego",
-    "Hasbro",
-    "Fisher-Price",
-    "Playmobil",
-    "Candide",
-    "Estrela",
-    "Grow",
-    "Brinquedos Bandeirante",
-  ];
-  selectedBrands: string[] = [];
-
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router,
     private favoritosService: FavoritosService,
     private categoryService: CategoryService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -147,12 +134,6 @@ export class ProductPageComponent implements OnInit {
       );
     }
 
-    if (this.selectedBrands.length > 0) {
-      filtered = filtered.filter(
-        (product) => product.brand && this.selectedBrands.includes(product.brand)
-      );
-    }
-
     this.filteredProducts = filtered;
 
     if (this.isAnyFilterActive() || this.searchTerm) {
@@ -182,10 +163,6 @@ export class ProductPageComponent implements OnInit {
 
     if (this.selectedCategorias.length > 0) {
       queryParams.categorias = this.selectedCategorias.join(",");
-    }
-
-    if (this.selectedBrands.length > 0) {
-      queryParams.brands = this.selectedBrands.join(",");
     }
 
     if (this.currentPage > 1) {
@@ -222,20 +199,10 @@ export class ProductPageComponent implements OnInit {
     this.filterProducts();
   }
 
-  toggleBrand(brand: string): void {
-    if (this.selectedBrands.includes(brand)) {
-      this.selectedBrands = this.selectedBrands.filter((b) => b !== brand);
-    } else {
-      this.selectedBrands.push(brand);
-    }
-    this.filterProducts();
-  }
-
   clearAllFilters(): void {
     this.selectedAgeRanges = [];
     this.priceRange = [this.minPrice, this.maxPrice];
     this.selectedCategorias = [];
-    this.selectedBrands = [];
     this.filterProducts();
   }
 
@@ -244,8 +211,7 @@ export class ProductPageComponent implements OnInit {
       this.selectedAgeRanges.length > 0 ||
       this.priceRange[0] !== this.minPrice ||
       this.priceRange[1] !== this.maxPrice ||
-      this.selectedCategorias.length > 0 ||
-      this.selectedBrands.length > 0
+      this.selectedCategorias.length > 0
     );
   }
 
