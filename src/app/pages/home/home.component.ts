@@ -10,12 +10,6 @@ import { Product } from "../../services/types/product"
 import { ToastModule } from "primeng/toast"
 import { MessageService } from "primeng/api"
 
-interface Brand {
-  id: number
-  name: string
-  logo: string
-}
-
 interface Testimonial {
   id: number
   name: string
@@ -46,35 +40,6 @@ export class HomeComponent implements OnInit {
   carouselPosition = 0
   newsletterEmail = ""
   isLoading = true
-
-  // Marcas parceiras
-  brands: Brand[] = [
-    {
-      id: 1,
-      name: "Mattel",
-      logo: "../../../assets/img/logos/MattelLogo.png",
-    },
-    {
-      id: 2,
-      name: "Lego",
-      logo: "../../../assets/img/logos/LegoLogo.png",
-    },
-    {
-      id: 3,
-      name: "Hasbro",
-      logo: "../../../assets/img/logos/HasbroLogo.png",
-    },
-    {
-      id: 4,
-      name: "Camdide",
-      logo: "../../../assets/img/logos/CandideLogo.png",
-    },
-    {
-      id: 5,
-      name: "Playmobil",
-      logo: "../../../assets/img/logos/PlaymobilLogo.svg.png",
-    },
-  ]
 
   // Depoimentos
   testimonials: Testimonial[] = [
