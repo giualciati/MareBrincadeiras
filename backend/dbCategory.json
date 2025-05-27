@@ -32,52 +32,33 @@
   "products": [
     {
       "id": "1",
-      "image": "assets/img/6bca124e-2984-4a1d-9a60-9a92749cf036.png",
-      "name": "Brinquedo prático para crianças: Guindaste de madeira",
-      "description": "Este guindaste de madeira é perfeito para desenvolver habilidades motoras e criatividade em crianças. Fabricado com madeira de reflorestamento de alta qualidade, possui acabamento liso e seguro, sem farpas ou rebarbas. O brinquedo inclui peças móveis que permitem simular operações reais de um guindaste, estimulando o raciocínio lógico e a coordenação motora. Ideal para crianças a partir de 3 anos, este guindaste resistente proporcionará horas de diversão educativa.",
-      "categoryId": "1",
-      "color": "Natural",
+      "name": "Casa de Atividades para Bebês com Iluminação, Brinquedos Montessori - Emoticon",
+      "description": "Esta casa de atividades é inspirada na metodologia Montessori e oferece múltiplos estímulos sensoriais e motores. Conta com luzes interativas, engrenagens móveis, xilofone, interruptores, fechaduras e diversos acessórios que desenvolvem a coordenação motora, curiosidade e raciocínio lógico das crianças. Feita de materiais seguros e duráveis. Recomendado para bebês e crianças a partir de 1 ano.",
+      "categoryId": 3,
+      "color": "Azul e Verde",
       "size": "Médio",
-      "value": 960,
-      "quantity": 15,
+      "value": 199.90,
+      "oldValue": 299.90,
+      "discount": 33,
+      "quantity": 8,
+      "image": "assets/img/cd7d6395-de7a-4032-bf55-3171ddae75cc.png",
       "images": [
-        "assets/img/6bca124e-2984-4a1d-9a60-9a92749cf036.png"
+        "assets/img/cd7d6395-de7a-4032-bf55-3171ddae75cc.png"
+      ],
+      "isFavorite": false,
+      "feedbacks": [
+        {
+          "name": "Felipe Rocha",
+          "rating": 5,
+          "date": "2025-05-20",
+          "comment": "Produto excelente, cheio de atividades para entreter e estimular o desenvolvimento do meu filho."
+        }
       ]
     },
     {
       "id": "2",
-      "image": "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png",
-      "name": "Grande conjunto de presente com chocalhos e mordedores para bebês",
-      "description": "Este conjunto completo de chocalhos e mordedores é o presente ideal para bebês em fase de desenvolvimento sensorial. Contém 8 peças coloridas com diferentes texturas, sons e formatos, projetadas para estimular os sentidos do bebê. Os mordedores possuem partes macias e texturizadas que aliviam o desconforto durante a dentição. Todos os itens são fabricados com materiais atóxicos, livres de BPA e fáceis de limpar. Recomendado para bebês a partir de 3 meses.",
-      "categoryId": "3",
-      "color": "Colorido",
-      "size": "Pequeno",
-      "value": 375,
-      "quantity": 20,
-      "images": [
-        "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png"
-      ],
-      "oldValue": 400,
-      "discount": 15
-    },
-    {
-      "id": "3",
-      "image": "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png",
-      "name": "Estrutura de escalada para crianças",
-      "description": "Esta estrutura de escalada foi projetada para proporcionar diversão e desenvolvimento físico para crianças. Fabricada com plástico resistente e durável, suporta até 50kg e pode ser usada tanto em ambientes internos quanto externos. A estrutura inclui diferentes níveis de escalada, escorregador e túnel, estimulando a coordenação motora, equilíbrio e confiança. As cores vibrantes e o design lúdico tornam este brinquedo irresistível para as crianças. Montagem fácil e rápida, sem necessidade de ferramentas especiais.",
-      "categoryId": "3",
-      "color": "Multicolorido",
-      "size": "Grande",
-      "value": 120,
-      "quantity": 8,
-      "images": [
-        "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png"
-      ]
-    },
-    {
-      "id": "4",
       "name": "Conjunto de chocalhos de madeira",
-      "description": "Este conjunto de chocalhos de madeira traz 5 peças artesanais, cada uma com um som único e agradável. Fabricados com madeira natural e tingidos com corantes não tóxicos à base de água, são seguros para o contato com a boca do bebê. Os diferentes formatos e cores estimulam a percepção visual, enquanto os sons distintos desenvolvem a discriminação auditiva. O tamanho é ideal para as mãozinhas dos bebês, ajudando no desenvolvimento da preensão. Recomendado para bebês a partir de 6 meses.",
+      "description": "Este conjunto de chocalhos de madeira traz 5 peças artesanais, cada uma com um som único e agradável. Fabricados com madeira natural e tingidos com corantes não tóxicos à base de água, são seguros para o contato com a boca do bebê. Os diferentes formatos e cores estimulam a percepção visual, enquanto os sons distintos desenvolvem a discriminação auditiva.",
       "categoryId": 2,
       "color": "Madeira",
       "size": "Pequeno",
@@ -95,26 +76,128 @@
           "name": "Ana Silva",
           "rating": 5,
           "date": "2023-10-15",
-          "comment": "Meu bebê adorou! Os chocalhos têm sons suaves e agradáveis, e a madeira é de ótima qualidade. Recomendo para estimular a audição e coordenação motora."
-        },
+          "comment": "Meu bebê adorou! Os chocalhos têm sons suaves e agradáveis, e a madeira é de ótima qualidade."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Kit Animais Selvagens de Plástico",
+      "description": "Conjunto de animais selvagens composto por leão, girafa, tigre, leopardo, zebra e rinoceronte. Ideal para brincadeiras criativas e para aprender sobre o reino animal. Feitos de plástico resistente e com pintura detalhada. Indicado para crianças acima de 3 anos.",
+      "categoryId": 3,
+      "color": "Multicolorido",
+      "size": "Pequeno",
+      "value": 49,
+      "oldValue": 59,
+      "discount": 17,
+      "quantity": 40,
+      "image": "assets/img/Brinquedo2.webp",
+      "images": [
+        "assets/img/Brinquedo2.webp"
+      ],
+      "isFavorite": false,
+      "feedbacks": [
         {
-          "name": "Carlos Oliveira",
-          "rating": 4,
-          "date": "2023-09-28",
-          "comment": "Produto bom, com acabamento impecável. Os sons são diferentes entre si, o que é ótimo para o desenvolvimento auditivo. Só não dou 5 estrelas porque um dos chocalhos veio com o som mais baixo que os outros."
-        },
-        {
-          "name": "Beatriz Lima",
+          "name": "Lucas Fernandes",
           "rating": 5,
-          "date": "2023-09-03",
-          "comment": "Chocalhos lindos e de excelente qualidade! Minha filha adora as cores vibrantes e os diferentes sons. Ótimo para estimular os sentidos do bebê."
+          "date": "2025-04-02",
+          "comment": "Excelente qualidade, ideal para brincadeiras educativas!"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Trenzinho Didático com Bolinhas Coloridas",
+      "description": "Trenzinho didático com bolinhas coloridas que giram conforme ele se move. Estimula a coordenação motora, o reconhecimento de cores e o desenvolvimento cognitivo. Feito de plástico resistente e seguro, ideal para crianças a partir de 1 ano.",
+      "categoryId": 3,
+      "color": "Amarelo, Vermelho, Verde e Azul",
+      "size": "Médio",
+      "value": 85,
+      "oldValue": 120,
+      "discount": 29,
+      "quantity": 15,
+      "image": "assets/img/Brinquedo4.png",
+      "images": [
+        "assets/img/Brinquedo4.png"
+      ],
+      "isFavorite": false,
+      "feedbacks": [
+        {
+          "name": "Pedro Nascimento",
+          "rating": 4,
+          "date": "2025-03-10",
+          "comment": "Trenzinho resistente e educativo. Ótimo brinquedo!"
         }
       ]
     },
     {
       "id": "5",
+      "name": "Estrutura de escalada para crianças",
+      "description": "Esta estrutura de escalada foi projetada para proporcionar diversão e desenvolvimento físico para crianças. Fabricada com plástico resistente e durável, suporta até 50kg e pode ser usada tanto em ambientes internos quanto externos. Inclui diferentes níveis de escalada, escorregador e túnel, estimulando a coordenação motora, equilíbrio e confiança.",
+      "categoryId": "3",
+      "color": "Multicolorido",
+      "size": "Grande",
+      "value": 120,
+      "quantity": 8,
+      "images": [
+        "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png"
+      ],
+      "image": "assets/img/fceb8ab1-7e1a-416a-8b77-f34987ce397d.png"
+    },
+    {
+      "id": "6",
+      "name": "Kit Animais Divertidos de Rodinhas",
+      "description": "Este conjunto de animais em rodinhas proporciona horas de diversão. Inclui gato, cachorro, pato, palhaço e trenzinho, todos com cores vibrantes e design amigável. Ideal para estimular a coordenação motora, a criatividade e o jogo simbólico. Feitos de plástico resistente e seguro.",
+      "categoryId": 3,
+      "color": "Multicolorido",
+      "size": "Médio",
+      "value": 150,
+      "oldValue": 180,
+      "discount": 17,
+      "quantity": 12,
+      "image": "assets/img/Brinquedo1.png",
+      "images": [
+        "assets/img/Brinquedo1.png"
+      ],
+      "isFavorite": false,
+      "feedbacks": [
+        {
+          "name": "André Santos",
+          "rating": 4,
+          "date": "2025-04-05",
+          "comment": "Produto bem feito e seguro, só achei que poderia ter mais peças."
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Microfone Papagaio Interativo",
+      "description": "Este microfone em forma de papagaio encanta com suas cores vibrantes e sons divertidos. Ideal para estimular a fala, a música e a imaginação das crianças. Possui botões interativos que emitem sons de animais e músicas curtas.",
+      "categoryId": 3,
+      "color": "Amarelo e Vermelho",
+      "size": "Pequeno",
+      "value": 75,
+      "oldValue": 99,
+      "discount": 24,
+      "quantity": 25,
+      "image": "assets/img/Brinquedo5.png",
+      "images": [
+        "assets/img/Brinquedo5.png"
+      ],
+      "isFavorite": false,
+      "feedbacks": [
+        {
+          "name": "Fernanda Souza",
+          "rating": 5,
+          "date": "2024-12-15",
+          "comment": "Meu filho adora cantar com esse microfone! As cores são lindas e os sons divertidos."
+        }
+      ]
+    },
+    {
+      "id": "8",
       "name": "Kit de blocos de construção magnéticos",
-      "description": "Este kit de blocos magnéticos contém 60 peças coloridas que se conectam facilmente através de ímãs embutidos. Ideal para estimular a criatividade e o raciocínio espacial, permite a construção de estruturas 2D e 3D. As peças são grandes o suficiente para evitar riscos de engasgamento e fabricadas com plástico ABS de alta qualidade. O conjunto vem em uma caixa organizadora e inclui um guia com sugestões de construções. Perfeito para crianças a partir de 3 anos que gostam de criar e explorar.",
+      "description": "Este kit de blocos magnéticos contém 60 peças coloridas que se conectam facilmente através de ímãs embutidos. Ideal para estimular a criatividade e o raciocínio espacial, permite a construção de estruturas 2D e 3D. O conjunto vem em uma caixa organizadora.",
       "categoryId": "5",
       "color": "Colorido",
       "size": "Médio",
@@ -132,26 +215,14 @@
           "name": "Marcelo Souza",
           "rating": 5,
           "date": "2023-11-02",
-          "comment": "Brinquedo fantástico! Meu filho de 4 anos fica horas construindo diferentes estruturas. Os ímãs são fortes e as peças se encaixam perfeitamente. Ótimo para desenvolver a criatividade."
-        },
-        {
-          "name": "Daniela Ferreira",
-          "rating": 4,
-          "date": "2023-10-14",
-          "comment": "Kit muito bom para estimular o raciocínio espacial. As crianças adoram construir e os ímãs facilitam a montagem. Só não dou 5 estrelas porque a caixa organizadora poderia ser mais resistente."
-        },
-        {
-          "name": "Rodrigo Martins",
-          "rating": 5,
-          "date": "2023-09-25",
-          "comment": "Excelente brinquedo educativo! Meus filhos de 3 e 6 anos brincam juntos e desenvolvem habilidades importantes. As peças são coloridas e de ótima qualidade."
+          "comment": "Brinquedo fantástico! Meu filho de 4 anos fica horas construindo diferentes estruturas."
         }
       ]
     },
     {
-      "id": "6",
+      "id": "9",
       "name": "Boneca interativa com sons e movimentos",
-      "description": "Esta boneca interativa responde ao toque e à voz com mais de 50 sons e frases diferentes. Seus braços e pernas são articulados, permitindo diversas posições. Os olhos se abrem e fecham, e ela emite sons de risada quando balançada. Vem vestida com roupas removíveis e laváveis, e acompanha mamadeira, chupeta e uma muda extra de roupa. Funciona com 3 pilhas AA (inclusas). A boneca estimula o cuidado, a afetividade e a imaginação em crianças a partir de 2 anos.",
+      "description": "Esta boneca interativa responde ao toque e à voz com mais de 50 sons e frases diferentes. Seus braços e pernas são articulados, permitindo diversas posições. Vem vestida com roupas removíveis e laváveis, e acompanha mamadeira, chupeta e uma muda extra de roupa.",
       "categoryId": 4,
       "color": "Rosa",
       "size": "Médio",
@@ -166,22 +237,65 @@
       "isFavorite": false,
       "feedbacks": [
         {
-          "name": "Patrícia Lopes",
-          "rating": 5,
-          "date": "2023-10-30",
-          "comment": "Minha filha amou esta boneca! As interações são muito realistas e as roupas são de ótima qualidade. Ela brinca de mamãe e filhinha o dia todo."
-        },
-        {
           "name": "Gabriel Moreira",
           "rating": 4,
           "date": "2023-10-08",
-          "comment": "Boneca muito bem feita e com ótimas funções interativas. As pilhas duram bastante tempo. O único ponto negativo é que algumas frases são um pouco baixas."
-        },
+          "comment": "Boneca muito bem feita e com ótimas funções interativas. As pilhas duram bastante tempo."
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Grande conjunto de presente com chocalhos e mordedores para bebês",
+      "description": "Este conjunto completo de chocalhos e mordedores é o presente ideal para bebês em fase de desenvolvimento sensorial. Contém 8 peças coloridas com diferentes texturas, sons e formatos, projetadas para estimular os sentidos do bebê.",
+      "categoryId": "3",
+      "color": "Colorido",
+      "size": "Pequeno",
+      "value": 375,
+      "oldValue": 400,
+      "discount": 15,
+      "quantity": 20,
+      "images": [
+        "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png"
+      ],
+      "image": "assets/img/83e1e786-a077-46e0-b3f2-afeaa8052e0c.png"
+    },
+    {
+      "id": "11",
+      "name": "Brinquedo prático para crianças: Guindaste de madeira",
+      "description": "Este guindaste de madeira é perfeito para desenvolver habilidades motoras e criatividade em crianças. Fabricado com madeira de reflorestamento de alta qualidade, possui acabamento liso e seguro, sem farpas ou rebarbas.",
+      "categoryId": "1",
+      "color": "Natural",
+      "size": "Médio",
+      "value": 560,
+      "quantity": 15,
+      "images": [
+        "assets/img/6bca124e-2984-4a1d-9a60-9a92749cf036.png"
+      ],
+      "image": "assets/img/6bca124e-2984-4a1d-9a60-9a92749cf036.png"
+    },
+    {
+      "id": "12",
+      "name": "Casinha de Brincar com Varanda",
+      "description": "Casinha de brincar super colorida com portas, janelas e varanda. Ideal para brincadeiras ao ar livre ou dentro de casa, estimulando a imaginação e a interação social. Fabricada em plástico resistente e fácil de montar.",
+      "categoryId": 3,
+      "color": "Branco, Vermelho, Amarelo e Verde",
+      "size": "Grande",
+      "value": 699,
+      "oldValue": 950,
+      "discount": 22,
+      "quantity": 5,
+      "image": "assets/img/Brinquedo3.png",
+      "images": [
+        "assets/img/Brinquedo3.png"
+      ],
+      "isFavorite": false,
+      "feedbacks": [
         {
-          "name": "Luciana Vieira",
+          "name": "Renata Almeida",
           "rating": 5,
-          "date": "2023-09-15",
-          "comment": "Presente perfeito! Minha sobrinha não larga a boneca. Os sons são variados e as roupas são fáceis de trocar. Ótimo para estimular o cuidado e a responsabilidade."
+          "date": "2025-03-21",
+          "comment": "As crianças não querem mais sair de dentro! Super recomendo."
         }
       ]
     }
