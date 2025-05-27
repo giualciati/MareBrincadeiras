@@ -1,42 +1,110 @@
-import {Component, OnInit} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import { RegisterCardService } from '../../services/register-card.service';
-
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RegisterCardService } from '../../services/registerCard.service';
+import { Router, RouterLink } from '@angular/router';
+import { HeaderComponent } from "../../components/header/header.component";
 
 @Component({
   selector: 'app-register-card',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule, RouterLink, HeaderComponent],
   templateUrl: './register-card.component.html',
   styleUrl: './register-card.component.scss'
 })
-export class RegisterCardComponent implements OnInit{
+export class RegisterCardComponent implements OnInit {
 
-  formCard: any = {} 
-  endereco : any = {}
+  formCard: any = {};
+  endereco: any = {};
+  mensagemFeedback: string = '';
+  tipoFeedback: 'sucesso' | 'erro' | '' = '';
 
-  constructor(private registerCard:RegisterCardService){}
+  constructor(private registerCard: RegisterCardService, private router: Router) { }
 
   ngOnInit(): void {
-      this.formCard = {
-            numCard: '',
-            cvv: '',
-            expirationDate: '',
-            nameCard: '',
-            cepCob: '',
-            stateCob: '',
-            cityCob: '',
-            addressCob: '',
-            addressNumberCob : '',
-            complementCob: ''
-      }
+    this.formCard = {
+      numCard: '',
+      cvv: '',
+      expirationDate: '',
+      nameCard: '',
+      cepCob: '',
+      stateCob: '',
+      cityCob: '',
+      addressCob: '',
+      addressNumberCob: '',
+      complementCob: ''
+    };
   }
 
-  bucarEnderecoPorCep(){
+  enviarDadosCartao() {
+    if (!this.validarFormulario()) {
+      this.mensagemFeedback = 'Preencha todos os campos';
+      this.tipoFeedback = 'erro';
+      return;
+    }
+
+    this.registerCard.cadastrarCartao(this.formCard).subscribe({
+      next: (response) => {
+        this.mensagemFeedback = 'Cartão adicionado';
+        this.tipoFeedback = 'sucesso';
+        setTimeout(() => {
+          this.router.navigate(['/information/cards']);
+        }, 1500);
+      },
+      error: (error) => {
+        console.error('Erro ao cadastrar cartão:', error);
+        this.mensagemFeedback = 'Erro ao adicionar cartão';
+        this.tipoFeedback = 'erro';
+        this.limparFeedbackDepoisDeTempo();
+      }
+    });
+  }
+
+  limparFormulario(): void {
+    this.formCard = {
+      numCard: '',
+      cvv: '',
+      expirationDate: '',
+      nameCard: '',
+      cepCob: '',
+      stateCob: '',
+      cityCob: '',
+      addressCob: '',
+      addressNumberCob: '',
+      complementCob: ''
+    };
+    this.mensagemFeedback = '';
+    this.tipoFeedback = '';
+  }
+
+
+  validarFormulario(): boolean {
+    const camposObrigatorios = [
+      'numCard',
+      'cvv',
+      'expirationDate',
+      'nameCard',
+      'cepCob',
+      'stateCob',
+      'cityCob',
+      'addressCob',
+      'addressNumberCob'
+    ];
+
+    for (const campo of camposObrigatorios) {
+      if (!this.formCard[campo] || this.formCard[campo].toString().trim() === '') {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  bucarEnderecoPorCep() {
     const cep = this.formCard.cepCob;
-    if(cep && cep.length === 8){
+    if (cep && cep.length === 8) {
       this.registerCard.buscarCep(cep).subscribe({
-        next: (data)=> {
+        next: (data) => {
           this.formCard.stateCob = data.uf;
           this.formCard.cityCob = data.localidade;
           this.formCard.addressCob = data.logradouro;
@@ -44,31 +112,17 @@ export class RegisterCardComponent implements OnInit{
         error: (error) => {
           console.error('Erro ao buscar endereço', error);
         }
-      }
-      )
+      });
     }
   }
 
-  enviarDadosCartao(){
-    this.registerCard.cadastrarCartao(this.formCard).subscribe({
-      next: (response) => {
-        console.log('Cartão cadastrado com sucesso:', response);
-
-      },
-      error: (error) => {
-        console.error('Erro ao cadastrar cartão:', error);
-      }
-    });
-
-  }
-
   formatCardNumberInput() {
-    this.formCard.numCard = this.formCard.numCard.replace(/\D/g, '') // Remove não-dígitos
-      .replace(/(\d{4})(?=\d)/g, '$1 '); // Adiciona espaço a cada 4 dígitos
+    this.formCard.numCard = this.formCard.numCard.replace(/\D/g, '')
+      .replace(/(\d{4})(?=\d)/g, '$1 ');
   }
 
   formatExpirationDateInput() {
-    let value = this.formCard.expirationDate.replace(/\D/g, ''); 
+    let value = this.formCard.expirationDate.replace(/\D/g, '');
     if (value.length > 2) {
       value = value.substring(0, 2) + '/' + value.substring(2, 4);
     } else if (value.length > 2) {
@@ -77,4 +131,10 @@ export class RegisterCardComponent implements OnInit{
     this.formCard.expirationDate = value;
   }
 
+  limparFeedbackDepoisDeTempo(): void {
+    setTimeout(() => {
+      this.mensagemFeedback = '';
+      this.tipoFeedback = '';
+    }, 3000);
+  }
 }

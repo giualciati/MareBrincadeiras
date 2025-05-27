@@ -27,6 +27,7 @@ import { PedidosComponent } from "./pages/pedidos/pedidos.component";
 import { FinalizarComponent } from './pages/finalizar/finalizar.component';
 import { LoginAdmComponent } from "./pages/login-adm/login-adm.component";
 import { SalesComponent } from "./pages/sales/sales.component";
+import { CardsUserComponent } from "./pages/cards-user/cards-user.component";
 
 
 
@@ -48,6 +49,7 @@ export const routes: Routes = [
   { path: "information", component: PersonalInformationComponent },
   {path: "login/adm", component: LoginAdmComponent},
   { path: "landing/adm", component: LandingAdmComponent },
+  {path: "information/cards", component: CardsUserComponent},
   { path: "customers", component: CadastroUsuarioComponent },
   { path: "pagina-de-pedidos", component: PaginaDePedidosComponent },
   { path: "collaborators", component: CollaboratorsComponent },

@@ -1,17 +1,9 @@
-body {
-    background-color: whitesmoke;
-  }
-  
-  header {
-    padding: 10px;
-    background-color: #FFBE0B;
-  }
-  
+
   nav {
+    margin-top: 10px;
     padding: 0 20px;
     display: flex;
     flex-direction: row;
-    background-color: #FFBE0B;
     align-items: center;
     justify-content: flex-start;
     text-align: center;
@@ -24,7 +16,7 @@ body {
   }
   
   #information {
-    height: 80vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,3 +120,25 @@ body {
       }
     }
   }
+
+.mensagem-feedback {
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.mensagem-feedback.sucesso {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.mensagem-feedback.erro {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+

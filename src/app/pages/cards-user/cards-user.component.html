@@ -1,0 +1,44 @@
+<app-header></app-header>
+<nav>
+  <a [routerLink]="['/information']"
+    ><img
+      src="./assets/img/seta-esquerda.png"
+      alt="Seta para retornar para a página anterior"
+  /></a>
+  <h2>Cartão De Crédito</h2>
+</nav>
+<div class="cartoes-container">
+  <div class="btn-wrapper">
+    <button class="btn-novo-cartao" [routerLink]="['/register/card']">
+      + Adicionar Novo Cartão De Crédito
+    </button>
+  </div>
+
+  <div *ngIf="listarCards.length === 0" class="mensagem-nenhum-cartao">
+    <p>Nenhum cartão cadastrado.</p>
+    <p>Clique em "+ Adicionar Novo Cartão De Crédito" para começar!</p>
+  </div>
+
+  <div class="cartao-item" *ngFor="let cartao of listarCards">
+    <div class="cartao-info">
+      <img
+        src="./assets/img/card.png"
+        alt="Cartão de crédito"
+        class="cartao-img"
+      />
+    </div>
+
+    <div class="dados-cartao">
+      <div class="numero-cartao">
+        **** **** **** {{ cartao.numCard?.slice(-4) }}
+      </div>
+      <div class="nameCard">
+        {{ cartao.nameCard }}
+      </div>
+    </div>
+
+    <div class="acoes">
+      <button (click)="excluir(cartao.id)">Excluir</button>
+    </div>
+  </div>
+</div>
