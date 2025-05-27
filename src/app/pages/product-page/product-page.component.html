@@ -69,17 +69,6 @@
           </div>
         </div>
       </div>
-      <!-- Filtro por Marca -->
-      <div class="filtro-grupo">
-        <h3>Marca</h3>
-        <div class="filtro-opcoes">
-          <div *ngFor="let brand of brands" class="filtro-opcao">
-            <input type="checkbox" [id]="'brand-' + brand" [value]="brand" [checked]="selectedBrands.includes(brand)"
-              (change)="toggleBrand(brand)">
-            <label [for]="'brand-' + brand">{{ brand }}</label>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Conteúdo Principal -->
