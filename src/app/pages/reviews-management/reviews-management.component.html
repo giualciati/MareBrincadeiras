@@ -1,0 +1,38 @@
+<app-sidebar-management></app-sidebar-management>
+
+<div class="container_reviews">
+  <div class="reviews_title">
+    <h2>Avaliações</h2>
+  </div>
+
+  <div class="reviews_list" *ngIf="reviews.length > 0; else noReviews">
+    <div class="review_card" *ngFor="let review of reviews">
+      <div class="review_header">
+        <div class="review_stars">
+          <ng-container *ngFor="let star of getStarsArray(review.rating)">
+            <i class="fa-solid fa-star"></i>
+          </ng-container>
+        </div>
+        <span class="review_date">{{ review.data }}</span>
+      </div>
+
+      <div class="review_content">
+        <p class="review_comment">"{{ review.comentario }}"</p>
+      </div>
+
+      <div class="review_footer">
+        <div class="review_info">
+          <p><strong>Cliente:</strong> {{ review.cliente }}</p>
+          <p><strong>Produto:</strong> {{ review.produto }}</p>
+        </div>
+        <div class="review_actions">
+          <button (click)="deleteReview(review.id)" class="delete">Excluir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noReviews>
+    <p>Nenhuma avaliação disponível.</p>
+  </ng-template>
+</div>

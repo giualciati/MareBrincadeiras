@@ -60,5 +60,60 @@
     }
   }
   
-  
+  .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+
+    .stars {
+      display: flex;
+      gap: 5px;
+
+      i {
+        cursor: pointer;
+        color: #ccc;
+        &.active {
+          color: gold;
+        }
+      }
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 80px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 10px;
+
+      button {
+        padding: 6px 12px;
+      }
+
+      .cancel {
+        background-color: #f87171;
+        color: white;
+      }
+    }
+  }
+}
   

@@ -6,6 +6,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../services/types/cartItem';
 import { AuthService } from '../../services/auth.service'; 
+import { Product } from '../../services/types/product';
 
 @Component({
   selector: 'app-carrinho',
@@ -22,7 +23,7 @@ export class CarrinhoComponent implements OnInit {
   constructor(
     private router: Router,
     private cartService: CartService,
-    private authService: AuthService  // ✅ Injeta AuthService
+    private authService: AuthService  
   ) {}
 
   ngOnInit() {
@@ -74,18 +75,22 @@ export class CarrinhoComponent implements OnInit {
   }
 
   irParaPaginaDePedidos() {
-    const produtosSelecionados = this.items.filter(item => item.selecionado);
+  const produtosSelecionados = this.items.filter(item => item.selecionado);
 
-    if (produtosSelecionados.length === 0) {
-      alert('Selecione pelo menos um produto.');
-      return;
-    }
-
-    this.router.navigate(['/pagina-de-pedidos'], { state: { produtos: produtosSelecionados } });
-
-    
-    this.cartService.clearCart();
-    this.items = [];
-    this.subtotal = 0;
+  if (produtosSelecionados.length === 0) {
+    alert('Selecione pelo menos um produto.');
+    return;
   }
+
+  const primeiroProduto = produtosSelecionados[0];
+  localStorage.setItem('produtoCompradoId', primeiroProduto.id.toString());
+
+  this.router.navigate(['/pagina-de-pedidos'], {
+    state: { produtos: produtosSelecionados }
+  });
+
+  this.cartService.clearCart();
+  this.items = [];
+  this.subtotal = 0;
+}
 }

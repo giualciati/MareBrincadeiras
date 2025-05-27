@@ -4,15 +4,34 @@
   <h1>Compra Finalizada</h1>
 
   <div class="produto-detalhe">
-    <img src="assets/img/cd7d6395-de7a-4032-bf55-3171ddae75cc.png" alt="Produto" />
-
+    <img src="assets/img/produto.png" alt="Produto" />
     <div class="info">
       <h2>Parabéns! Pedido realizado com sucesso 🎉</h2>
-      
     </div>
   </div>
 
-  <button class="btn-confirmar">Avaliar</button>
+  <button class="btn-confirmar" (click)="abrirModal()">Avaliar</button>
+</div>
+
+<div class="modal" *ngIf="mostrarModal">
+  <div class="modal-content">
+    <h2>Avalie seu produto</h2>
+
+    <label>Nota:</label>
+    <div class="stars">
+      <i class="fa-solid fa-star" *ngFor="let star of [1,2,3,4,5]" 
+         [class.active]="star <= avaliacao.rating"
+         (click)="avaliacao.rating = star"></i>
+    </div>
+
+    <label>Comentário:</label>
+    <textarea [(ngModel)]="avaliacao.comentario" placeholder="Conte como foi sua experiência"></textarea>
+
+    <div class="buttons">
+      <button (click)="enviarAvaliacao()">Enviar</button>
+      <button class="cancel" (click)="fecharModal()">Cancelar</button>
+    </div>
+  </div>
 </div>
 
   

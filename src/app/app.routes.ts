@@ -28,6 +28,7 @@ import { FinalizarComponent } from './pages/finalizar/finalizar.component';
 import { LoginAdmComponent } from "./pages/login-adm/login-adm.component";
 import { SalesComponent } from "./pages/sales/sales.component";
 import { CardsUserComponent } from "./pages/cards-user/cards-user.component";
+import { ReviewsManagementComponent } from "./pages/reviews-management/reviews-management.component";
 
 
 
@@ -62,5 +63,6 @@ export const routes: Routes = [
   { path: "pedidos", component: PedidosComponent }, 
   { path: "finish", component: FinalizarComponent }, 
   {path: 'sales', component: SalesComponent},
+  {path: 'reviews', component: ReviewsManagementComponent},
 { path: "**", redirectTo: "" }
 ];

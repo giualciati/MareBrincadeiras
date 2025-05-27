@@ -1,0 +1,106 @@
+.container_reviews {
+  margin-left: 380px;
+  padding: 30px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+
+    h2 {
+    margin-top: 80px;
+    margin-bottom: 30px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #111827;
+    }
+
+
+  .reviews_list {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .review_card {
+      width: 1000px;
+      background-color: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .review_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .review_stars {
+          color: #fbbf24;
+          font-size: 18px;
+        }
+
+        .review_date {
+          font-size: 14px;
+          color: #6b7280;
+        }
+      }
+
+      .review_content {
+        .review_comment {
+          font-style: italic;
+          color: #374151;
+          font-size: 16px;
+        }
+      }
+
+      .review_footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .review_info {
+          p {
+            margin: 2px 0;
+            font-size: 14px;
+            color: #374151;
+
+            strong {
+              color: #111827;
+            }
+          }
+        }
+
+        .review_actions {
+          display: flex;
+          gap: 10px;
+
+          button {
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            background-color: #f3f4f6;
+            color: #374151;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+              background-color: #e5e7eb;
+            }
+
+            &.delete {
+              background-color: #f87171;
+              color: white;
+
+              &:hover {
+                background-color: #ef4444;
+              }
+            }
+          }
+        }
+      }
+    }
+}
+}

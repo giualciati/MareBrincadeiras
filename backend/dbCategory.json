@@ -27,6 +27,14 @@
     {
       "id": "1c5b",
       "nome": "Jogos"
+    },
+    {
+      "id": "e297",
+      "nome": "Ar livre"
+    },
+    {
+      "id": "d9eb",
+      "nome": "Ar livre"
     }
   ],
   "products": [
@@ -221,6 +229,16 @@
       "addressCob": "Avenida Engenheiro Eusébio Stevaux",
       "addressNumberCob": 12,
       "complementCob": "portaria 2"
+    }
+  ],
+  "avaliacoes": [
+    {
+      "id": 1,
+      "cliente": "João Silva",
+      "produto": "Lego Star Wars",
+      "rating": 5,
+      "comentario": "Produto excelente!",
+      "data": "2024-05-10"
     }
   ]
 }
