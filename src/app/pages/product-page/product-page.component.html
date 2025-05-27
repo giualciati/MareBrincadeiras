@@ -58,18 +58,17 @@
         </div>
       </div>
 
-      <!-- Filtro por Tipo de Brinquedo -->
+      <!-- Filtro por Categoria -->
       <div class="filtro-grupo">
-        <h3>Tipo de Brinquedo</h3>
+        <h3>Categoria</h3>
         <div class="filtro-opcoes">
-          <div *ngFor="let type of toyTypes" class="filtro-opcao">
-            <input type="checkbox" [id]="'type-' + type" [value]="type" [checked]="selectedToyTypes.includes(type)"
-              (change)="toggleToyType(type)">
-            <label [for]="'type-' + type">{{ type }}</label>
+          <div *ngFor="let categoria of categorias" class="filtro-opcao">
+            <input type="checkbox" [id]="'categoria-' + categoria.id" [value]="categoria.nome"
+              [checked]="selectedCategorias.includes(categoria.nome)" (change)="toggleCategoria(categoria.nome)">
+            <label [for]="'categoria-' + categoria.id">{{ categoria.nome }}</label>
           </div>
         </div>
       </div>
-
       <!-- Filtro por Marca -->
       <div class="filtro-grupo">
         <h3>Marca</h3>

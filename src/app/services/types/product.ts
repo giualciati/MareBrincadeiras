@@ -24,4 +24,5 @@ export interface Product {
   ageRange?: string
   brand?: string
   toyType?: string[]
+  categoriaNome?: string;
 }
